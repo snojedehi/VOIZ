@@ -268,7 +268,7 @@
 
 <!-- inicio del head principal-->
 <div class="main-content">
-    <div style="height:83px;background-color:#303030;padding:15px;">
+    <div style="height:83px;background-color:#00464f;padding:15px;">
         <!-- Profile Info and Notifications -->
         <span style='float:left; text-align:right; padding:0px 5px 0px 0px; width:175px;' class="col-md-6 col-sm-8 clearfix">
             <ul style='' class="user-info pull-none-xsm">
