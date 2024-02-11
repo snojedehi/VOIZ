@@ -1,4 +1,4 @@
-Hi amoooo2
+Hi amoooo3
 <table width="90%"  border="0" cellpadding="10" align="center">
   <tr>
     <td width="200" align="center"><img src="{$training_img}" align="center">&nbsp;</td>
