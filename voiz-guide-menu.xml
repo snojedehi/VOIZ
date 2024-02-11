@@ -15,11 +15,6 @@ parent="voiz-helps" module="yes" link="" order="12">
         <group id="1" name="administrator" desc="total access"></group> 
       </permissions> 
     </menuitem> 
-  
-
-	
-  </menulist> 
-   <menulist> 
     <menuitem menuid="novoip" desc="درباره نو وبپ"
 parent="" module="no" link="" order="20"> 
       <permissions> 
@@ -27,7 +22,7 @@ parent="" module="no" link="" order="20">
       </permissions> 
     </menuitem> 
 
-<menuitem menuid="novoip-report" desc="گزارشات"
+  <menuitem menuid="novoip-report" desc="گزارشات"
 parent="novoip" module="yes" link="" order="12"> 
       <permissions> 
         <group id="1" name="administrator" desc="total access"></group> 
