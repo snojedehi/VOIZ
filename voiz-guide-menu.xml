@@ -2,14 +2,14 @@
 
 <module> 
   <menulist> 
-    <menuitem menuid="voiz-helps" desc="درباره VOIZ"
+    <menuitem menuid="voiz-helps" desc="درباره VOIZ2"
 parent="" module="no" link="" order="20"> 
       <permissions> 
         <group id="1" name="administrator" desc="total access"></group> 
       </permissions> 
     </menuitem> 
 
-<menuitem menuid="voizhelps" desc="راهنمای VOIZ"
+<menuitem menuid="voizhelps" desc="راهنمای VOIZ2"
 parent="voiz-helps" module="yes" link="" order="12"> 
       <permissions> 
         <group id="1" name="administrator" desc="total access"></group> 
