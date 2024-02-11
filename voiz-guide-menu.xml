@@ -15,7 +15,7 @@ parent="voiz-helps" module="yes" link="" order="12">
         <group id="1" name="administrator" desc="total access"></group> 
       </permissions> 
     </menuitem> 
-    <menuitem menuid="novoip" desc="درباره نو وبپ"
+    <menuitem menuid="novoip" desc="نو ویپ"
 parent="" module="no" link="" order="20"> 
       <permissions> 
         <group id="1" name="administrator" desc="total access"></group> 
