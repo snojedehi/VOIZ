@@ -2761,7 +2761,7 @@ input[type="button"].btn-block {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   /*voipiran*/
-background: #212121; 
+background: #00464f; 
 height:82px;					 
 }
 .page-container .sidebar-menu .logo-env:before,
@@ -3232,7 +3232,7 @@ height:82px;
   */
   /*
   Por Alex: se quita z-index porque hace que el overlay de jQueryUI se coloque
-  encima del diálogo en lugar de debajo.
+  encima del diï¿½logo en lugar de debajo.
   z-index: 2;
   */
   background: #ffffff;
