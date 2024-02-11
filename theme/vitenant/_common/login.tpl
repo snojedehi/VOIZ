@@ -151,7 +151,7 @@
 
         <div class="login-bottom-links">
 
-        <a href="http://www.voipiran.io" style="text-decoration: none;" target='_blank'>VOIZ | VOIPIRAN</a> is licensed under <a href="http://www.opensource.org/licenses/gpl-license.php" style="text-decoration: none;" target='_blank'>GPL</a>. 2006 - {$currentyear}.</div>
+        <a href="http://www.novoip.ir" style="text-decoration: none;" target='_blank'>Novoip</a> is licensed under <a href="http://www.opensource.org/licenses/gpl-license.php" style="text-decoration: none;" target='_blank'>GPL</a>. 2006 - {$currentyear}.</div>
 
         </div>
 
@@ -163,7 +163,7 @@
         <div class="fotter">
             <div class="copyr">
                 <p>
-                    Copyrights © 2017-2023 All Rights Reserved by <a href="http://www.voipiran.io">VOIPIRAN | ویپ ایران</a>
+                    Copyrights © 2017-2023 All Rights Reserved by <a href="http://www.novoip.io">نو ویپ</a>
                 </p>  
             </div>
         </div>
