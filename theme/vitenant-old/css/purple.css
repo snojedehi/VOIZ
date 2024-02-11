@@ -23,7 +23,7 @@ body .profile-info.dropdown.pull-right .dropdown-menu {
 }
 
 body .page-container .sidebar-menu {
-  background: #535454;
+  background: #00707e;
   color: #562d7b;
 }
 body .page-container.sidebar-collapsed .sidebar-menu #main-menu > li#search .search-input {
@@ -31,7 +31,7 @@ body .page-container.sidebar-collapsed .sidebar-menu #main-menu > li#search .sea
   border-color: #643590 !important;
 }
 body .page-container .sidebar-menu #main-menu li#search {
-  background-color: #303030;
+  background-color: #00464f;
 }
 body .page-container .sidebar-menu #main-menu li ul {
   border-color:#393939;
@@ -42,7 +42,7 @@ body .page-container .sidebar-menu #main-menu li.has-sub ul li {
 }
 body .page-container .sidebar-menu #main-menu li.has-sub ul li ul li{border-right:none}
 body .page-container .sidebar-menu #main-menu li ul > li > a {
-  background-color:#303030;
+  background-color:#00464f;
 }
 /*VOIPIRAN-SideMenu Level3*/
 .page-container .sidebar-menu #main-menu li ul > li ul > li > a{
@@ -50,11 +50,11 @@ body .page-container .sidebar-menu #main-menu li ul > li > a {
 }
 /*VOIPIRAN-Menu Active Font Color*/
 body .page-container .sidebar-menu #main-menu li.active > a {
-  color: #303030;
+  color: #00464f;
 }
 body .page-container .sidebar-menu #main-menu li ul li.active > a{
   color: #fff;
-  background-color:#303030;
+  background-color:#00464f;
 }
 body .page-container .sidebar-menu #main-menu li ul > li > a , body .page-container .sidebar-menu #main-menu li ul li ul li a {
   padding:5px 20px;
@@ -70,7 +70,7 @@ body .page-container .sidebar-menu #main-menu li ul li ul li a {
 #main-menu li.opened i{color:#8bc34a;}
 body .page-container .sidebar-menu #main-menu li ul > li > a:hover{
     color:#fff; 
-    background-color:#535454;
+    background-color:#00707e;
 }
 
 body .page-container .sidebar-menu .sidebar-user-info {
@@ -83,7 +83,7 @@ body .page-container .sidebar-menu #main-menu li {
   border-bottom:1px solid #2e2e2e;
 }
 body .page-container .sidebar-menu #main-menu li:hover {
-    background-color:#303030;
+    background-color:#00464f;
 }
 /*VOIPIRAN-Menu Font Color*/
 body .page-container .sidebar-menu #main-menu i{color:#8bc34a;} li a {
