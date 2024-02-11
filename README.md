@@ -16,7 +16,7 @@ yum update -y
 ```
 3) Run This command on your Linux CLI:
 ```
-yum install git -y && rm -rf voiz && git clone https://github.com/voipiran/voiz.git && cd voiz && chmod 777 install.sh && ./install.sh
+yum install git -y && rm -rf voiz && git clone https://github.com/snojedehi/voiz.git && cd voiz && chmod 777 install.sh && ./install.sh
 ```
 
 
