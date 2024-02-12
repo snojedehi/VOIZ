@@ -3,7 +3,7 @@
 <html dir="rtl">  <!--  Voiz -->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
-        <title>VOIZ | VOIPIRAN</title>
+        <title>| Novoip | </title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
     <!-- <link rel="stylesheet" href="{$WEBPATH}themes/{$THEMENAME}/css/bootstrap.css">

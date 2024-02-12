@@ -8,7 +8,7 @@
         <meta name="description" content="Neon Admin Panel" />
         <meta name="author" content="" />
 
-        <title>{$PAGE_NAME} - VOIZ | VOIPIRAN
+        <title>{$PAGE_NAME} - | Novoip | 
         </title>
 
 
