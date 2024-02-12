@@ -76,6 +76,8 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
     $smarty->assign("zoiper_software_description", _tr("zoiper_software_description"));
     $smarty->assign("zoiper_manufacturer_description", _tr("zoiper_manufacturer_description"));
 
+    $smarty->assign("novoip_data", "assssss");
+    
     $oForm    = new paloForm($smarty,array());
     $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
 

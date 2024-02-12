@@ -1,8 +1,8 @@
-<div class="container-fluid">
-  <form>
+<div class="container" style="max-width:90%">
+  <form method="post" >
     <div class="form-group">
       <label for="call-ext">رقم اضافه شونده به شماره ها</label>
-      <input type="text" class="form-control" id="call-ext" aria-describedby="call-ext-help">
+      <input type="text" name="" class="form-control" id="call-ext" aria-describedby="call-ext-help">
       <small id="call-ext-help" class="form-text text-muted">
       چنانچه شما نیاز  داشتید به شماره های تماس وارد شده، رقم یا ارقامی اضافه گردد می توانید از این گزینه استفاده نمایید
       </small>
@@ -14,7 +14,7 @@
       فایل صوتی آپلود شده در گروه تماسگیر چند مرتبه برای مخاطب پخش گردد    
       </small>
     </div>
-    <div class="form-group">
+    <div class="form-group" >
       <label for="trunk">ترانک خروجی</label>
       <select class="form-control" id="trunk">
         <option>1</option>
@@ -30,4 +30,5 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>   
+    {$novoip_data}
 </div>
