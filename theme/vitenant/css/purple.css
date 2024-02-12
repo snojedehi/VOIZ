@@ -23,7 +23,7 @@ body .profile-info.dropdown.pull-right .dropdown-menu {
 }
 
 body .page-container .sidebar-menu {
-  background: #535454;
+  background-color:#00464f;
   color: #562d7b;
 }
 body .page-container.sidebar-collapsed .sidebar-menu #main-menu > li#search .search-input {
@@ -38,7 +38,7 @@ body .page-container .sidebar-menu #main-menu li ul {
 }
 body .page-container .sidebar-menu #main-menu li.has-sub ul li {
   border-color: #393939;
-  border-right:5px solid #8bc34a;
+  border-right:5px solid #5fcad8;
 }
 body .page-container .sidebar-menu #main-menu li.has-sub ul li ul li{border-right:none}
 body .page-container .sidebar-menu #main-menu li ul > li > a {
@@ -58,7 +58,7 @@ body .page-container .sidebar-menu #main-menu li ul li.active > a{
 }
 body .page-container .sidebar-menu #main-menu li ul > li > a , body .page-container .sidebar-menu #main-menu li ul li ul li a {
   padding:5px 20px;
-  color: #8bc34a;
+  color: #5fcad8;
 }
 body .page-container .sidebar-menu #main-menu li ul li ul li a {
   color: #d7d7d7;
@@ -67,7 +67,7 @@ body .page-container .sidebar-menu #main-menu li ul li ul li a {
 }
 
 /*VOIPIRAN Side Menu*/
-#main-menu li.opened i{color:#8bc34a;}
+#main-menu li.opened i{color:#5fcad8;}
 body .page-container .sidebar-menu #main-menu li ul > li > a:hover{
     color:#fff; 
     background-color:#535454;
@@ -86,7 +86,7 @@ body .page-container .sidebar-menu #main-menu li:hover {
     background-color:#303030;
 }
 /*VOIPIRAN-Menu Font Color*/
-body .page-container .sidebar-menu #main-menu i{color:#8bc34a;} li a {
+body .page-container .sidebar-menu #main-menu i{color:#5fcad8;} li a {
   color: #fff;
 }
 body .page-container .sidebar-menu #main-menu li a {
@@ -96,7 +96,7 @@ body .page-container .sidebar-menu #main-menu li a {
 
 body .page-container .sidebar-menu #main-menu li a:hover {
       background-color: rgba(69, 74, 84, 0.3);
-    color: #8bc34a;
+    color: #5fcad8;
 }
 .page-container .sidebar-menu #main-menu li ul li a{padding:2px 10px;}
 body .page-container.sidebar-collapsed .sidebar-menu #main-menu > li > ul li {
