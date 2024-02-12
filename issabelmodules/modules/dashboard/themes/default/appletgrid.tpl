@@ -1,7 +1,7 @@
 
 <div class="appletcolumn row" id="applet_col_1">
     {foreach from=$applet_col_1 item=applet}
-    <div class='col' id='portlet-{$applet.code}'>
+    <div class='col-sm-6' id='portlet-{$applet.code}'>
         <div class='appletwindow_topbar'>
             <div class='appletwindow_title' width='80%'><!-- <img src='modules/{$module_name}/applets/{$applet.applet}/images/{$applet.icon}' align='absmiddle' />&nbsp;-->{$applet.name}</div>
             <div class='appletwindow_widgets' align='right' width='10%'>
@@ -17,7 +17,7 @@
     </div>
     {/foreach}
 </div>
-<div class="col" id="applet_col_2">
+<div class="col-sm-6" id="applet_col_2">
     {foreach from=$applet_col_2 item=applet}
     <div class='appletwindow' id='portlet-{$applet.code}'>
         <div class='appletwindow_topbar'>
