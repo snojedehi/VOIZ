@@ -1,5 +1,6 @@
-
-    <div class="appletcolumn" id="applet_col_1">
+<table width="80%" cellspacing="0" id="applet_grid" align="center">
+<tr>
+    <td class="appletcolumn" id="applet_col_1">
         {foreach from=$applet_col_1 item=applet}
         <div class='appletwindow' id='portlet-{$applet.code}'>
             <div class='appletwindow_topbar'>
@@ -16,8 +17,8 @@
             </div>
         </div>
         {/foreach}
-    </div>
-    <div class="appletcolumn" id="applet_col_2">
+    </td>
+    <td class="appletcolumn" id="applet_col_2">
         {foreach from=$applet_col_2 item=applet}
         <div class='appletwindow' id='portlet-{$applet.code}'>
             <div class='appletwindow_topbar'>
@@ -34,4 +35,6 @@
             </div>
         </div>
         {/foreach}
-    </div>
+    </td>
+</tr>
+</table>
