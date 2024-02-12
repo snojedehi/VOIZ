@@ -1,13 +1,28 @@
 
 <form>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="call-ext">رقم اضافه شونده به شماره ها</label>
+    <input type="text" class="form-control" id="call-ext" aria-describedby="emailHelp">
+    <small id="call-ext-help" class="form-text text-muted">
+     چنانچه شما نیاز  داشتید به شماره های تماس وارد شده، رقم یا ارقامی اضافه گردد می توانید از این گزینه استفاده نمایید
+    </small>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <label for="call-ext"تعداد تکرار فایل صوتی</label>
+    <input type="text" class="form-control" id="call-ext" aria-describedby="emailHelp">
+    <small id="call-ext-help" class="form-text text-muted">
+    فایل صوتی آپلود شده در گروه تماسگیر چند مرتبه برای مخاطب پخش گردد    
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="trunk">ترانک خروجی</label>
+    <select class="form-control" id="trunk">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
