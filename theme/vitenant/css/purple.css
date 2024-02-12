@@ -58,7 +58,7 @@ body .page-container .sidebar-menu #main-menu li ul li.active > a{
 }
 body .page-container .sidebar-menu #main-menu li ul > li > a , body .page-container .sidebar-menu #main-menu li ul li ul li a {
   padding:5px 20px;
-  color: #5fcad8;
+  color: #d4d4d4;
 }
 body .page-container .sidebar-menu #main-menu li ul li ul li a {
   color: #d7d7d7;
