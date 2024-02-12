@@ -8,7 +8,7 @@
       </small>
     </div>
     <div class="form-group">
-      <label for="count-ext"تعداد تکرار فایل صوتی</label>
+      <label for="count-ext">تعداد تکرار فایل صوتی</label>
       <input type="text" class="form-control" id="count-ext" aria-describedby="count-ext-help">
       <small id="count-ext-help" class="form-text text-muted">
       فایل صوتی آپلود شده در گروه تماسگیر چند مرتبه برای مخاطب پخش گردد    
