@@ -49,22 +49,24 @@ function _moduleContent(&$smarty, $module_name)
 
     switch($action){
         default: // view_form
-            $content = viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrConf);
+            $content = viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf);
             break;
     }
     return $content;
 }
 
-function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrConf)
+function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf)
 {
     $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
     $pDB = new paloDB($dsnAsteriskCDR);    
         
     $sql = "SELECT * FROM `trunks`";
-    $recordset = $pDB->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
+    $recordset = $pDB->fetchTable($sql, TRUE,[]);
+
     $result = $pDB->genExec("
     INSERT INTO `asterisk`.`novoip_callrequests` (`id`, `name`, `repeat`, `insertDate`, `event`, `status`, `trunk`) VALUES (NULL, 'test', '2', CURRENT_TIMESTAMP, '2024-02-13 00:00:00', '1', '2');
     ");
+
     $tunks=Array();
     foreach ($recordset as $tupla) {
         
