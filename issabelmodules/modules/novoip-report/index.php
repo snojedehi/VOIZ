@@ -46,16 +46,24 @@ function _moduleContent(&$smarty, $module_name)
     $local_templates_dir="$base_dir/modules/$module_name/".$templates_dir.'/'.$arrConf['theme'];
 
     $content = "";
-
+    $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
+    $pDB = new paloDB($dsnAsteriskCDR);  
+    if($_POST['addCall']){
+        addCall($pDB);
+    }
     switch($action){
         default: // view_form
-            $content = viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf);
+            $content = viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
             break;
     }
     return $content;
 }
-
-function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf)
+function addCall($pDB){
+    $result = $pDB->genExec("
+    INSERT INTO `asterisk`.`novoip_callrequests` ( `name`, `repeat`, `insertDate`, `event`, `status`, `trunk`) VALUES ( $_POST[name], '2', CURRENT_TIMESTAMP, '2024-02-13 00:00:00', '1', '2');
+    ");
+}
+function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
 {
     $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
     $pDB = new paloDB($dsnAsteriskCDR);    
@@ -63,9 +71,7 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf)
     $sql = "SELECT * FROM `trunks`";
     $recordset = $pDB->fetchTable($sql, TRUE,[]);
 
-    $result = $pDB->genExec("
-    INSERT INTO `asterisk`.`novoip_callrequests` (`id`, `name`, `repeat`, `insertDate`, `event`, `status`, `trunk`) VALUES (NULL, 'test', '2', CURRENT_TIMESTAMP, '2024-02-13 00:00:00', '1', '2');
-    ");
+    
 
     $tunks=Array();
     foreach ($recordset as $tupla) {
