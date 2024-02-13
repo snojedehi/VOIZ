@@ -61,14 +61,7 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         $db = new SQLite3($dbfile);
         $sql = "SELECT * FROM `trunks`";
         $recordset = $db->query($sql);
-        if(DB::IsError($res)) {
-            die($res->getMessage());
-        }
-        $tunks=Array("as");
-        while (is_array($row = $res->fetchRow(DB_FETCHMODE_ASSOC))) {
-            
-            array_push($tunks,$row['name']);
-        }
+        
         $smarty->assign("trunks", $tunks);
         
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
