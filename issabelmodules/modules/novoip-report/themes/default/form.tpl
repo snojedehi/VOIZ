@@ -35,16 +35,17 @@
           <div class="form-group" >
             <label for="trunk">ترانک خروجی</label>
             <select class="form-control" id="trunk">
-              {foreach from=$trunks item=trunk}
+              {foreach from=$trunks item=trunk} 
               <option>{$trunk}</option>
               {/foreach}
+              
             </select>
           </div>
-          <div class="form-group form-check">
+          <div class="form-group form-check ">
             <input type="checkbox" class="form-check-input" name="status" id="status">
             <label class="form-check-label" for="exampleCheck1">وضعیت</label>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          
         </form>   
         </div>
       </div>
