@@ -48,6 +48,7 @@
                 {/foreach}
               </select>
             </div>
+            
             <div class="form-group form-check ">
               <input type="checkbox" class="form-check-input" name="status" id="status">
               <label class="form-check-label" for="exampleCheck1">وضعیت</label>
@@ -56,7 +57,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">خروج</button>
-          <button type="button" class="btn btn-primary">ذخیره</button>
+          <input type="submit" class="btn btn-primary">ذخیره</input>
         </div>
       </div>
     </div>
