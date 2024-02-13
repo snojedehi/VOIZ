@@ -1,4 +1,5 @@
 <div class="container" >
+{$trunk}///a
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   تماس گیر جدید
 </button>
@@ -55,5 +56,5 @@
   </div>
 </div>
     {$novoip_data}
-    {$trunk}
+    
 </div>
