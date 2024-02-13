@@ -34,7 +34,7 @@
             <label for="trunk">ترانک خروجی</label>
             <select class="form-control" id="trunk">
               {foreach from=$trunks item=trunk}
-              <option>{trunk}</option>
+              <option>{$trunk}</option>
               {/foreach}
             </select>
           </div>
