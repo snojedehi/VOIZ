@@ -1,5 +1,7 @@
 <div class="container" >
-{$trunks}///a
+{foreach from=$trunks item=trunk}
+  <div>{$trunk}a</div>
+{/foreach}
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   تماس گیر جدید
 </button>
@@ -33,7 +35,7 @@
           <div class="form-group" >
             <label for="trunk">ترانک خروجی</label>
             <select class="form-control" id="trunk">
-              {foreach $trunks  as $trunk}
+              {foreach from=$trunks item=trunk}
               <option>{$trunk}</option>
               {/foreach}
             </select>
