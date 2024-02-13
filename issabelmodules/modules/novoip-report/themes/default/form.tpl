@@ -33,11 +33,9 @@
           <div class="form-group" >
             <label for="trunk">ترانک خروجی</label>
             <select class="form-control" id="trunk">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              {foreach from=$trunks item=trunk}
+              <option>{trunk}</option>
+              {/foreach}
             </select>
           </div>
           <div class="form-group form-check">
