@@ -68,7 +68,7 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
             $tunks=Array()
             foreach ($recordset as $tupla) {
                 
-                array_push($tunks,$tupla['name'])
+                // array_push($tunks,$tupla['name'])
             }
             // $smarty->assign("trunks", "2");
         }
