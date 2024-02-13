@@ -60,6 +60,7 @@ function _moduleContent(&$smarty, $module_name)
     $arrVoiceData = array();
     $arrVoiceData[] = array("as","asdsa","sss");
     $oGrid->setData($arrVoiceData);
+    $oGrid->setColumns(array('','name','repeat' ));
     $contenidoModulo = $oGrid->fetchGrid();
     return $content.$contenidoModulo;
 }
