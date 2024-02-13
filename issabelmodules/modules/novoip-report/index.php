@@ -96,9 +96,10 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     foreach ($recordset as $item) {
         $dh = new Application_Helper_date;
         // $meghdare_date = date('Y-m-d', $item['insertDate']);
+        $date = explode(" ", $item['insertDate']);
         $date_parts = explode("-", $item['insertDate']);
         $jalali_date = $dh->gregorian_to_jalali($date_parts[0], $date_parts[1], $date_parts[2]);
-        $date_startm = $jalali_date[2] . "-" . $jalali_date[1] . "-" . $jalali_date[0];
+        $date_startm = $jalali_date[2] . "-" . $jalali_date[1] . "-" . $jalali_date[0]." ".$date;
         $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$date_startm,$item['event'],$item['status'],$item['trunk']);
     }
     $oGrid->setData($arrVoiceData);
