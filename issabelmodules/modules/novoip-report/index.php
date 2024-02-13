@@ -65,6 +65,15 @@ function addCall($pDB){
     INSERT INTO `asterisk`.`novoip_callrequests` ( `name`,`prefix`, `repeat`, `event`, `status`, `trunk`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]', '2024-02-13 00:00:00', '$_POST[status]', '$_POST[trunk]');
     ");
 }
+function gregorian_to_jalali($dt){
+
+    $dh = new Application_Helper_date;
+    $date = explode(" ", $dt);
+    $date_parts = explode("-", $date[0]);
+    $jalali_date = $dh->gregorian_to_jalali($date_parts[0], $date_parts[1], $date_parts[2]);
+    $date_startm = $jalali_date[0] . "-" . $jalali_date[1] . "-" . $jalali_date[2]." ".$date[1];
+    return $date_startm;
+}
 function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
 {
     $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
@@ -94,12 +103,9 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $sql = "SELECT * FROM `novoip_callrequests`";
     $recordset = $pDB->fetchTable($sql, TRUE,[]);
     foreach ($recordset as $item) {
-        $dh = new Application_Helper_date;
-        // $meghdare_date = date('Y-m-d', $item['insertDate']);
-        $date = explode(" ", $item['insertDate']);
-        $date_parts = explode("-", $date[0]);
-        $jalali_date = $dh->gregorian_to_jalali($date_parts[0], $date_parts[1], $date_parts[2]);
-        $date_startm = $jalali_date[2] . "-" . $jalali_date[1] . "-" . $jalali_date[0]." ".$date[1];
+
+        $date_startm =gregorian_to_jalali($item['insertDate']);
+
         $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$date_startm,$item['event'],$item['status'],$item['trunk']);
     }
     $oGrid->setData($arrVoiceData);
