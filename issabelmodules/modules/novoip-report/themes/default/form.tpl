@@ -1,7 +1,7 @@
 <div class="container" >
-{foreach from=$trunks item=trunk}
-  <div>{$trunk}a</div>
-{/foreach}
+// {foreach from=$trunks item=trunk}
+//   <div>{$trunk}a</div>
+// {/foreach}
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   تماس گیر جدید
 </button>
