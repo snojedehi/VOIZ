@@ -64,7 +64,7 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
             $respuesta['message'] = _tr('Error at read yours calls.').$pDB->errMsg;
         } else {
             $sql = "SELECT * FROM `trunks`";
-            $recordset = $pDB->fetchArray($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
+            $recordset = $pDB->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
             $tunks=Array("as");
             foreach ($recordset as $tupla) {
                 
