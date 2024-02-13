@@ -23,6 +23,8 @@
 //include issabel framework
 include_once "libs/paloSantoGrid.class.php";
 include_once "libs/paloSantoForm.class.php";
+global $arrConf;
+define('MAX_CALL_RECORDS', 8);
 
 function _moduleContent(&$smarty, $module_name)
 {
