@@ -65,7 +65,8 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         //     $smarty->assign("novoip_data", $res->getMessage());   
         // }
         $tunks=Array("as");
-        // $data = $db->getAll($sql, array(), DB_FETCHMODE_ASSOC);
+        $db->setFetchMode(DB_FETCHMODE_ASSOC);
+        // $data = $db->getAll($sql, array());
         // foreach ($data as $list) {
         // }
         // while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
