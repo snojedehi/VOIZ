@@ -56,22 +56,17 @@ function _moduleContent(&$smarty, $module_name)
 }
 
 function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrConf)
-{       
-        $dbfile="/var/www/db/settings.db";
-        $db = new SQLite3($dbfile);
+{
+    $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
+    $pDB = new paloDB($dsnAsteriskCDR);    
+        
         $sql = "SELECT * FROM `trunks`";
-        // $res = $db->query($sql);
-        // if (DB::IsError($res)) {
-        //     $smarty->assign("novoip_data", $res->getMessage());   
-        // }
+        $recordset = $db->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
         $tunks=Array("as");
-        $db->setFetchMode(DB_FETCHMODE_ASSOC);
-        // $data = $db->getAll($sql, array());
-        // foreach ($data as $list) {
-        // }
-        // while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
-        //     array_push($row['name']);
-        // }
+        foreach ($recordset as $tupla) {
+            
+            array_push($tunks,$tupla['name']);
+        }
         $smarty->assign("trunks", $tunks);
         
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
@@ -95,7 +90,7 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
     $smarty->assign("zoiper_software_description", _tr("zoiper_software_description"));
     $smarty->assign("zoiper_manufacturer_description", _tr("zoiper_manufacturer_description"));
 
-    // $smarty->assign("novoip_data", $_POST['call-ext']);
+    $smarty->assign("novoip_data", $_POST['call-ext']);
     
     $oForm    = new paloForm($smarty,array());
     $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
