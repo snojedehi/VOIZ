@@ -56,7 +56,8 @@ function _moduleContent(&$smarty, $module_name)
             $content = viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
             break;
     }
-    return $content;
+    $oGrid = new paloSantoGrid($smarty);
+    return $content."aaaaa";
 }
 function addCall($pDB){
     $result = $pDB->genExec("
