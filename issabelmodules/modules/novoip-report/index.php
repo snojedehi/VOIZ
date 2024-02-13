@@ -90,13 +90,13 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $oGrid = new paloSantoGrid($smarty);
     $arrVoiceData = array();
     
-    $sql = "SELECT * FROM `trunks`";
+    $sql = "SELECT * FROM `novoip_callrequests`";
     $recordset = $pDB->fetchTable($sql, TRUE,[]);
-    foreach ($recordset as $tupla) {
-        $arrVoiceData[] = array("as","asdsa","sss");
+    foreach ($recordset as $item) {
+        $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$item['insertDate'],$item['event'],$item['status'],$item['trunk']);
     }
     $oGrid->setData($arrVoiceData);
-    $oGrid->setColumns(array('ّID','نام','تکرار' ));
+    $oGrid->setColumns(array('ّID','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
     $contenidoModulo = $oGrid->fetchGrid();
 
     return $content.$contenidoModulo;
