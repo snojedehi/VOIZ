@@ -50,7 +50,7 @@
             </div>
 
             <div class="form-group form-check ">
-              <input type="checkbox" class="form-check-input" name="status" id="status">
+              <input type="checkbox" class="form-check-input" name="status" id="status" checked>
               <label class="form-check-label" for="exampleCheck1">وضعیت</label>
             </div>
           </div>
