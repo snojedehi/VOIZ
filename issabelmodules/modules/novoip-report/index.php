@@ -23,7 +23,8 @@
 //include issabel framework
 include_once "libs/paloSantoGrid.class.php";
 include_once "libs/paloSantoForm.class.php";
-global $arrConf;
+require_once "libs/date.php";
+
 $dbfile="/var/www/db/settings.db";
 
 function _moduleContent(&$smarty, $module_name)
