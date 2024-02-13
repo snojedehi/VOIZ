@@ -62,6 +62,9 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         
     $sql = "SELECT * FROM `trunks`";
     $recordset = $pDB->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
+    $result = $pDB->genExec("
+    INSERT INTO `asterisk`.`novoip_callrequests` (`id`, `name`, `repeat`, `insertDate`, `event`, `status`, `trunk`) VALUES (NULL, 'test', '2', CURRENT_TIMESTAMP, '2024-02-13 00:00:00', '1', '2');
+    ");
     $tunks=Array();
     foreach ($recordset as $tupla) {
         
