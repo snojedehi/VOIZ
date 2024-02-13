@@ -61,8 +61,9 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         $db = new SQLite3($dbfile);
         $sql = "SELECT * FROM `trunks`";
         $res = $db->query($sql);
-        if(DB::IsError($res)) {
-            die($res->getMessage());
+        if (DB::IsError($res)) {
+            $smarty->assign("novoip_data", $res->getMessage());
+            
         }
         $tunks=Array("as");
         // while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
@@ -91,7 +92,7 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
     $smarty->assign("zoiper_software_description", _tr("zoiper_software_description"));
     $smarty->assign("zoiper_manufacturer_description", _tr("zoiper_manufacturer_description"));
 
-    $smarty->assign("novoip_data", $_POST['call-ext']);
+    // $smarty->assign("novoip_data", $_POST['call-ext']);
     
     $oForm    = new paloForm($smarty,array());
     $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
