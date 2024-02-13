@@ -57,7 +57,11 @@ function _moduleContent(&$smarty, $module_name)
             break;
     }
     $oGrid = new paloSantoGrid($smarty);
-    return $content."aaaaa";
+    $arrVoiceData = array();
+    $arrVoiceData[] = array("as","asdsa","sss");
+
+    $contenidoModulo = $oGrid->fetchGrid();
+    return $content.$contenidoModulo;
 }
 function addCall($pDB){
     $result = $pDB->genExec("
