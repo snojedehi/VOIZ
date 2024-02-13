@@ -1,5 +1,5 @@
 <div class="container" >
-{$trunk}///a
+{$trunks}///a
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   تماس گیر جدید
 </button>
