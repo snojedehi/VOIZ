@@ -110,6 +110,8 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
         $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk']);
     }
     $oGrid->setData($arrVoiceData);
+    $oGrid->setLimit(2);
+    $oGrid->setTotal(6);
     $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
     $contenidoModulo = $oGrid->fetchGrid();
 
