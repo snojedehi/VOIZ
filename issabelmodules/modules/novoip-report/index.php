@@ -58,14 +58,8 @@ function _moduleContent(&$smarty, $module_name)
 function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrConf)
 {
     $db = new SQLite3($dbfile);
-    $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
-    $pDB = new paloDB($dsnAsteriskCDR);    
         
-        $sql = "SELECT * FROM `trunks`";
-        $recordset = $db->query($sql);
-        if(DB::IsError($res)) {
-            die($res->getMessage());
-        }
+
         $tunks=Array("as");
         
         $smarty->assign("trunks", $tunks);
