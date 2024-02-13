@@ -92,7 +92,7 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $smarty->assign("trunks", $tunks);
     
 
-    $smarty->assign("novoip_data", $_POST['call-ext']);
+    
     
     $oForm    = new paloForm($smarty,array());
     $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
@@ -112,6 +112,9 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $oGrid->setData($arrVoiceData);
     $oGrid->setLimit(2);
     $oGrid->setTotal(6);
+    $url = array('menu' => $module_name);
+    $oGrid->setURL($url);
+    $smarty->assign("novoip_data", $url);
     $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
     $contenidoModulo = $oGrid->fetchGrid();
 
