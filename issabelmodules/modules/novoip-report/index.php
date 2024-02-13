@@ -60,15 +60,15 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
     $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
     $pDB = new paloDB($dsnAsteriskCDR);    
         
-        $sql = "SELECT * FROM `trunks`";
-        $recordset = $db->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
-        $tunks=Array("as");
-        foreach ($recordset as $tupla) {
-            
-            array_push($tunks,$tupla['name']);
-        }
-        $smarty->assign("trunks", $tunks);
+    $sql = "SELECT * FROM `trunks`";
+    $recordset = $db->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
+    $tunks=Array("as");
+    // foreach ($recordset as $tupla) {
         
+    //     array_push($tunks,$tupla['name']);
+    // }
+    $smarty->assign("trunks", $tunks);
+    
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
     $smarty->assign("xlite_img",  "modules/$module_name/images/x-lite-4-lrg.png");
     $smarty->assign("zoiper_img",  "modules/$module_name/images/zoiper.png");
