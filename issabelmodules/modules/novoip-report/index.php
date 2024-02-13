@@ -65,9 +65,9 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         //     $smarty->assign("novoip_data", $res->getMessage());   
         // }
         $tunks=Array("as");
-        while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
-            array_push($row['name']);
-        }
+        // while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
+        //     array_push($row['name']);
+        // }
         $smarty->assign("trunks", $tunks);
         
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
