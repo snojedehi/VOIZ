@@ -64,10 +64,10 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         // if (DB::IsError($res)) {
         //     $smarty->assign("novoip_data", $res->getMessage());   
         // }
-        // $tunks=Array("as");
-        // while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
-            // $param[$row['source']][$row['field']] = $row['value'];
-        // }
+        $tunks=Array("as");
+        while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
+            array_push($row['name']);
+        }
         $smarty->assign("trunks", $tunks);
         
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
