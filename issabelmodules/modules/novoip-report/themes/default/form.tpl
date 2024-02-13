@@ -33,7 +33,7 @@
           <div class="form-group" >
             <label for="trunk">ترانک خروجی</label>
             <select class="form-control" id="trunk">
-              {foreach from=$trunks item=trunk}
+              {foreach $trunks  as $trunk}
               <option>{$trunk}</option>
               {/foreach}
             </select>
