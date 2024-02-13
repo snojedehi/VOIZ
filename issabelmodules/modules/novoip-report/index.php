@@ -56,13 +56,8 @@ function _moduleContent(&$smarty, $module_name)
             $content = viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
             break;
     }
-    $oGrid = new paloSantoGrid($smarty);
-    $arrVoiceData = array();
-    $arrVoiceData[] = array("as","asdsa","sss");
-    $oGrid->setData($arrVoiceData);
-    $oGrid->setColumns(array('','name','repeat' ));
-    $contenidoModulo = $oGrid->fetchGrid();
-    return $content.$contenidoModulo;
+    
+    return $content;
 }
 function addCall($pDB){
     $result = $pDB->genExec("
@@ -92,6 +87,18 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $oForm    = new paloForm($smarty,array());
     $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
 
-    return $content;
+    $oGrid = new paloSantoGrid($smarty);
+    $arrVoiceData = array();
+    
+    $sql = "SELECT * FROM `trunks`";
+    $recordset = $pDB->fetchTable($sql, TRUE,[]);
+    foreach ($recordset as $tupla) {
+        $arrVoiceData[] = array("as","asdsa","sss");
+    }
+    $oGrid->setData($arrVoiceData);
+    $oGrid->setColumns(array('ّID','نام','تکرار' ));
+    $contenidoModulo = $oGrid->fetchGrid();
+
+    return $content.$contenidoModulo;
 }
 ?>
