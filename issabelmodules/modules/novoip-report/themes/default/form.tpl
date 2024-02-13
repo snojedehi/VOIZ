@@ -55,4 +55,5 @@
   </div>
 </div>
     {$novoip_data}
+    {$trunk}
 </div>
