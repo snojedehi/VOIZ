@@ -104,9 +104,10 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $recordset = $pDB->fetchTable($sql, TRUE,[]);
     foreach ($recordset as $item) {
 
-        $date_startm =gregorian_to_jalali($item['insertDate']);
+        $date_insertDate =gregorian_to_jalali($item['insertDate']);
+        $date_event =gregorian_to_jalali($item['event']);
 
-        $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$date_startm,$item['event'],$item['status'],$item['trunk']);
+        $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk']);
     }
     $oGrid->setData($arrVoiceData);
     $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
