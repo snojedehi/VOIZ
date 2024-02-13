@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
               <label for="call-ext">رقم اضافه شونده به شماره ها</label>
-              <input type="text" name="call-ext" class="form-control" id="call-ext" aria-describedby="call-ext-help">
+              <input type="text" name="prefix" class="form-control" id="prefix" aria-describedby="prefix-help">
               <small id="call-ext-help" class="form-text text-muted">
               چنانچه شما نیاز  داشتید به شماره های تماس وارد شده، رقم یا ارقامی اضافه گردد می توانید از این گزینه استفاده نمایید
               </small>
