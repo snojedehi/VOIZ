@@ -63,9 +63,7 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
             $respuesta['status'] = 'error';
             $respuesta['message'] = _tr('Error at read yours calls.').$pDB->errMsg;
         } else {
-            $sql = <<<SQL_LLAMADAS_RECIBIDAS
-            SELECT * FROM `trunks`
-            SQL_LLAMADAS_RECIBIDAS;
+            $sql = "SELECT * FROM `trunks`";
             
             
         }
