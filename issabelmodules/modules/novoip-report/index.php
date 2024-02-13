@@ -66,8 +66,8 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         // }
         $tunks=Array("as");
         $data = $db->getAll($sql, array(), DB_FETCHMODE_ASSOC);
-        foreach ($data as $list) {
-        }
+        // foreach ($data as $list) {
+        // }
         // while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
         //     array_push($row['name']);
         // }
