@@ -57,7 +57,7 @@ function _moduleContent(&$smarty, $module_name)
 
 function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrConf)
 {
-    $db = new SQLite3($dbfile);
+    // $db = new SQLite3($dbfile);
         
 
         $tunks=Array("as");
