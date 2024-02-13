@@ -60,8 +60,8 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
     $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
     $pDB = new paloDB($dsnAsteriskCDR);    
         
-    // $sql = "SELECT * FROM `trunks`";
-    // $recordset = $db->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
+    $sql = "SELECT * FROM `trunks`";
+    $recordset = $dpDB->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
     // $tunks=Array("as");
     // foreach ($recordset as $tupla) {
         
