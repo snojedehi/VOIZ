@@ -76,7 +76,7 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $tunks=Array();
     foreach ($recordset as $tupla) {
         
-        array_push($tunks,$tupla['name']);
+        array_push($tunks,["id"=>$tupla['trunkid'],"name"=>$tupla['name']);
     }
     $smarty->assign("trunks", $tunks);
     

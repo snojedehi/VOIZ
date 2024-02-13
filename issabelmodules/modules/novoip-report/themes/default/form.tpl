@@ -44,11 +44,11 @@
               <label for="trunk">ترانک خروجی</label>
               <select class="form-control" id="trunk" name="trunk">
                 {foreach from=$trunks item=trunk} 
-                <option>{$trunk}</option>
+                <option value="{$trunk.id}">{$trunk.name}</option>
                 {/foreach}
               </select>
             </div>
-            
+
             <div class="form-group form-check ">
               <input type="checkbox" class="form-check-input" name="status" id="status">
               <label class="form-check-label" for="exampleCheck1">وضعیت</label>
