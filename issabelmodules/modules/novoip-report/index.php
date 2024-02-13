@@ -65,11 +65,8 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         } else {
             $sql = "SELECT * FROM `trunks`";
             $recordset = $pDB->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
-            // $tunks=Array()
-            foreach ($recordset as $tupla) {
-                
-                // array_push($tunks,$tupla['name'])
-            }
+            $tunks=Array()
+            
             $smarty->assign("trunks", "2");
         }
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
