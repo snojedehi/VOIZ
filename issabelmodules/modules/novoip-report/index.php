@@ -63,10 +63,10 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
     $sql = "SELECT * FROM `trunks`";
     $recordset = $dpDB->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
     // $tunks=Array("as");
-    if (is_array($recordset)) foreach ($recordset as $tupla) {
+    // if (is_array($recordset)) foreach ($recordset as $tupla) {
         
-        // array_push($tunks,$tupla['name']);
-    }
+    //     // array_push($tunks,$tupla['name']);
+    // }
     $smarty->assign("trunks", $tunks);
     
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
