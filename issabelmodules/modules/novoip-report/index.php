@@ -66,7 +66,7 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
             $sql = <<<SQL_LLAMADAS_RECIBIDAS
             SELECT * FROM `trunks`
             SQL_LLAMADAS_RECIBIDAS;
-            $recordset = $pDB->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
+            
             
         }
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
