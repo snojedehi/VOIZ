@@ -62,33 +62,13 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         
     $sql = "SELECT * FROM `trunks`";
     $recordset = $pDB->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
-    $tunks=Array("as");
+    $tunks=Array("");
     foreach ($recordset as $tupla) {
         
         array_push($tunks,$tupla['name']);
     }
     $smarty->assign("trunks", $tunks);
     
-    $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
-    $smarty->assign("xlite_img",  "modules/$module_name/images/x-lite-4-lrg.png");
-    $smarty->assign("zoiper_img",  "modules/$module_name/images/zoiper.png");
-    $smarty->assign("tag_manuf_description", _tr("Developer Description"));
-    $smarty->assign("download_link", _tr("Download Link"));
-    $smarty->assign("tag_manufacturer", _tr("Developer"));
-
-
-
-    $smarty->assign("training_description", _tr("training_description"));
-    $smarty->assign("training_img",  "modules/$module_name/images/training.png");
-    $smarty->assign("forum_img",  "modules/$module_name/images/forum.png");
-    $smarty->assign("telegram_img",  "modules/$module_name/images/telegram.png");
-
-
-
-    $smarty->assign("xlite_software_description", _tr("xlite_software_description"));
-    $smarty->assign("xlite_manufacturer_description", _tr("xlite_manufacturer_description"));
-    $smarty->assign("zoiper_software_description", _tr("zoiper_software_description"));
-    $smarty->assign("zoiper_manufacturer_description", _tr("zoiper_manufacturer_description"));
 
     $smarty->assign("novoip_data", $_POST['call-ext']);
     
