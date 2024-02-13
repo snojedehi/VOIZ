@@ -59,7 +59,16 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
 {
     $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
     $pDB = new paloDB($dsnAsteriskCDR);    
-        
+        if (!empty($pDB->errMsg)) {
+            $respuesta['status'] = 'error';
+            $respuesta['message'] = _tr('Error at read yours calls.').$pDB->errMsg;
+        } else {
+            $sql = <<<SQL_LLAMADAS_RECIBIDAS
+            SELECT * FROM `trunks`
+            SQL_LLAMADAS_RECIBIDAS;
+            $recordset = $pDB->fetchTable($sql, TRUE, array($extension, $extension, MAX_CALL_RECORDS));
+            
+        }
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
     $smarty->assign("xlite_img",  "modules/$module_name/images/x-lite-4-lrg.png");
     $smarty->assign("zoiper_img",  "modules/$module_name/images/zoiper.png");
