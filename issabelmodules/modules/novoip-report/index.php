@@ -65,9 +65,8 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
             die($res->getMessage());
         }
         $tunks=Array("as");
-        while (is_array($row = $res->fetchRow(DB_FETCHMODE_ASSOC))) {
-            
-            array_push($tunks,$row['name']);
+        while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
+            // $param[$row['source']][$row['field']] = $row['value'];
         }
         $smarty->assign("trunks", $tunks);
         
