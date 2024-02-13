@@ -63,6 +63,8 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         $sql = "SELECT * FROM `trunks`";
         $recordset = $db->query($sql);
         
+        $tunks=Array("as");
+        
         $smarty->assign("trunks", $tunks);
         
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
