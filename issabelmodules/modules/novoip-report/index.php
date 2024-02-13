@@ -61,7 +61,7 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
     $pDB = new paloDB($dsnAsteriskCDR);    
         
         $sql = "SELECT * FROM `trunks`";
-        $recordset = $db->query($sql);
+        
         
         $tunks=Array("as");
         
