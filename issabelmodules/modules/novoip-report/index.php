@@ -58,7 +58,8 @@ function _moduleContent(&$smarty, $module_name)
 function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrConf)
 {
     $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
-    
+    $pDB = new paloDB($dsnAsteriskCDR);    
+        
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
     $smarty->assign("xlite_img",  "modules/$module_name/images/x-lite-4-lrg.png");
     $smarty->assign("zoiper_img",  "modules/$module_name/images/zoiper.png");
