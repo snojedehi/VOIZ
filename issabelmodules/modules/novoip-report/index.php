@@ -93,7 +93,12 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $sql = "SELECT * FROM `novoip_callrequests`";
     $recordset = $pDB->fetchTable($sql, TRUE,[]);
     foreach ($recordset as $item) {
-        $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$item['insertDate'],$item['event'],$item['status'],$item['trunk']);
+        $dh = new Application_Helper_date;
+        $meghdare_date = date('Y-m-d', $item['insertDate']);
+        $date_parts = explode("-", $meghdare_date);
+        $jalali_date = $dh->gregorian_to_jalali($date_parts[0], $date_parts[1], $date_parts[2]);
+
+        $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$jalali_date,$item['event'],$item['status'],$item['trunk']);
     }
     $oGrid->setData($arrVoiceData);
     $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
