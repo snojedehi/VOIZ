@@ -79,6 +79,7 @@ button {
 }
 
 .neo-table-header-row-navigation {
+    direction: ltr;
     position:relative;
     display:inline-block;
     height:37px;
