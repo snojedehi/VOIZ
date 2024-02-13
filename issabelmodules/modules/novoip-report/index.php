@@ -60,11 +60,14 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
         $dbfile="/var/www/db/settings.db";
         $db = new SQLite3($dbfile);
         $sql = "SELECT * FROM `trunks`";
-        $res = $db->query($sql);
+        // $res = $db->query($sql);
         // if (DB::IsError($res)) {
         //     $smarty->assign("novoip_data", $res->getMessage());   
         // }
         $tunks=Array("as");
+        $data = $db->getAll($sql, array(), DB_FETCHMODE_ASSOC);
+        foreach ($data as $list) {
+        }
         // while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
         //     array_push($row['name']);
         // }
