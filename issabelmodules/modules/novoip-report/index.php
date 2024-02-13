@@ -24,7 +24,7 @@
 include_once "libs/paloSantoGrid.class.php";
 include_once "libs/paloSantoForm.class.php";
 global $arrConf;
-$dbfile="/var/www/db/settings.db";
+
 
 function _moduleContent(&$smarty, $module_name)
 {
@@ -57,9 +57,14 @@ function _moduleContent(&$smarty, $module_name)
 
 function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrConf)
 {
-    // $db = new SQLite3($dbfile);
+    $dbfile="/var/www/db/settings.db";
+    $db = new SQLite3($dbfile);
         
-
+        // $sql = "SELECT * FROM `trunks`";
+        // $recordset = $db->query($sql);
+        // if(DB::IsError($res)) {
+        //     die($res->getMessage());
+        // }
         $tunks=Array("as");
         
         $smarty->assign("trunks", $tunks);
