@@ -65,9 +65,9 @@ function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrCon
             die($res->getMessage());
         }
         $tunks=Array("as");
-        while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
+        // while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
             // $param[$row['source']][$row['field']] = $row['value'];
-        }
+        // }
         $smarty->assign("trunks", $tunks);
         
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
