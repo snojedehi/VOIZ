@@ -59,7 +59,7 @@ function _moduleContent(&$smarty, $module_name)
     $oGrid = new paloSantoGrid($smarty);
     $arrVoiceData = array();
     $arrVoiceData[] = array("as","asdsa","sss");
-
+    $oGrid->setData($arrVoiceData);
     $contenidoModulo = $oGrid->fetchGrid();
     return $content.$contenidoModulo;
 }
