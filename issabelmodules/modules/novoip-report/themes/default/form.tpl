@@ -1,4 +1,4 @@
-<div class="container" style="max-width:90%">
+<div class="container" >
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   تماس گیر جدید
 </button>
@@ -13,6 +13,7 @@
         </button>
       </div>
       <div class="modal-body">
+        <div style="max-width:90%">
         <form method="post" >
           <div class="form-group">
             <label for="call-ext">رقم اضافه شونده به شماره ها</label>
@@ -39,11 +40,12 @@
             </select>
           </div>
           <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <input type="checkbox" class="form-check-input" name="status" id="status">
+            <label class="form-check-label" for="exampleCheck1">وضعیت</label>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>   
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">خروج</button>
