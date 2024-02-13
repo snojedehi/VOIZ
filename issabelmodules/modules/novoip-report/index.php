@@ -60,7 +60,7 @@ function _moduleContent(&$smarty, $module_name)
 }
 function addCall($pDB){
     $result = $pDB->genExec("
-    INSERT INTO `asterisk`.`novoip_callrequests` ( `name`, `repeat`, `insertDate`, `event`, `status`, `trunk`) VALUES (' $_POST[name]', '$_POST[repeat]', CURRENT_TIMESTAMP, '2024-02-13 00:00:00', '$_POST[status]', '$_POST[trunk]');
+    INSERT INTO `asterisk`.`novoip_callrequests` ( `name`, `repeat`, `event`, `status`, `trunk`) VALUES (' $_POST[name]', '$_POST[repeat]', '2024-02-13 00:00:00', '$_POST[status]', '$_POST[trunk]');
     ");
 }
 function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)

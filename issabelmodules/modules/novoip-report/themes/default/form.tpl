@@ -57,7 +57,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">خروج</button>
-          <input type="submit" class="btn btn-primary">ذخیره</input>
+          <input type="submit" class="btn btn-primary"  value="ذخیره" />
         </div>
       </div>
     </div>
