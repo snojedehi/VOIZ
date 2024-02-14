@@ -81,7 +81,7 @@ function _getami()
         $astman = new AGI_AsteriskManager();
         $astman->log_level = 0;
         if (!$astman->connect("127.0.0.1", "admin" , obtenerClaveAMIAdmin())) {
-            $this->errMsg = _tr('Error when connecting to Asterisk Manager');
+            $errMsg = _tr('Error when connecting to Asterisk Manager');
             return NULL;
         }
         return $astman;
@@ -128,6 +128,11 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $oGrid->setTotal(6);
     $url = array('menu' => $module_name);
     $oGrid->setURL($url);
+
+    $astman = _getami();
+    if (is_null($astman)) {
+        $smarty->assign("novoip_data", $url);
+    }
     $smarty->assign("novoip_data", $url);
     $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
     $contenidoModulo = $oGrid->fetchGrid();
