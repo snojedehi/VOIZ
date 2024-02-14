@@ -95,8 +95,8 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
 
     
     $queue = new paloQueue($smarty);
-    $queues=$queue->getQueue(400);
-    $smarty->assign("queues", $queues);
+    // $queues=$queue->getQueue(400);
+    // $smarty->assign("queues", $queues);
     $oForm    = new paloForm($smarty,array());
     $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
 
