@@ -93,10 +93,22 @@ class CallRequest
             }
             return $astman;
         }
-    private function asteriskCallto($astman)
+    private function asteriskCallto($asm)
     {
-        // $agi = new AGI();
-        // $status=$agi->exec('RetryDial',"please-wait,5,2,DAHDI/g0/09122389046,30");
+        
+        $call = $asm->send_request('Originate',
+        array('channel'=> 'SIP/mokhaberat/09122389046',
+        'exten'=> "7000",
+        'CallerID'=> "09122389046",
+        'context'=> 'from-internal',
+        'priority'=> 1,
+        'async'=> true,
+        'Data'=> [
+            'mycode'=> "09122389046",
+        ],'variable'=> [
+            'mycode'=> "09122389046",
+        ]));
+        $asm->disconnect();
     }
     private function _getAsteriskQueueWaiting($astman)
     {
