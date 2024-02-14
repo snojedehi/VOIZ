@@ -147,7 +147,7 @@ class CallRequest
             $smarty->assign("novoip_data", $this->errMsg);
         }
         $smarty->assign("novoip_data", json_encode($queues));
-        
+        $this->_getAsteriskCallto($astman);
 
         $oForm    = new paloForm($smarty,array());
         $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
