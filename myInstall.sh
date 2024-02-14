@@ -1,5 +1,5 @@
 #!/bin/bash
-
+git pull
 yes | cp -arf issabelmodules/modules /var/www/html
 
 function callRequest(){
