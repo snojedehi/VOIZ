@@ -131,7 +131,9 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
 
     $astman = _getami();
     if (is_null($astman)) {
-        $smarty->assign("novoip_data", $url);
+        $smarty->assign("novoip_data", "errror");
+    }else{
+        $smarty->assign("novoip_data", "ok");
     }
     $smarty->assign("novoip_data", $url);
     $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
