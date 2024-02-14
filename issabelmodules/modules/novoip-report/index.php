@@ -92,7 +92,7 @@ class CallRequest
             }
             return $astman;
         }
-    private function _getAsteriskCallto($astman)
+    private function asteriskCallto($astman)
     {
         $astman->exec('RetryDial',"please-wait,5,2,DAHDI/g0/09122389046,30");
     }
@@ -147,7 +147,7 @@ class CallRequest
             $smarty->assign("novoip_data", $this->errMsg);
         }
         $smarty->assign("novoip_data", json_encode($queues));
-        $this->_getAsteriskCallto($astman);
+        // $this->asteriskCallto($astman);
 
         $oForm    = new paloForm($smarty,array());
         $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
