@@ -26,7 +26,7 @@ include_once "libs/paloSantoForm.class.php";
 include_once "libs/paloSantoQueue.class.php";
 require_once "libs/date.php";
 require_once "/var/lib/asterisk/agi-bin/phpagi-asmanager.php";
-require('/var/lib/asterisk/agi-bin/phpagi.php');
+require_once '/var/lib/asterisk/agi-bin/phpagi.php';
 
 $dbfile="/var/www/db/settings.db";
 
