@@ -142,7 +142,7 @@ class CallRequest
         if (!is_array($queues)) {
             $smarty->assign("novoip_data", $this->errMsg);
         }
-        $smarty->assign("novoip_data", $queues);
+        $smarty->assign("novoip_data", json_encode($queues));
         
 
         $oForm    = new paloForm($smarty,array());
