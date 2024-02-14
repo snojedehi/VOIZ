@@ -95,8 +95,8 @@ class CallRequest
         }
     private function asteriskCallto($astman)
     {
-        // $agi = new AGI();
-        // $status=$agi->exec('RetryDial',"please-wait,5,2,DAHDI/g0/09122389046,30");
+        $agi = new AGI();
+        $status=$agi->exec('RetryDial',"please-wait,5,2,DAHDI/g0/09122389046,30");
     }
     private function _getAsteriskQueueWaiting($astman)
     {
