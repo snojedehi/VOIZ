@@ -23,6 +23,7 @@
 //include issabel framework
 include_once "libs/paloSantoGrid.class.php";
 include_once "libs/paloSantoForm.class.php";
+include_once "libs/paloSantoQueue.class.php";
 require_once "libs/date.php";
 
 $dbfile="/var/www/db/settings.db";
@@ -93,7 +94,9 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     
 
     
-    
+    $queue = new paloQueue($smarty);
+    $queues=$queue->getQueue();
+    $smarty->assign("queues", $queues);
     $oForm    = new paloForm($smarty,array());
     $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
 
