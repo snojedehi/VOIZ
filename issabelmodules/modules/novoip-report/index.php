@@ -51,10 +51,11 @@ function _moduleContent(&$smarty, $module_name)
     $content = "";
     $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
     $pDB = new paloDB($dsnAsteriskCDR);  
-    if($_POST['addCall']){
-        addCall($pDB);
-    }
     $clr=new CallRequest();
+    if($_POST['addCall']){
+        $clr->addCall($pDB);
+    }
+    
     switch($action){
         default: // view_form
             $content = $clr->viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
@@ -115,7 +116,7 @@ class CallRequest
         // $smarty->assign("queues", $queues);
 
 
-        $astman = _getami();
+        $astman = $this->_getami();
         if (is_null($astman)) {
             $smarty->assign("novoip_data", "errror");
         }else{
