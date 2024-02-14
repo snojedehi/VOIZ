@@ -54,96 +54,102 @@ function _moduleContent(&$smarty, $module_name)
     if($_POST['addCall']){
         addCall($pDB);
     }
+    $clr=new CallRequest();
     switch($action){
         default: // view_form
-            $content = viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
+            $content = $clr->viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
             break;
     }
     
     return $content;
 }
-function addCall($pDB){
-    $result = $pDB->genExec("
-    INSERT INTO `asterisk`.`novoip_callrequests` ( `name`,`prefix`, `repeat`, `event`, `status`, `trunk`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]', '2024-02-13 00:00:00', '$_POST[status]', '$_POST[trunk]');
-    ");
-}
-function gregorian_to_jalali($dt){
-
-    $dh = new Application_Helper_date;
-    $date = explode(" ", $dt);
-    $date_parts = explode("-", $date[0]);
-    $jalali_date = $dh->gregorian_to_jalali($date_parts[0], $date_parts[1], $date_parts[2]);
-    $date_startm = $jalali_date[0] . "-" . $jalali_date[1] . "-" . $jalali_date[2]." ".$date[1];
-    return $date_startm;
-}
-function _getami()
-    {
-        $astman = new AGI_AsteriskManager();
-        $astman->log_level = 0;
-        if (!$astman->connect("127.0.0.1", "admin" , obtenerClaveAMIAdmin())) {
-            $errMsg = _tr('Error when connecting to Asterisk Manager');
-            return NULL;
-        }
-        return $astman;
-    }
-function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
+class CallRequest
 {
-    $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
-    $pDB = new paloDB($dsnAsteriskCDR);    
+    private $errMsg = NULL;
+
+    function addCall($pDB){
+        $result = $pDB->genExec("
+        INSERT INTO `asterisk`.`novoip_callrequests` ( `name`,`prefix`, `repeat`, `event`, `status`, `trunk`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]', '2024-02-13 00:00:00', '$_POST[status]', '$_POST[trunk]');
+        ");
+    }
+    function gregorian_to_jalali($dt){
+
+        $dh = new Application_Helper_date;
+        $date = explode(" ", $dt);
+        $date_parts = explode("-", $date[0]);
+        $jalali_date = $dh->gregorian_to_jalali($date_parts[0], $date_parts[1], $date_parts[2]);
+        $date_startm = $jalali_date[0] . "-" . $jalali_date[1] . "-" . $jalali_date[2]." ".$date[1];
+        return $date_startm;
+    }
+    function _getami()
+        {
+            $astman = new AGI_AsteriskManager();
+            $astman->log_level = 0;
+            if (!$astman->connect("127.0.0.1", "admin" , obtenerClaveAMIAdmin())) {
+                $errMsg = _tr('Error when connecting to Asterisk Manager');
+                return NULL;
+            }
+            return $astman;
+        }
+    function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
+    {
+        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
+        $pDB = new paloDB($dsnAsteriskCDR);    
+            
+        $sql = "SELECT * FROM `trunks`";
+        $recordset = $pDB->fetchTable($sql, TRUE,[]);
+
         
-    $sql = "SELECT * FROM `trunks`";
-    $recordset = $pDB->fetchTable($sql, TRUE,[]);
 
-    
-
-    $tunks=Array();
-    foreach ($recordset as $tupla) {
+        $tunks=Array();
+        foreach ($recordset as $tupla) {
+            
+            array_push($tunks,["id"=>$tupla['trunkid'],"name"=>$tupla['name']]);
+        }
+        $smarty->assign("trunks", $tunks);
         
-        array_push($tunks,["id"=>$tupla['trunkid'],"name"=>$tupla['name']]);
+
+        
+        $queue = new paloQueue($smarty);
+        // $queues=$queue->getQueue(400);
+        // $smarty->assign("queues", $queues);
+
+
+        $astman = _getami();
+        if (is_null($astman)) {
+            $smarty->assign("novoip_data", "errror");
+        }else{
+            $smarty->assign("novoip_data", "ok");
+        }
+        
+        
+
+        $oForm    = new paloForm($smarty,array());
+        $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
+
+        $oGrid = new paloSantoGrid($smarty);
+        $arrVoiceData = array();
+        
+        $sql = "SELECT * FROM `novoip_callrequests`";
+        $recordset = $pDB->fetchTable($sql, TRUE,[]);
+        foreach ($recordset as $item) {
+
+            $date_insertDate =gregorian_to_jalali($item['insertDate']);
+            $date_event =gregorian_to_jalali($item['event']);
+
+            $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk']);
+        }
+        $oGrid->setData($arrVoiceData);
+        $oGrid->setLimit(2);
+        $oGrid->setTotal(6);
+        $url = array('menu' => $module_name);
+        $oGrid->setURL($url);
+
+        
+        $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
+        $contenidoModulo = $oGrid->fetchGrid();
+
+        return $content.$contenidoModulo;
     }
-    $smarty->assign("trunks", $tunks);
-    
-
-    
-    $queue = new paloQueue($smarty);
-    // $queues=$queue->getQueue(400);
-    // $smarty->assign("queues", $queues);
-
-
-    $astman = _getami();
-    if (is_null($astman)) {
-        $smarty->assign("novoip_data", "errror");
-    }else{
-        $smarty->assign("novoip_data", "ok");
-    }
-    
-    
-
-    $oForm    = new paloForm($smarty,array());
-    $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
-
-    $oGrid = new paloSantoGrid($smarty);
-    $arrVoiceData = array();
-    
-    $sql = "SELECT * FROM `novoip_callrequests`";
-    $recordset = $pDB->fetchTable($sql, TRUE,[]);
-    foreach ($recordset as $item) {
-
-        $date_insertDate =gregorian_to_jalali($item['insertDate']);
-        $date_event =gregorian_to_jalali($item['event']);
-
-        $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk']);
-    }
-    $oGrid->setData($arrVoiceData);
-    $oGrid->setLimit(2);
-    $oGrid->setTotal(6);
-    $url = array('menu' => $module_name);
-    $oGrid->setURL($url);
-
-    
-    $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
-    $contenidoModulo = $oGrid->fetchGrid();
-
-    return $content.$contenidoModulo;
 }
 ?>
