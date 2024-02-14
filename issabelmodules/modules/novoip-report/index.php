@@ -87,11 +87,27 @@ class CallRequest
             $astman = new AGI_AsteriskManager();
             $astman->log_level = 0;
             if (!$astman->connect("127.0.0.1", "admin" , obtenerClaveAMIAdmin())) {
-                $errMsg = _tr('Error when connecting to Asterisk Manager');
+                $this->errMsg = _tr('Error when connecting to Asterisk Manager');
                 return NULL;
             }
             return $astman;
         }
+    private function _getAsteriskQueueWaiting($astman)
+    {
+        $arrQue = array();
+
+        $r = $astman->Command('queue show');
+        if (!isset($r['Response']) || $r['Response'] == 'Error') {
+            $this->errMsg = _tr('(internal) failed to run ami:queue show').print_r($r, TRUE);
+            return NULL;
+        }
+        foreach (explode("\n", $r['data']) as $line) {
+            $regs = NULL;
+            if (preg_match('/^(\d+)\s*has (\d+)/', $line, $regs))
+                $arrQue[$regs[1]] = (int)$regs[2];
+        }
+        return $arrQue;
+    }
     function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
     {
         $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
@@ -122,7 +138,11 @@ class CallRequest
         }else{
             $smarty->assign("novoip_data", "ok");
         }
-        
+        $queues = $this->_getAsteriskQueueWaiting($astman);
+        if (!is_array($queues)) {
+            $smarty->assign("novoip_data", $this->errMsg);
+        }
+        $smarty->assign("novoip_data", $queues);
         
 
         $oForm    = new paloForm($smarty,array());
