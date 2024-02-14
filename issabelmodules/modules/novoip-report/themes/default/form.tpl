@@ -63,6 +63,6 @@
     </div>
   </form>
 </div>
-    {$novoip_data}
+    //{$novoip_data}//
     
 </div>

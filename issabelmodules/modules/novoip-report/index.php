@@ -108,6 +108,17 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $queue = new paloQueue($smarty);
     // $queues=$queue->getQueue(400);
     // $smarty->assign("queues", $queues);
+
+
+    $astman = _getami();
+    if (is_null($astman)) {
+        $smarty->assign("novoip_data", "errror");
+    }else{
+        $smarty->assign("novoip_data", "ok");
+    }
+    
+    
+
     $oForm    = new paloForm($smarty,array());
     $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
 
@@ -129,13 +140,7 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     $url = array('menu' => $module_name);
     $oGrid->setURL($url);
 
-    $astman = _getami();
-    if (is_null($astman)) {
-        $smarty->assign("novoip_data", "errror");
-    }else{
-        $smarty->assign("novoip_data", "ok");
-    }
-    $smarty->assign("novoip_data", $url);
+    
     $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
     $contenidoModulo = $oGrid->fetchGrid();
 
