@@ -25,6 +25,7 @@ include_once "libs/paloSantoGrid.class.php";
 include_once "libs/paloSantoForm.class.php";
 include_once "libs/paloSantoQueue.class.php";
 require_once "libs/date.php";
+require_once "/var/lib/asterisk/agi-bin/phpagi-asmanager.php";
 
 $dbfile="/var/www/db/settings.db";
 
@@ -75,6 +76,16 @@ function gregorian_to_jalali($dt){
     $date_startm = $jalali_date[0] . "-" . $jalali_date[1] . "-" . $jalali_date[2]." ".$date[1];
     return $date_startm;
 }
+function _getami()
+    {
+        $astman = new AGI_AsteriskManager();
+        $astman->log_level = 0;
+        if (!$astman->connect("127.0.0.1", "admin" , obtenerClaveAMIAdmin())) {
+            $this->errMsg = _tr('Error when connecting to Asterisk Manager');
+            return NULL;
+        }
+        return $astman;
+    }
 function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
 {
     $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
