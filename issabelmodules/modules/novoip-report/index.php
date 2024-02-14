@@ -26,6 +26,7 @@ include_once "libs/paloSantoForm.class.php";
 include_once "libs/paloSantoQueue.class.php";
 require_once "libs/date.php";
 require_once "/var/lib/asterisk/agi-bin/phpagi-asmanager.php";
+require('/var/lib/asterisk/agi-bin/phpagi.php');
 
 $dbfile="/var/www/db/settings.db";
 
@@ -94,7 +95,8 @@ class CallRequest
         }
     private function asteriskCallto($astman)
     {
-        $astman->exec('RetryDial',"please-wait,5,2,DAHDI/g0/09122389046,30");
+        $agi = new AGI();
+        $status=$agi->exec('RetryDial',"please-wait,5,2,DAHDI/g0/09122389046,30");
     }
     private function _getAsteriskQueueWaiting($astman)
     {
@@ -147,7 +149,7 @@ class CallRequest
             $smarty->assign("novoip_data", $this->errMsg);
         }
         $smarty->assign("novoip_data", json_encode($queues));
-        // $this->asteriskCallto($astman);
+        $this->asteriskCallto($astman);
 
         $oForm    = new paloForm($smarty,array());
         $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
