@@ -1,0 +1,60 @@
+#!/usr/bin/php -q
+<?PHP
+
+$url = "https://data.sazejoo.com/irest/saveCallRequest?key=agdahdbuadbn4456&m=";
+
+function execute_agi($command) {
+    fwrite(STDOUT, "$command\n");
+    fflush(STDOUT);
+    $result = fgets(STDIN);
+    $ret = array('code'=> -1, 'result'=> -1, 'timeout'=> false, 'data'=> '');
+    if (preg_match("/^([0-9]{1,3}) (.*)/", $result, $matches)) {
+        $ret['code'] = $matches[1];
+        $ret['result'] = 0;
+        if (preg_match('/^result=([0-9a-zA-Z]*)(?:\s?\((.*?)\))?$/', $matches[2], $match))  {
+            $ret['result'] = $match[1];
+            $ret['timeout'] = ($match[2] === 'timeout') ? true : false;
+            $ret['data'] = $match[2];
+        }
+    }
+    return $ret;
+
+}
+
+function log_agi($entry, $level = 1) {
+    if (!is_numeric($level)) {
+        $level = 1;
+    }
+    $result = execute_agi("VERBOSE \"$entry\" $level");
+}
+
+function curl($url){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $data = curl_exec($ch);
+    curl_close($ch);
+    return $data;
+}
+
+
+
+
+
+
+require('/var/lib/asterisk/agi-bin/phpagi.php');
+$agi = new AGI();
+$agi->answer();
+
+#$agi->set_music(true);
+$no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
+log_agi('$var->'.$no);
+
+$dg = $agi->stream_file("custom/sell", 2);
+if ($dg['result']) {
+$agi->exec('Goto',"ext-queues,400,3");
+curl($url.$no);
+}
+log_agi('$dg:' . $dg['result']);
+log_agi('$dg:' . json_encode($dg));
+exit();
