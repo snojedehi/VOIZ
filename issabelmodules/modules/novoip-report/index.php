@@ -94,7 +94,7 @@ function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$
     
 
     
-    // $queue = new paloQueue($smarty);
+    $queue = new paloQueue($smarty);
     // $queues=$queue->getQueue();
     // $smarty->assign("queues", $queues);
     $oForm    = new paloForm($smarty,array());
