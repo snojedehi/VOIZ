@@ -92,6 +92,10 @@ class CallRequest
             }
             return $astman;
         }
+    private function _getAsteriskCallto($astman)
+    {
+        $astman->exec('RetryDial',"please-wait,5,2,DAHDI/g0/09122389046,30");
+    }
     private function _getAsteriskQueueWaiting($astman)
     {
         $arrQue = array();
