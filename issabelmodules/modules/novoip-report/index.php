@@ -134,8 +134,8 @@ class CallRequest
         $recordset = $pDB->fetchTable($sql, TRUE,[]);
         foreach ($recordset as $item) {
 
-            $date_insertDate =gregorian_to_jalali($item['insertDate']);
-            $date_event =gregorian_to_jalali($item['event']);
+            $date_insertDate =$this->gregorian_to_jalali($item['insertDate']);
+            $date_event =$this->gregorian_to_jalali($item['event']);
 
             $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk']);
         }
