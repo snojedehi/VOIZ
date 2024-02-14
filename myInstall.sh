@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yes | cp -rf issabelpbxmodules/bulkdids /var/www/html/admin/modules/
+yes | cp -arf issabelmodules/modules /var/www/html
 
 function callRequest(){
 cp -rf novoipagi /var/lib/asterisk/agi-bin
