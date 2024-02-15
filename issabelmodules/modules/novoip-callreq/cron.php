@@ -113,11 +113,12 @@ class CallRequest
 
     function checkCall()
     {
+        print_r("hi");
         $astman = $this->_getami();
         if (is_null($astman)) {
-            // $smarty->assign("novoip_data", "errror");
+            print_r("novoip_data", "errror");
         }else{
-            // $smarty->assign("novoip_data", "ok");
+            print_r("novoip_data", "ok");
         }
         return $this->asteriskCallto($astman);
         
