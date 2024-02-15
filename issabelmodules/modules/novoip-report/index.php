@@ -97,7 +97,7 @@ class CallRequest
     {
         
         $call = $asm->send_request('Originate',
-        array('channel'=> 'SIP/mokhaberat/09122389046,Set(CALLERID(num)=74924444)',
+        array('channel'=> 'SIP/mokhaberat/09122389046',
         'exten'=> "7002",
         'CallerID'=> "74924444",
         'context'=> 'from-internal',
