@@ -29,42 +29,7 @@ require_once "/var/lib/asterisk/agi-bin/phpagi-asmanager.php";
 require_once '/var/lib/asterisk/agi-bin/phpagi.php';
 
 $dbfile="/var/www/db/settings.db";
-
-function _moduleContent(&$smarty, $module_name)
-{
-    //include module files
-    include_once "modules/$module_name/configs/default.conf.php";
-    include_once "modules/$module_name/libs/paloSantoSoftphones.class.php";
-
-    $base_dir=dirname($_SERVER['SCRIPT_FILENAME']);
-
-    load_language_module($module_name);
-
-    //global variables
-    global $arrConf;
-    global $arrConfModule;
-    $arrConf = array_merge($arrConf,$arrConfModule);
-
-    //folder path for custom templates
-    $templates_dir=(isset($arrConf['templates_dir']))?$arrConf['templates_dir']:'themes';
-    $local_templates_dir="$base_dir/modules/$module_name/".$templates_dir.'/'.$arrConf['theme'];
-
-    $content = "";
-    $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
-    $pDB = new paloDB($dsnAsteriskCDR);  
-    $clr=new CallRequest();
-    if($_POST['addCall']){
-        $clr->addCall($pDB);
-    }
-    
-    switch($action){
-        default: // view_form
-            $content = $clr->viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
-            break;
-    }
-    
-    return $content;
-}
+printf("sss");
 class CallRequest
 {
     private $errMsg = NULL;
