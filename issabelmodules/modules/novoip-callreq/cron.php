@@ -23,6 +23,8 @@
 //include issabel framework
 require_once("/var/www/html/libs/misc.lib.php");
 require_once("/var/www/html/configs/default.conf.php");
+require_once("/var/www/html/libs/paloSantoSampler.class.php");
+require_once("/var/www/html/libs/paloSantoDB.class.php");
 // include_once "/var/www/html/libs/paloSantoGrid.class.php";
 // include_once "/var/www/html/libs/paloSantoForm.class.php";
 // include_once "/var/www/html/libs/paloSantoQueue.class.php";
