@@ -90,7 +90,7 @@ class CallRequest
         }else{
             print_r("novoip_data", "ok");
         }
-        // return $this->asteriskCallto($astman);
+        return $this->asteriskCallto($astman);
         
     }
 }
