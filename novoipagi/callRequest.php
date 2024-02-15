@@ -50,7 +50,7 @@ $agi->answer();
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
 log_agi('$var->'.$no);
 
-$dg = $agi->stream_file("/var/lib/asterisk/agi-bin/novoipagi/sounds/survey-thankyou.wav", 2);
+$dg = $agi->stream_file("/var/lib/asterisk/agi-bin/novoipagi/sounds/survey-thankyou", 2);
 $dg = $agi->stream_file("custom/sell", 2);
 if ($dg['result']) {
 $agi->exec('Goto',"ext-queues,400,3");
