@@ -21,10 +21,12 @@
   +----------------------------------------------------------------------+
   $Id: index.php,v 1.1 2013-08-12 04:08:50 Jose Briones jbriones@elastix.com Exp $ */
 //include issabel framework
-include_once "libs/paloSantoGrid.class.php";
-include_once "libs/paloSantoForm.class.php";
-include_once "libs/paloSantoQueue.class.php";
-require_once "libs/date.php";
+require_once("/var/www/html/libs/misc.lib.php");
+require_once("/var/www/html/configs/default.conf.php");
+include_once "/var/www/html/libs/paloSantoGrid.class.php";
+include_once "/var/www/html/libs/paloSantoForm.class.php";
+include_once "/var/www/html/libs/paloSantoQueue.class.php";
+require_once "/var/www/html/libs/date.php";
 require_once "/var/lib/asterisk/agi-bin/phpagi-asmanager.php";
 require_once '/var/lib/asterisk/agi-bin/phpagi.php';
 
