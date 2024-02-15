@@ -55,7 +55,7 @@ class CallRequest
         {
             $astman = new AGI_AsteriskManager();
             $astman->log_level = 0;
-            if (!$astman->connect("127.0.0.1", "admin" , obtenerClaveAMIAdmin())) {
+            if (!$astman->connect("127.0.0.1", "admin" , "aaddmin")) {
                 $this->errMsg = _tr('Error when connecting to Asterisk Manager');
                 return NULL;
             }
