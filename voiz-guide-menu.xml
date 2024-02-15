@@ -15,14 +15,14 @@ parent="voiz-helps" module="yes" link="" order="12">
         <group id="1" name="administrator" desc="total access"></group> 
       </permissions> 
     </menuitem> 
-    <menuitem menuid="novoip" desc="نو ویپ"
+    <menuitem menuid="novoip" desc="تماس خودکار"
 parent="" module="no" link="" order="20"> 
       <permissions> 
         <group id="1" name="administrator" desc="total access"></group> 
       </permissions> 
     </menuitem> 
 
-  <menuitem menuid="novoip-report" desc="گزارشات"
+  <menuitem menuid="novoip-callreq" desc="تنظیمات"
 parent="novoip" module="yes" link="" order="12"> 
       <permissions> 
         <group id="1" name="administrator" desc="total access"></group> 
