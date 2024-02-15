@@ -11,9 +11,9 @@ echo "**Queue callRequest Module Added." >> voiz-installation.log
 }
 function featurecodes(){
 cp -rf customdialplan/extensions_voipiran_featurecodes.conf /etc/asterisk/
-sed -i '/\[from\-internal\-custom\]/a include \=\> voipiran\-features' /etc/asterisk/extensions_custom.conf
-echo "" >> /etc/asterisk/extensions_custom.conf
-echo "#include extensions_voipiran_featurecodes.conf" >> /etc/asterisk/extensions_custom.conf
+# sed -i '/\[from\-internal\-custom\]/a include \=\> voipiran\-features' /etc/asterisk/extensions_custom.conf
+# echo "" >> /etc/asterisk/extensions_custom.conf
+# echo "#include extensions_voipiran_featurecodes.conf" >> /etc/asterisk/extensions_custom.conf
 }
 callRequest
 featurecodes
