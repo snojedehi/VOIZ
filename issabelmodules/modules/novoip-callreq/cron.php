@@ -23,10 +23,10 @@
 //include issabel framework
 // require_once("/var/www/html/libs/misc.lib.php");
 // require_once("/var/www/html/configs/default.conf.php");
-include_once "/var/www/html/libs/paloSantoGrid.class.php";
-include_once "/var/www/html/libs/paloSantoForm.class.php";
-include_once "/var/www/html/libs/paloSantoQueue.class.php";
-require_once "/var/www/html/libs/date.php";
+// include_once "/var/www/html/libs/paloSantoGrid.class.php";
+// include_once "/var/www/html/libs/paloSantoForm.class.php";
+// include_once "/var/www/html/libs/paloSantoQueue.class.php";
+// require_once "/var/www/html/libs/date.php";
 require_once "/var/lib/asterisk/agi-bin/phpagi-asmanager.php";
 require_once '/var/lib/asterisk/agi-bin/phpagi.php';
 
