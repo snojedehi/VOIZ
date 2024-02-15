@@ -28,6 +28,7 @@ require_once "libs/date.php";
 require_once "/var/lib/asterisk/agi-bin/phpagi-asmanager.php";
 require_once '/var/lib/asterisk/agi-bin/phpagi.php';
 
+
 $dbfile="/var/www/db/settings.db";
 printf("sss");
 class CallRequest
