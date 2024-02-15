@@ -95,6 +95,6 @@ class CallRequest
     }
 }
 $cl=new CallRequest();
-$cl->checkCall();
+// $cl->checkCall();
 
 ?>
