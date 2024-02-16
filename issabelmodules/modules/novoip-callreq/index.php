@@ -244,11 +244,11 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
                 $query= "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueID]'";
                 $smarty->assign("novoip_data", "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueID]'");
                 $result=$pDB->getFirstRowQuery($query, true,array());
-                // if(!$result && $result==null && count($result) < 1){
+                if(!$result && $result==null && count($result) < 1){
                     
-                // }else{
-                //     $callData['duration']=$result["duration"];
-                // }
+                }else{
+                    $callData['duration']=$result["duration"];
+                }
             // }
 
             $date_callDate =$this->gregorian_to_jalali($item['callDate']);
