@@ -1,5 +1,10 @@
 #!/usr/bin/php
 <?PHP
+
+require_once("/var/www/html/libs/misc.lib.php");
+require_once("/var/www/html/configs/default.conf.php");
+require_once("/var/www/html/libs/paloSantoSampler.class.php");
+require_once("/var/www/html/libs/paloSantoDB.class.php");
 // AGI 7002
 $url = "https://data.sazejoo.com/irest/saveCallRequest?key=agdahdbuadbn4456&m=";
 
@@ -71,9 +76,13 @@ if ($cdrID['result'] == 1) {
     wh_log("Unable to retrieve CDR ID\n");
 }
 
-wh_log("this is my log message");
-
-$variableValue = $agi->get_variable('mycode');
+$variableValue = $agi->get_variable('reqID');
+$reqID=$variableValue['data'];
+$dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/html/");
+$pDB = new paloDB($dsnAsteriskCDR);  
+$result = $pDB->genExec("
+UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = `down` WHERE `novoip_callrequests_phones`.`id` = $reqID;
+");
 wh_log("user:".($variableValue['data']));
 #$agi->set_music(true);
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
