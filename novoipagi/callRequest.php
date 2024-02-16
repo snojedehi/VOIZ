@@ -1,4 +1,4 @@
-#!/usr/bin/php -q
+#!/usr/bin/php
 <?PHP
 // AGI 7002
 $url = "https://data.sazejoo.com/irest/saveCallRequest?key=agdahdbuadbn4456&m=";
