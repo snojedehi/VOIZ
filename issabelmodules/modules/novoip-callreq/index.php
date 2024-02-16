@@ -241,8 +241,8 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
             );
             if($item['uniqueID']){
                 $query   = "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueID]'";
-                $smarty->assign("novoip_data", $query,array());
-                $result=$this->_DB->getFirstRowQuery($query, true);
+                $smarty->assign("novoip_data", $query);
+                $result=$this->_DB->getFirstRowQuery($query, true,array());
                 if(!$result && $result==null && count($result) < 1){
                     
                 }else{
