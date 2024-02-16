@@ -79,4 +79,12 @@ wh_log('$dg:' . $dg['result']);
 wh_log('$dg:' . json_encode($dg));
 $answeredtime = time() - $G_startime;
 wh_log('time:' . json_encode($answeredtime));
+$callDuration = $agi->get_variable('CDR(duration)');
+
+if ($callDuration['result'] == 1) {
+    $duration = $callDuration['data'];
+    wh_log("Call duration: $duration seconds");
+} else {
+    wh_log( "Unable to retrieve call duration");
+}
 exit();
