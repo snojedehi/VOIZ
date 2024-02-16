@@ -83,7 +83,7 @@ class CallRequest
         $numbers = explode("\n", $_POST['numbers']);
         foreach($numbers as $num){
             $result = $pDB->genExec("
-            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$num', 'wating', 'null', now(), '', '$inID')
+            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$num', '0', 'wating', '', '', '$inID')
             ");
         }
 
