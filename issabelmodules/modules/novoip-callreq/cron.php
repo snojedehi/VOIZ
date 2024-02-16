@@ -66,7 +66,7 @@ class CallRequest
     private function asteriskCallto($asm,$data,$pDB)
     {
         
-        $call = $asm->send_request('Originate',
+        // $call = $asm->send_request('Originate',
         // array('channel'=> "SIP/mokhaberat/$data[number]",
         // 'exten'=> "7002",
         // 'CallerID'=> "74924444",
@@ -79,6 +79,9 @@ class CallRequest
         //     'reqID'=>"$data[id]",
         //     'number'=> "$data[number]",
         // ]));
+        $result = $pDB->genExec("
+        UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `repeat` = `repeat`+1 WHERE `novoip_callrequests_phones`.`id` = $data[id];
+        ");
         $asm->disconnect();
     }
 
