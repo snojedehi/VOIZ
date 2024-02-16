@@ -128,7 +128,7 @@ class CallRequest
     }
     function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
     {
-        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
+        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
         $pDB = new paloDB($dsnAsteriskCDR);    
             
         $sql = "SELECT * FROM `trunks`";
