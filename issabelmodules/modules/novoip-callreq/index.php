@@ -217,7 +217,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         $queue = new paloQueue($smarty);
         // $queues=$queue->getQueue(400);
         // $smarty->assign("queues", $queues);
-
+        $smarty->assign("trunks", "sss");
 
         $astman = $this->_getami();
         if (is_null($astman)) {
