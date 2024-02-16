@@ -245,8 +245,8 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
                 "duration"=>""
             );
             if($item['uniqueid']){
-                $query   = "SELECT * FROM `cdr` WHERE `uniqueid`='?'";
-                $result=$this->_DB->getFirstRowQuery($query, true, array($item['uniqueid']));
+                $query   = "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueid]'";
+                $result=$this->_DB->getFirstRowQuery($query, true);
                 if(!$result && $result==null && count($result) < 1){
                     
                 }else{
