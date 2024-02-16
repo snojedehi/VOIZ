@@ -210,7 +210,7 @@ class CallRequest
 function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
     {
         
-        $smarty->assign("trunks", $this->getTrunks());
+       
         
 
         
@@ -245,7 +245,9 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
                 "duration"=>""
             );
             if($item['uniqueid']){
+                
                 $query   = "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueid]'";
+                $smarty->assign("trunks", $query);
                 $result=$this->_DB->getFirstRowQuery($query, true);
                 if(!$result && $result==null && count($result) < 1){
                     
