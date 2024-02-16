@@ -84,7 +84,7 @@ class CallRequest
     function checkCall()
     {
         print_r("hi");
-        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
+        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/html/");
         $pDB = new paloDB($dsnAsteriskCDR);  
         print_r("db");
         $astman = $this->_getami();
