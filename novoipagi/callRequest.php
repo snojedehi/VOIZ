@@ -47,8 +47,8 @@ $agi = new AGI();
 $agi->answer();
 print("aaaaaaaaaaaaa");
 print_r("bbbbbbbbbbbbbbbb");
-$agi->conlog(print_r("bbbbbbbbbbbbbbbb",1));
-$agi->conlog("aaaaaaaaaaaaa");
+// $agi->conlog(print_r("bbbbbbbbbbbbbbbb",1));
+// ss$agi->conlog("aaaaaaaaaaaaa");
 #$agi->set_music(true);
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
 log_agi('$var->'.$no);
