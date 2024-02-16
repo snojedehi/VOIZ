@@ -57,10 +57,12 @@ function _moduleContent(&$smarty, $module_name)
         $clr->addCall($pDB);
     }
     if($_GET['clr']){
-        $action="clr"
+        $action="clr";
     }
     switch($action){
-
+        case 'clr':
+            $content = $clr->viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
+            break;
         default: // view_form
             $content = $clr->viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
             break;
