@@ -84,6 +84,9 @@ class CallRequest
     function checkCall()
     {
         print_r("hi");
+        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
+        $pDB = new paloDB($dsnAsteriskCDR);  
+        print_r("db");
         $astman = $this->_getami();
         if (is_null($astman)) {
             print_r("novoip_data", "errror");
@@ -91,6 +94,7 @@ class CallRequest
             print_r("novoip_data", "ok");
         }
         // return $this->asteriskCallto($astman);
+
         
     }
 }
