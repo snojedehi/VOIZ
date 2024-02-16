@@ -237,7 +237,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         $recordset = $pDB->fetchTable($sql, TRUE,[]);
         foreach ($recordset as $item) {
             $callData=Array(
-                "duration"=>"1"
+                "duration"=>""
             );
 
             if($item['uniqueID']){
