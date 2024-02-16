@@ -59,11 +59,12 @@ require('/var/lib/asterisk/agi-bin/phpagi.php');
 $agi = new AGI();
 $agi->answer();
 wh_log("this is my log message");
+
 $variableValue = $agi->get_variable('mycode');
-wh_log(json_encode($variableValue));
+wh_log("user:".($variableValue['data']));
 #$agi->set_music(true);
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
-log_agi('$var->'.$no);
+wh_log('$var->'.$no);
 
 $dg = $agi->stream_file("/var/lib/asterisk/agi-bin/novoipagi/sounds/survey-thankyou", 2);
 $dg = $agi->stream_file("custom/sell", 2);
