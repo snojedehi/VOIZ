@@ -250,7 +250,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
                 if(!$result && $result==null && count($result) < 1){
                     
                 }else{
-                    
+                    $callData['duration']=$result["duration"];
                 }
             }
 
