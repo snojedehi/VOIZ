@@ -223,7 +223,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         if (is_null($astman)) {
             $smarty->assign("novoip_data", "errror");
         }else{
-            $smarty->assign("novoip_data", "ok");
+            $smarty->assign("novoip_data", "ok2");
         }
       
 
