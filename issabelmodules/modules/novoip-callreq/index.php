@@ -50,7 +50,7 @@ function _moduleContent(&$smarty, $module_name)
     $local_templates_dir="$base_dir/modules/$module_name/".$templates_dir.'/'.$arrConf['theme'];
 
     $content = "";
-    $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
+    $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
     $pDB = new paloDB($dsnAsteriskCDR);  
     $clr=new CallRequest();
     if($_POST['addCall']){
@@ -161,7 +161,7 @@ class CallRequest
             $smarty->assign("novoip_data", $this->errMsg);
         }
         $smarty->assign("novoip_data", json_encode($queues));
-        $this->asteriskCallto($astman);
+        // $this->asteriskCallto($astman);
 
         $oForm    = new paloForm($smarty,array());
         $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
