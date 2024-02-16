@@ -5,7 +5,7 @@ $url = "https://data.sazejoo.com/irest/saveCallRequest?key=agdahdbuadbn4456&m=";
 
 function wh_log($log_msg)
 {
-    $log_filename = "./log";
+    $log_filename = "/var/lib/asterisk/agi-bin/novoipagi/log";
     if (!file_exists($log_filename)) 
     {
         // create directory/folder uploads.
