@@ -97,5 +97,12 @@ class AddRequest extends REST_Resource
             'shayan'  =>  'test',
             'hi'  =>  'ok',));
     }
+    function HTTP_POST()
+    {
+    	$json = new Services_JSON();
+        return $json->encode(array(
+            'shayan'  =>  'post',
+            'hi'  =>  'ok2',));
+    }
 }
 ?>
