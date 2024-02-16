@@ -107,7 +107,7 @@ class CallRequest
                 "id"=>$tupla['id'],"number"=>$tupla['number']
             ),$pDB);
             sleep(20);
-            }catch(e){
+             } catch (Exception $e) {
                 break;
             }
         }
