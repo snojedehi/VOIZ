@@ -101,9 +101,10 @@ class CallRequest
             print_r("novoip_data", "ok");
         }
         foreach ($recordset as $tupla) {
-            $this->asteriskCallto($astman,array(
-                "id"=>$tupla['id'],"number"=>$tupla['number']
-            ),$pDB);
+            print("$tupla[number]\n");
+            // $this->asteriskCallto($astman,array(
+            //     "id"=>$tupla['id'],"number"=>$tupla['number']
+            // ),$pDB);
         }
 
         
