@@ -55,11 +55,12 @@ function curl($url){
 
 
 
-
 require('/var/lib/asterisk/agi-bin/phpagi.php');
 $agi = new AGI();
 $agi->answer();
 wh_log("this is my log message");
+$variableValue = $agi->get_variable('mycode');
+wh_log($variableValue);
 #$agi->set_music(true);
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
 log_agi('$var->'.$no);
@@ -72,4 +73,5 @@ curl($url.$no);
 }
 wh_log('$dg:' . $dg['result']);
 wh_log('$dg:' . json_encode($dg));
+
 exit();
