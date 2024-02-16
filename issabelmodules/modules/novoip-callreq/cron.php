@@ -94,13 +94,14 @@ class CallRequest
         $recordset = $pDB->fetchTable($sql, TRUE,[]);
         $tunks=Array();
         print_r("db");
-        $astman = $this->_getami();
-        if (is_null($astman)) {
-            print_r("novoip_data", "errror");
-        }else{
-            print_r("novoip_data", "ok");
-        }
+        
         foreach ($recordset as $tupla) {
+            $astman = $this->_getami();
+            if (is_null($astman)) {
+                print_r("novoip_data", "errror");
+            }else{
+                print_r("novoip_data", "ok");
+            }
             try{
             print("$tupla[number]\n");
             $this->asteriskCallto($astman,array(
