@@ -102,9 +102,11 @@ class CallRequest
         }
         foreach ($recordset as $tupla) {
             print("$tupla[number]\n");
-            // $this->asteriskCallto($astman,array(
-            //     "id"=>$tupla['id'],"number"=>$tupla['number']
-            // ),$pDB);
+            
+            $this->asteriskCallto($astman,array(
+                "id"=>$tupla['id'],"number"=>$tupla['number']
+            ),$pDB);
+            sleep(1);
         }
 
         
