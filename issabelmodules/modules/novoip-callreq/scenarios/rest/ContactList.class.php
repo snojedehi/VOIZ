@@ -69,9 +69,31 @@ class ContactList
     function URIObject()
     {
 	$uriObject = NULL;
-    $json = new Services_JSON();
-    $uriObject=$json->encode(Array("hi"=>"ok"));
-	
+	if (count($this->resourcePath) <= 0) {
+		$uriObject = new ContactListBase();
+	} elseif (in_array($this->resourcePath[0], array('internal', 'external'))) {
+	    switch (array_shift($this->resourcePath)) {
+	    case 'internal':
+            $json = new Services_JSON();
+            uriObject= $json->encode(array("hi"=>"ok"));
+		break;
+	    case 'external':
+		if(count($this->resourcePath) <= 0)
+		    $uriObject = new ExternalContactList();
+		else{
+		    $id = array_shift($this->resourcePath);
+		    if(count($this->resourcePath) <= 0)
+			$uriObject = new ExternalContact($id);
+		    elseif(array_shift($this->resourcePath) == "icon"){
+			if(count($this->resourcePath) <= 0)
+			    $uriObject = new ContactImg($id,"no","external");
+			elseif(array_shift($this->resourcePath) == "thumbnail")
+			    $uriObject = new ContactImg($id,"yes","external");
+		    }
+		}
+		break;
+	    }
+	}
 	if(count($this->resourcePath) > 0)
 	    return NULL;
 	else
