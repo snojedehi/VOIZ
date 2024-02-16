@@ -3,6 +3,20 @@
 // AGI 7002
 $url = "https://data.sazejoo.com/irest/saveCallRequest?key=agdahdbuadbn4456&m=";
 
+function wh_log($log_msg)
+{
+    $log_filename = "./log";
+    if (!file_exists($log_filename)) 
+    {
+        // create directory/folder uploads.
+        mkdir($log_filename, 0777, true);
+    }
+    $log_file_data = $log_filename.'/log_' . date('d-M-Y') . '.log';
+    // if you don't add `FILE_APPEND`, the file will be erased each time you add a log
+    file_put_contents($log_file_data, $log_msg . "\n", FILE_APPEND);
+} 
+// call to function
+wh_log("this is my log message");
 function execute_agi($command) {
     fwrite(STDOUT, "$command\n");
     fflush(STDOUT);
@@ -45,10 +59,7 @@ function curl($url){
 require('/var/lib/asterisk/agi-bin/phpagi.php');
 $agi = new AGI();
 $agi->answer();
-print("aaaaaaaaaaaaa");
-print_r("bbbbbbbbbbbbbbbb");
-$agi->conlog(print_r("bbbbbbbbbbbbbbbb",1));
-$agi->conlog("aaaaaaaaaaaaa");
+wh_log("this is my log message");
 #$agi->set_music(true);
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
 log_agi('$var->'.$no);
@@ -59,6 +70,6 @@ if ($dg['result']) {
 $agi->exec('Goto',"ext-queues,400,3");
 curl($url.$no);
 }
-log_agi('$dg:' . $dg['result']);
-log_agi('$dg:' . json_encode($dg));
+wh_log('$dg:' . $dg['result']);
+wh_log('$dg:' . json_encode($dg));
 exit();
