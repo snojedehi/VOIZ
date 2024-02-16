@@ -217,7 +217,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         $queue = new paloQueue($smarty);
         // $queues=$queue->getQueue(400);
         // $smarty->assign("queues", $queues);
-        $smarty->assign("trunks", "sss");
+        
 
         $astman = $this->_getami();
         if (is_null($astman)) {
@@ -225,12 +225,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         }else{
             $smarty->assign("novoip_data", "ok");
         }
-        $queues = $this->_getAsteriskQueueWaiting($astman);
-        if (!is_array($queues)) {
-            $smarty->assign("novoip_data", $this->errMsg);
-        }
-        $smarty->assign("novoip_data", json_encode($queues));
-        // $this->asteriskCallto($astman);
+      
 
         $oForm    = new paloForm($smarty,array());
         $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
@@ -247,7 +242,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
             if($item['uniqueid']){
                 
                 $query   = "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueid]'";
-                $smarty->assign("trunks", $query);
+                $smarty->assign("novoip_data", $query);
                 $result=$this->_DB->getFirstRowQuery($query, true);
                 if(!$result && $result==null && count($result) < 1){
                     
