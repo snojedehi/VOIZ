@@ -1,6 +1,6 @@
 #!/usr/bin/php -q
 <?PHP
-
+// AGI 7002
 $url = "https://data.sazejoo.com/irest/saveCallRequest?key=agdahdbuadbn4456&m=";
 
 function execute_agi($command) {
@@ -45,7 +45,8 @@ function curl($url){
 require('/var/lib/asterisk/agi-bin/phpagi.php');
 $agi = new AGI();
 $agi->answer();
-
+print("aaaaaaaaaaaaa");
+print_r("bbbbbbbbbbbbbbbb");
 #$agi->set_music(true);
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
 log_agi('$var->'.$no);
