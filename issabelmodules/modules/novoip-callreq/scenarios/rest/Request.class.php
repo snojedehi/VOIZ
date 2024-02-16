@@ -71,12 +71,12 @@ class Request
 	$uriObject = NULL;
 	if (count($this->resourcePath) <= 0) {
 		$uriObject = new AddRequest();
-	} elseif (in_array($this->resourcePath[0], array('internal', 'external'))) {
+	} elseif (in_array($this->resourcePath[0], array('add', 'update'))) {
 	    switch (array_shift($this->resourcePath)) {
-	    case 'internal':
+	    case 'add':
             $uriObject = new AddRequest();
 		break;
-	    case 'external':
+	    case 'update':
             $uriObject = new AddRequest();
 		break;
 	    }
@@ -102,6 +102,23 @@ class AddRequest extends REST_Resource
     	$json = new Services_JSON();
         return $json->encode(array(
             'shayan'  =>  'post',
+            'hi'  =>  'ok2',));
+    }
+}
+class UpdateRequest extends REST_Resource
+{
+	function HTTP_GET()
+    {
+    	$json = new Services_JSON();
+        return $json->encode(array(
+            'shayan'  =>  'UpdateRequest',
+            'hi'  =>  'ok',));
+    }
+    function HTTP_POST()
+    {
+    	$json = new Services_JSON();
+        return $json->encode(array(
+            'shayan'  =>  'UpdateRequest',
             'hi'  =>  'ok2',));
     }
 }
