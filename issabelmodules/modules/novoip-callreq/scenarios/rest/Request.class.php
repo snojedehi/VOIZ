@@ -77,7 +77,7 @@ class Request
             $uriObject = new AddRequest();
 		break;
 	    case 'update':
-            $uriObject = new AddRequest();
+            $uriObject = new UpdateRequest();
 		break;
 	    }
 	}
