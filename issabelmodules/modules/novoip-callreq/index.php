@@ -239,6 +239,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
             $callData=Array(
                 "duration"=>""
             );
+
             if($item['uniqueID']){
                 $query   = "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueID]'";
                 $smarty->assign("novoip_data", $query);
