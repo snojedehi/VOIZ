@@ -61,6 +61,22 @@ $agi = new AGI();
 $agi->answer();
 $G_startime = time();
 
+
+function handleHangup($event) {
+    // Retrieve the call duration from the CDR(duration) variable
+    $callDuration = $event['agi']->get_variable('CDR(duration)');
+    
+    if ($callDuration['result'] == 1) {
+        $duration = $callDuration['data'];
+        wh_log("eCall duration: $duration seconds");
+    } else {
+        wh_log("eUnable to retrieve call duration");
+    }
+}
+
+// Register the hangup event and specify the callback function
+$agi->register_event('Hangup', 'handleHangup');
+
 wh_log("this is my log message");
 
 $variableValue = $agi->get_variable('mycode');
