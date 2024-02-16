@@ -60,9 +60,7 @@ function _moduleContent(&$smarty, $module_name)
         $action="clr"
     }
     switch($action){
-        'clr':
-            $content = $clr->viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
-            break
+
         default: // view_form
             $content = $clr->viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
             break;
