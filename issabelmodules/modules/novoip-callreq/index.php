@@ -56,8 +56,13 @@ function _moduleContent(&$smarty, $module_name)
     if($_POST['addCall']){
         $clr->addCall($pDB);
     }
-    
+    if($_GET['clr']){
+        $action="clr"
+    }
     switch($action){
+        'clr':
+            $content = $clr->viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
+            break
         default: // view_form
             $content = $clr->viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
             break;
@@ -233,7 +238,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         $oGrid = new paloSantoGrid($smarty);
         $arrVoiceData = array();
         
-        $sql = "SELECT * FROM `novoip_callrequests`";
+        $sql = "SELECT * FROM `novoip_callrequests_phones` where CID='$_GET[clr]'";
         $recordset = $pDB->fetchTable($sql, TRUE,[]);
         foreach ($recordset as $item) {
 
