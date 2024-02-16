@@ -80,10 +80,12 @@ class CallRequest
         ");
 
         $inID = $pDB->getLastInsertId();
-        
-        $result = $pDB->genExec("
-        INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '09122389046', '0', 'null', now(), '', '$inID')
-        ");
+        $numbers = explode("\n", $_POST['numbers']);
+        foreach($numbers as $num){
+            $result = $pDB->genExec("
+            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$num', '0', 'null', now(), '', '$inID')
+            ");
+        }
 
     }
     function gregorian_to_jalali($dt){

@@ -48,7 +48,10 @@
                 {/foreach}
               </select>
             </div>
-
+            <div class="form-group">
+              <label for="numbers">شماره ها</label>
+              <textarea class="form-control" id="numbers" name="numbers"></textarea>
+            </div>
             <div class="form-group form-check ">
               <input type="checkbox" class="form-check-input" name="status" id="status" checked>
               <label class="form-check-label" for="exampleCheck1">وضعیت</label>
