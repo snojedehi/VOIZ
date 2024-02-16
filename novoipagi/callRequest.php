@@ -66,9 +66,9 @@ $cdrID = $agi->get_variable('CDR(uniqueid)');
 
 if ($cdrID['result'] == 1) {
     $uniqueID = $cdrID['data'];
-    echo "CDR ID: $uniqueID\n";
+    wh_log("CDR ID: $uniqueID\n");
 } else {
-    echo "Unable to retrieve CDR ID\n";
+    wh_log("Unable to retrieve CDR ID\n");
 }
 
 wh_log("this is my log message");
