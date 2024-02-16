@@ -62,20 +62,14 @@ $agi->answer();
 $G_startime = time();
 
 
-function handleHangup($event) {
-    // Retrieve the call duration from the CDR(duration) variable
-    $callDuration = $event['agi']->get_variable('CDR(duration)');
-    
-    if ($callDuration['result'] == 1) {
-        $duration = $callDuration['data'];
-        wh_log("eCall duration: $duration seconds");
-    } else {
-        wh_log("eUnable to retrieve call duration");
-    }
-}
+$cdrID = $agi->get_variable('CDR(uniqueid)');
 
-// Register the hangup event and specify the callback function
-$agi->register_event('Hangup', 'handleHangup');
+if ($cdrID['result'] == 1) {
+    $uniqueID = $cdrID['data'];
+    echo "CDR ID: $uniqueID\n";
+} else {
+    echo "Unable to retrieve CDR ID\n";
+}
 
 wh_log("this is my log message");
 
