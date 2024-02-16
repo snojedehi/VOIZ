@@ -74,8 +74,7 @@ class ContactList
 	} elseif (in_array($this->resourcePath[0], array('internal', 'external'))) {
 	    switch (array_shift($this->resourcePath)) {
 	    case 'internal':
-            $json = new Services_JSON();
-            $uriObject= $json->encode(array("hi"=>"ok"));
+            $uriObject = new ContactListBase();
 		break;
 	    case 'external':
 		if(count($this->resourcePath) <= 0)
