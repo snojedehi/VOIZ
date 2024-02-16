@@ -240,7 +240,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
                 "duration"=>"1"
             );
 
-            // if($item['uniqueID']){
+            if($item['uniqueID']){
                 $query= "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueID]'";
                 $smarty->assign("novoip_data", "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueID]'");
                 $result=$pDB->getFirstRowQuery($query, true,array());
@@ -249,7 +249,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
                 }else{
                     $callData['duration']=$result["duration"];
                 }
-            // }
+            }
 
             $date_callDate =$this->gregorian_to_jalali($item['callDate']);
             
