@@ -73,7 +73,8 @@ class CallRequest
         $result = $pDB->genExec("
         INSERT INTO `asterisk`.`novoip_callrequests` ( `name`,`prefix`, `repeat`, `event`, `status`, `trunk`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]', '2024-02-13 00:00:00', '$_POST[status]', '$_POST[trunk]');
         ");
-        $inID = $pDB->conn->lastInsertId();
+
+        $inID = $pDB->getLastInsertId();
         
         $result = $pDB->genExec("
         INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '09122389046', '0', 'wating', now(), '', '$inID')
