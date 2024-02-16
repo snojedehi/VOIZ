@@ -58,33 +58,11 @@ function curl($url){
 require('/var/lib/asterisk/agi-bin/phpagi.php');
 
 $agi = new AGI();
-$agi->answer();
-$G_startime = time();
-
-wh_log("this is my log message");
-
-$variableValue = $agi->get_variable('mycode');
-wh_log("user:".($variableValue['data']));
-#$agi->set_music(true);
-$no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
-wh_log('$var->'.$no);
-
-$dg = $agi->stream_file("/var/lib/asterisk/agi-bin/novoipagi/sounds/survey-thankyou", 2);
-$dg = $agi->stream_file("custom/sell", 2);
-if ($dg['result']) {
-$agi->exec('Goto',"ext-queues,500,3");
-curl($url.$no);
-}
-wh_log('$dg:' . $dg['result']);
-wh_log('$dg:' . json_encode($dg));
-$answeredtime = time() - $G_startime;
-wh_log('time:' . json_encode($answeredtime));
-$callDuration = $agi->get_variable('CDR(duration)');
 
 if ($callDuration['result'] == 1) {
     $duration = $callDuration['data'];
-    wh_log("Call duration: $duration seconds");
+    wh_log("Call2 duration: $duration seconds");
 } else {
-    wh_log( "Unable to retrieve call duration");
+    wh_log( "Unable2 to retrieve call duration");
 }
 exit();
