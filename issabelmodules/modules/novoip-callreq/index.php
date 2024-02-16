@@ -241,11 +241,23 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         $sql = "SELECT * FROM `novoip_callrequests_phones` where CID='$_GET[clr]'";
         $recordset = $pDB->fetchTable($sql, TRUE,[]);
         foreach ($recordset as $item) {
+            $callData=Array(
+                "duration"=>""
+            );
+            if($item['uniqueid']){
+                $query   = "SELECT * FROM `cdr` WHERE `uniqueid`=?";
+                $result=$this->_DB->getFirstRowQuery($query, true, array($item['uniqueid']));
+                if(!$result && $result==null && count($result) < 1){
+                    
+                }else{
+                    
+                }
+            }
 
             $date_callDate =$this->gregorian_to_jalali($item['callDate']);
             
 
-            $arrVoiceData[] = array($item['id'],$item['number'],$item['repeat'],$date_callDate,$item['status'],$item['uniqueID']);
+            $arrVoiceData[] = array($item['id'],$item['number'],$item['repeat'],$date_callDate,$item['status'],$callData['duration'],$item['uniqueID']);
         }
         $oGrid->setData($arrVoiceData);
         $oGrid->setLimit(2);
@@ -254,7 +266,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         $oGrid->setURL($url);
 
         
-        $oGrid->setColumns(array('ّid','شماره','تکرار','تاریخ انجام','اجرا','وضعیت','uniqueID'));
+        $oGrid->setColumns(array('ّid','شماره','تکرار','تاریخ انجام','وضعیت','مدت زمان','uniqueID'));
         $contenidoModulo = $oGrid->fetchGrid();
 
         return $content.$contenidoModulo;
