@@ -63,11 +63,11 @@ class CallRequest
             }
             return $astman;
         }
-    private function asteriskCallto($asm)
+    private function asteriskCallto($asm,$data,$pDB)
     {
         
         $call = $asm->send_request('Originate',
-        array('channel'=> 'SIP/mokhaberat/09122389046',
+        array('channel'=> "SIP/mokhaberat/$data[number]",
         'exten'=> "7002",
         'CallerID'=> "74924444",
         'context'=> 'from-internal',
@@ -76,7 +76,8 @@ class CallRequest
         'Data'=> [
             'mycode'=> "09122389046",
         ],'variable'=> [
-            'mycode'=> "09122389046",
+            'reqID'=>"$data[id]",
+            'number'=> "$data[number]",
         ]));
         $asm->disconnect();
     }
@@ -86,6 +87,9 @@ class CallRequest
         print_r("hi");
         $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/html/");
         $pDB = new paloDB($dsnAsteriskCDR);  
+        $sql = "SELECT * FROM `novoip_callrequests_phones` WHERE `status` = 'wating'";
+        $recordset = $pDB->fetchTable($sql, TRUE,[]);
+        $tunks=Array();
         print_r("db");
         $astman = $this->_getami();
         if (is_null($astman)) {
@@ -93,6 +97,13 @@ class CallRequest
         }else{
             print_r("novoip_data", "ok");
         }
+        foreach ($recordset as $tupla) {
+            $this->asteriskCallto($astman,array(
+                "id"=>$tupla['id'],"number"=>$tupla['number']
+            ),$pDB);
+        }
+
+        
         // return $this->asteriskCallto($astman);
 
         
