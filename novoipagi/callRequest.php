@@ -83,10 +83,10 @@ $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/htm
 wh_log(json_encode($dsnAsteriskCDR));
 $pDB = new paloDB($dsnAsteriskCDR);  
 $result = $pDB->genExec("
-UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = `down` WHERE `novoip_callrequests_phones`.`id` = $reqID;
+UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = 'down' WHERE `novoip_callrequests_phones`.`id` = $reqID;
 ");
 wh_log("
-UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = `down` WHERE `novoip_callrequests_phones`.`id` = $reqID;
+UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = 'down' WHERE `novoip_callrequests_phones`.`id` = $reqID;
 ");
 #$agi->set_music(true);
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
