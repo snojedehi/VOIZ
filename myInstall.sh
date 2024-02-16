@@ -7,7 +7,7 @@ function callRequest(){
     chmod -R 777 /var/lib/asterisk/agi-bin/novoipagi
     query="REPLACE INTO miscdests (id,description,destdial) VALUES('102','callRequest','6668')"
     # mysql -hlocalhost -uroot -p$rootpw asterisk -e "$query"
-    echo "**Queue callRequest Module Added." >> voiz-installation.log
+    # echo "**Queue callRequest Module Added." >> voiz-installation.log
     echo "* * * * *  root /usr/bin/php -q /var/www/html/modules/novoip-callreq/cron.php" >> /etc/cron.d/novoip.cron
 }
 function featurecodes(){

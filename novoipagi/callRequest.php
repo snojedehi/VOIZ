@@ -78,8 +78,10 @@ if ($cdrID['result'] == 1) {
 
 $variableValue = $agi->get_variable('reqID');
 $reqID=$variableValue['data'];
+
 $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/html/");
-// $pDB = new paloDB($dsnAsteriskCDR);  
+wh_log(json_encode($dsnAsteriskCDR));
+$pDB = new paloDB($dsnAsteriskCDR);  
 // $result = $pDB->genExec("
 // UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = `down` WHERE `novoip_callrequests_phones`.`id` = $reqID;
 // ");
