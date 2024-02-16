@@ -201,7 +201,7 @@ class CallRequest
 
         return $content.$contenidoModulo;
     }
-}
+
 function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
     {
         
