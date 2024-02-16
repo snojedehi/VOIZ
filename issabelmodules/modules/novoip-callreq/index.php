@@ -187,6 +187,59 @@ class CallRequest
             $date_insertDate =$this->gregorian_to_jalali($item['insertDate']);
             $date_event =$this->gregorian_to_jalali($item['event']);
 
+            $arrVoiceData[] = array("<a href='index.php?menu=novoip-callreq&clr=$item[id]'>$item[id]</a>",$item['name'],$item['repeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk']);
+        }
+        $oGrid->setData($arrVoiceData);
+        $oGrid->setLimit(2);
+        $oGrid->setTotal(6);
+        $url = array('menu' => $module_name);
+        $oGrid->setURL($url);
+
+        
+        $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک'));
+        $contenidoModulo = $oGrid->fetchGrid();
+
+        return $content.$contenidoModulo;
+    }
+}
+function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
+    {
+        
+        $smarty->assign("trunks", $this->getTrunks());
+        
+
+        
+        $queue = new paloQueue($smarty);
+        // $queues=$queue->getQueue(400);
+        // $smarty->assign("queues", $queues);
+
+
+        $astman = $this->_getami();
+        if (is_null($astman)) {
+            $smarty->assign("novoip_data", "errror");
+        }else{
+            $smarty->assign("novoip_data", "ok");
+        }
+        $queues = $this->_getAsteriskQueueWaiting($astman);
+        if (!is_array($queues)) {
+            $smarty->assign("novoip_data", $this->errMsg);
+        }
+        $smarty->assign("novoip_data", json_encode($queues));
+        // $this->asteriskCallto($astman);
+
+        $oForm    = new paloForm($smarty,array());
+        $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
+
+        $oGrid = new paloSantoGrid($smarty);
+        $arrVoiceData = array();
+        
+        $sql = "SELECT * FROM `novoip_callrequests`";
+        $recordset = $pDB->fetchTable($sql, TRUE,[]);
+        foreach ($recordset as $item) {
+
+            $date_insertDate =$this->gregorian_to_jalali($item['insertDate']);
+            $date_event =$this->gregorian_to_jalali($item['event']);
+
             $arrVoiceData[] = array($item['id'],$item['name'],$item['repeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk']);
         }
         $oGrid->setData($arrVoiceData);
