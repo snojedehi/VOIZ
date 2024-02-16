@@ -126,9 +126,8 @@ class CallRequest
         }
         return $arrQue;
     }
-    function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
-    {
-        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
+    private function getTrunks(){
+        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asterisk");
         $pDB = new paloDB($dsnAsteriskCDR);    
             
         $sql = "SELECT * FROM `trunks`";
@@ -141,7 +140,12 @@ class CallRequest
             
             array_push($tunks,["id"=>$tupla['trunkid'],"name"=>$tupla['name']]);
         }
-        $smarty->assign("trunks", $tunks);
+        return $tunks;
+    }
+    function viewCallRequest($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
+    {
+        
+        $smarty->assign("trunks", $this->getTrunks());
         
 
         
