@@ -56,8 +56,11 @@ function curl($url){
 
 
 require('/var/lib/asterisk/agi-bin/phpagi.php');
+
 $agi = new AGI();
 $agi->answer();
+$G_startime = time();
+
 wh_log("this is my log message");
 
 $variableValue = $agi->get_variable('mycode');
@@ -74,5 +77,6 @@ curl($url.$no);
 }
 wh_log('$dg:' . $dg['result']);
 wh_log('$dg:' . json_encode($dg));
-
+$answeredtime = time() - $G_startime;
+wh_log('time:' . json_encode($answeredtime));
 exit();
