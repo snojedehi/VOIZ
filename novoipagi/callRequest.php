@@ -96,7 +96,8 @@ UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = 'down', uniqu
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
 wh_log('$var->'.$no);
 
-$dg = $agi->stream_file("/var/www/html/modules/novoip-callreq/sounds/$CID.wav", 2);
+$dg = $agi->stream_file("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID.wav", 2);
+$dg = $agi->stream_file("/var/lib/asterisk/agi-bin/novoipagi/sounds/survey-thankyou", 2);
 // $dg = $agi->stream_file("custom/sell", 2);
 if ($dg['result']) {
     $agi->exec('Goto',"ext-queues,500,3");
