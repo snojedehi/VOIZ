@@ -122,7 +122,12 @@ class GEtRequest extends REST_Resource
         return $json->encode(array(
             'id'  =>  $result["id"],
             'name'  =>  $result["name"],
-            'hi'  =>  'ok',));
+            'prefix'  =>  $result["prefix"],
+            'repeat'  =>  $result["repeat"],
+            'event'  =>  $result["event"],
+            'status'  =>  $result["status"],
+            'trunk'  =>  $result["trunk"],
+            ));
     }
     function HTTP_POST()
     {
