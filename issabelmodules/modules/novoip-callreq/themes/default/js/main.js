@@ -9,6 +9,7 @@ var editModal=function(id){
         $("#editRepeat").val(res.repeat)
         $("#editTrunk").val(res.trunk)
         // $("#editStatus").check(res.status)
+        $("#editStatus")[0].checked=res.status
         $('#editModal').modal('show')
     })
 
