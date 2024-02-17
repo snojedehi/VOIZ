@@ -116,11 +116,12 @@ class GEtRequest extends REST_Resource
     	$json = new Services_JSON();
         $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
         $pDB = new paloDB($dsnAsteriskCDR);                                   
-        $query= "SELECT * FROM `novoip_callrequests_phones` WHERE `id` = $_GET[eid]";
+        $query= "SELECT * FROM `novoip_callrequests` WHERE `id` = $_GET[eid]";
         $result=$pDB->getFirstRowQuery($query, true,array());
         
         return $json->encode(array(
-            'shayan'  =>  "SELECT * FROM `novoip_callrequests_phones` WHERE `id` = $_GET[eid]",
+            'id'  =>  result["id"],
+            'name'  =>  result["name"],
             'hi'  =>  'ok',));
     }
     function HTTP_POST()
