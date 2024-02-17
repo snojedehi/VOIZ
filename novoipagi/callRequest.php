@@ -80,7 +80,7 @@ $variableValue = $agi->get_variable('reqID');
 $reqID=$variableValue['data'];
 
 $variableValue = $agi->get_variable('cid');
-$CID=$variableValue['cid'];
+$CID=$variableValue['data'];
 wh_log("CID".$CID);
 
 $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/html/");
