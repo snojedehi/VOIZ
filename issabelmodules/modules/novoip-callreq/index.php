@@ -88,8 +88,8 @@ class CallRequest
 
         }
         $numbers = explode("\n", $_POST['numbers']);
-        $_POST['numbers'] = preg_replace('/\s+/', '',$_POST['numbers']);
         foreach($numbers as $num){
+            $num = preg_replace('/\s+/', '',$num);
             if($num){
                 $result = $pDB->genExec("
                 INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$num', '0', 'wating', '', '', '$inID')
@@ -113,9 +113,10 @@ class CallRequest
         if ($_FILES["sound"] && move_uploaded_file($_FILES["sound"]["tmp_name"], "/var/lib/asterisk/agi-bin/novoipagi/sounds/$inID.wav")) {
 
         }
-        $_POST['numbers'] = preg_replace('/\s+/', '',$_POST['numbers']);
+        
         $numbers = explode("\n", $_POST['numbers']);
         foreach($numbers as $num){
+            $num = preg_replace('/\s+/', '',$num);
             if($num){
                 $result = $pDB->genExec("
                 INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$num', '0', 'wating', '', '', '$inID')

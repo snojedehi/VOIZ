@@ -100,7 +100,7 @@ if ($dg['result']!="1") {
     curl($url.$no);
 }
 
-wh_log('$dg:' . $dg['result']);
+wh_log('$cn:' . $con[$dg['result']]);
 wh_log('$dg:' . json_encode($dg));
 
 exit();
