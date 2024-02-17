@@ -78,6 +78,7 @@ class CallRequest
         ],'variable'=> [
             'reqID'=>"$data[id]",
             'number'=> "$data[number]",
+            'cid'=> "$data[cid]",
         ]));
         $result = $pDB->genExec("
         UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `repeat` = `repeat`+1 WHERE `novoip_callrequests_phones`.`id` = $data[id];
