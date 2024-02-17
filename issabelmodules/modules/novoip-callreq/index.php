@@ -107,7 +107,7 @@ class CallRequest
 
         $inID = $_POST['editReq'];
 
-        if ($_FILES["sound"] && move_uploaded_file($_FILES["sound"]["tmp_name"], "./sounds/$inID.wav")) {
+        if ($_FILES["sound"] && move_uploaded_file($_FILES["sound"]["tmp_name"], "/var/www/html/modules/novoip-callreq/sounds/$inID.wav")) {
 
         }
         $_POST['numbers'] = preg_replace('/\s+/', '',$_POST['numbers']);
