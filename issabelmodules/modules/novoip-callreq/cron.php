@@ -65,7 +65,7 @@ class CallRequest
         }
     private function asteriskCallto($asm,$data,$pDB)
     {
-        
+        print_r($data);
         $call = $asm->send_request('Originate',
         array('channel'=> "SIP/mokhaberat/$data[number]",
         'exten'=> "7002",
@@ -110,7 +110,7 @@ class CallRequest
                 try{
                 print("$tupla[number]\n");
                 $this->asteriskCallto($astman,array(
-                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$req['id'],
+                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$tupla['CID'],
                 ),$pDB);
                 sleep(1);
                 } catch (Exception $e) {
