@@ -67,7 +67,7 @@
   </form>
 </div>
 
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <form method="post" >
     <input type="hidden" name="editCall" value="true" />
     <div class="modal-dialog">
