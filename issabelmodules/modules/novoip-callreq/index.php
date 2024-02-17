@@ -56,6 +56,9 @@ function _moduleContent(&$smarty, $module_name)
     if($_POST['addCall']){
         $clr->addCall($pDB);
     }
+    if($_POST['editReq']){
+        $clr->editCall($pDB);
+    }
     if($_GET['clr']){
         $action="clr";
     }
@@ -75,6 +78,20 @@ class CallRequest
     private $errMsg = NULL;
 
     function addCall($pDB){
+        $result = $pDB->genExec("
+        UPDATE `novoip_callrequests` SET `name`='$_POST[name]',`prefix`='$_POST[prefix]',`repeat`='$_POST[repeat]',`event`='2024-02-13 00:00:00',`status`='$_POST[status]',`trunk`='$_POST[trunk]' WHERE id=$_POST[editReq]
+        ");
+
+        $inID = $pDB->getLastInsertId();
+        $numbers = explode("\n", $_POST['numbers']);
+        foreach($numbers as $num){
+            $result = $pDB->genExec("
+            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$num', '0', 'wating', '', '', '$inID')
+            ");
+        }
+
+    }
+    function editCall($pDB){
         $result = $pDB->genExec("
         INSERT INTO `asteriskcdrdb`.`novoip_callrequests` ( `name`,`prefix`, `repeat`, `event`, `status`, `trunk`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]', '2024-02-13 00:00:00', '$_POST[status]', '$_POST[trunk]');
         ");
