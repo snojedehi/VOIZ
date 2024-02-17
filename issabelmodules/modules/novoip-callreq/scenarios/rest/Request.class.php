@@ -120,8 +120,8 @@ class GEtRequest extends REST_Resource
         $result=$pDB->getFirstRowQuery($query, true,array());
         
         return $json->encode(array(
-            'id'  =>  result["id"],
-            'name'  =>  result["name"],
+            'id'  =>  $result["id"],
+            'name'  =>  $result["name"],
             'hi'  =>  'ok',));
     }
     function HTTP_POST()
