@@ -81,25 +81,23 @@ $CID=$variableValue['data'];
 wh_log("CID".$CID);
 
 $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/html/");
-wh_log(json_encode($dsnAsteriskCDR));
 $pDB = new paloDB($dsnAsteriskCDR);  
 $result = $pDB->genExec("
 UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = 'down', uniqueID='$uniqueID',callDate=now() WHERE `novoip_callrequests_phones`.`id` = $reqID;
 ");
-wh_log("
-UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = 'down', uniqueID='$uniqueID' WHERE `novoip_callrequests_phones`.`id` = $reqID;
-");
+
 #$agi->set_music(true);
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
 wh_log('$var->'.$no);
 
-$dg = $agi->stream_file("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 5);
+$dg = $agi->get_data("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 50,1);
 // $dg = $agi->stream_file("/var/lib/asterisk/agi-bin/novoipagi/sounds/survey-thankyou", 2);
 // $dg = $agi->stream_file("custom/sell", 2);
-if ($dg['result']) {
+if ($dg['result']!="0") {
     $agi->exec('Goto',"ext-queues,500,3");
     curl($url.$no);
 }
+
 wh_log('$dg:' . $dg['result']);
 wh_log('$dg:' . json_encode($dg));
 
