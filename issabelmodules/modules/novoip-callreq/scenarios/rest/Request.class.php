@@ -120,7 +120,7 @@ class GEtRequest extends REST_Resource
         $result=$pDB->getFirstRowQuery($query, true,array());
         
         return $json->encode(array(
-            'shayan'  =>  $result['name'],
+            'shayan'  =>  "SELECT * FROM `novoip_callrequests_phones` WHERE `id` = $_GET[eid]",
             'hi'  =>  'ok',));
     }
     function HTTP_POST()
