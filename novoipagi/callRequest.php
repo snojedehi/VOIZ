@@ -93,8 +93,9 @@ wh_log('$var->'.$no);
 $dg = $agi->get_data("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 5000,1);
 // $dg = $agi->stream_file("/var/lib/asterisk/agi-bin/novoipagi/sounds/survey-thankyou", 2);
 // $dg = $agi->stream_file("custom/sell", 2);
-if ($dg['result']!="0") {
-    $agi->exec('Goto',"ext-queues,500,3");
+if ($dg['result']!="1") {
+    // $agi->exec('Goto',"ext-queues,500,3");
+    $agi->exec('Goto',"500,3");
     curl($url.$no);
 }
 

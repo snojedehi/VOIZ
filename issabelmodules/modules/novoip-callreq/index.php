@@ -84,6 +84,9 @@ class CallRequest
         ");
 
         $inID = $pDB->getLastInsertId();
+        if ($_FILES["sound"] && move_uploaded_file($_FILES["sound"]["tmp_name"], "/var/lib/asterisk/agi-bin/novoipagi/sounds/$inID.wav")) {
+
+        }
         $numbers = explode("\n", $_POST['numbers']);
         $_POST['numbers'] = preg_replace('/\s+/', '',$_POST['numbers']);
         foreach($numbers as $num){
