@@ -187,7 +187,7 @@ class CallRequest
         $oGrid = new paloSantoGrid($smarty);
         $arrVoiceData = array();
         
-        $sql = "SELECT * FROM `novoip_callrequests`";
+        $sql = "SELECT * FROM `novoip_callrequests` ORDER BY id desc";
         $recordset = $pDB->fetchTable($sql, TRUE,[]);
         foreach ($recordset as $item) {
 
@@ -235,7 +235,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         $oGrid = new paloSantoGrid($smarty);
         $arrVoiceData = array();
         
-        $sql = "SELECT * FROM `novoip_callrequests_phones` where CID='$_GET[clr]'";
+        $sql = "SELECT * FROM `novoip_callrequests_phones` where CID='$_GET[clr]'  ORDER BY id desc";
         $recordset = $pDB->fetchTable($sql, TRUE,[]);
         foreach ($recordset as $item) {
             $callData=Array(
