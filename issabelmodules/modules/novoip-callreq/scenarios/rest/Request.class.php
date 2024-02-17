@@ -96,6 +96,11 @@ class AddRequest extends REST_Resource
 	function HTTP_GET()
     {
     	$json = new Services_JSON();
+        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
+        $pDB = new paloDB($dsnAsteriskCDR);                                   
+        $query= "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueID]'";
+        $result=$pDB->getFirstRowQuery($query, true,array());
+        
         return $json->encode(array(
             'shayan'  =>  'test',
             'hi'  =>  'ok',));
