@@ -71,7 +71,7 @@ class Request
 	$uriObject = NULL;
 	if (count($this->resourcePath) <= 0) {
 		$uriObject = new AddRequest();
-	} elseif (in_array($this->resourcePath[0], array('add', 'update'))) {
+	} elseif (in_array($this->resourcePath[0], array('add', 'update',"get"))) {
 	    switch (array_shift($this->resourcePath)) {
 	    case 'add':
             $uriObject = new AddRequest();
