@@ -8,7 +8,7 @@ var editModal=function(id){
         $("#editPrefix").val(res.prefix)
         $("#editRepeat").val(res.repeat)
         $("#editTrunk").val(res.trunk)
-        $("#editStatus").check(res.status)
+        // $("#editStatus").check(res.status)
         $('#editModal').modal('show')
     })
 
