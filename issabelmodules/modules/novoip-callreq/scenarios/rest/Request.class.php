@@ -79,6 +79,9 @@ class Request
 	    case 'update':
             $uriObject = new UpdateRequest();
 		break;
+        case 'get':
+            $uriObject = new GEtRequest();
+		break;
 	    }
 	}
 	if(count($this->resourcePath) > 0)
@@ -102,6 +105,23 @@ class AddRequest extends REST_Resource
     	$json = new Services_JSON();
         return $json->encode(array(
             'shayan'  =>  'post',
+            'hi'  =>  'ok2',));
+    }
+}
+class GEtRequest extends REST_Resource
+{
+	function HTTP_GET()
+    {
+    	$json = new Services_JSON();
+        return $json->encode(array(
+            'shayan'  =>  'getRequest',
+            'hi'  =>  'ok',));
+    }
+    function HTTP_POST()
+    {
+    	$json = new Services_JSON();
+        return $json->encode(array(
+            'shayan'  =>  'UpdateRequest',
             'hi'  =>  'ok2',));
     }
 }
