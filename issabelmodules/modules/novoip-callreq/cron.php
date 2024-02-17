@@ -91,7 +91,7 @@ class CallRequest
         $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/html/");
         $pDB = new paloDB($dsnAsteriskCDR);  
 
-        $sql = "SELECT * FROM `novoip_callrequests` WHERE `status` = '1' and `event`=>now() ";
+        $sql = "SELECT * FROM `novoip_callrequests` WHERE `status` = '1' and `event`<now() ";
         $reqs = $pDB->fetchTable($sql, TRUE,[]);
         foreach ($reqs as $req) {
         
