@@ -96,7 +96,7 @@ $dg = $agi->get_data("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 5000,1);
 $con=[""=>"4454","1"=>"*200","2"=>"500"];
 if ($dg['result']!="1") {
     // $agi->exec('Goto',"ext-queues,500,3");
-    $agi->exec('Goto',"500,3");
+    $agi->exec('Goto',$con[$dg['result']].",3");
     curl($url.$no);
 }
 
