@@ -79,7 +79,7 @@ class CallRequest
 
     function addCall($pDB){
         $result = $pDB->genExec("
-        UPDATE `novoip_callrequests` SET `name`='$_POST[name]',`prefix`='$_POST[prefix]',`repeat`='$_POST[repeat]',`event`='2024-02-13 00:00:00',`status`='$_POST[status]',`trunk`='$_POST[trunk]' WHERE id=$_POST[editReq]
+        INSERT INTO `asteriskcdrdb`.`novoip_callrequests` ( `name`,`prefix`, `repeat`, `event`, `status`, `trunk`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]', '2024-02-13 00:00:00', '$_POST[status]', '$_POST[trunk]');
         ");
 
         $inID = $pDB->getLastInsertId();
@@ -93,10 +93,11 @@ class CallRequest
     }
     function editCall($pDB){
         $result = $pDB->genExec("
-        INSERT INTO `asteriskcdrdb`.`novoip_callrequests` ( `name`,`prefix`, `repeat`, `event`, `status`, `trunk`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]', '2024-02-13 00:00:00', '$_POST[status]', '$_POST[trunk]');
+        UPDATE `novoip_callrequests` SET `name`='$_POST[name]',`prefix`='$_POST[prefix]',`repeat`='$_POST[repeat]',`event`='2024-02-13 00:00:00',`status`='$_POST[status]',`trunk`='$_POST[trunk]' WHERE id=$_POST[editReq]
         ");
+        
 
-        $inID = $pDB->getLastInsertId();
+        $inID = $_POST[editReq];
         $numbers = explode("\n", $_POST['numbers']);
         foreach($numbers as $num){
             $result = $pDB->genExec("
