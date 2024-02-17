@@ -95,7 +95,7 @@ class CallRequest
         $reqs = $pDB->fetchTable($sql, TRUE,[]);
         foreach ($reqs as $req) {
         
-            $sql = "SELECT * FROM `novoip_callrequests_phones` WHERE `status` = 'wating' and CID=$req->id";
+            $sql = "SELECT * FROM `novoip_callrequests_phones` WHERE `status` = 'wating' and CID=$req[id]";
             $recordset = $pDB->fetchTable($sql, TRUE,[]);
 
             
