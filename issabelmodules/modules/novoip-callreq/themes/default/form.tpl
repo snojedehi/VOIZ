@@ -69,7 +69,7 @@
 
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <form method="post" >
-    <input type="hidden" name="editCall" value="true" />
+    <input type="hidden" name="editReq" id="editReq" value="" />
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -82,28 +82,28 @@
           <div style="max-width:90%">
             <div class="form-group">
               <label for="call-ext">نام</label>
-              <input type="text" name="name" class="form-control" id="call-ext" aria-describedby="call-ext-help">
+              <input type="text" name="name" class="form-control" id="editName" aria-describedby="call-ext-help">
               <small id="call-ext-help" class="form-text text-muted">
               چنانچه شما نیاز  داشتید به شماره های تماس وارد شده، رقم یا ارقامی اضافه گردد می توانید از این گزینه استفاده نمایید
               </small>
             </div>
             <div class="form-group">
               <label for="call-ext">رقم اضافه شونده به شماره ها</label>
-              <input type="text" name="prefix" class="form-control" id="prefix" aria-describedby="prefix-help">
+              <input type="text" name="prefix" class="form-control" id="editPrefix" aria-describedby="prefix-help">
               <small id="call-ext-help" class="form-text text-muted">
               چنانچه شما نیاز  داشتید به شماره های تماس وارد شده، رقم یا ارقامی اضافه گردد می توانید از این گزینه استفاده نمایید
               </small>
             </div>
             <div class="form-group">
               <label for="count-ext">تعداد تکرار فایل صوتی</label>
-              <input type="text" class="form-control" name="repeat" id="count-ext" aria-describedby="count-ext-help">
+              <input type="text" class="form-control" name="repeat" id="editRepeat" aria-describedby="count-ext-help">
               <small id="count-ext-help" class="form-text text-muted">
               فایل صوتی آپلود شده در گروه تماسگیر چند مرتبه برای مخاطب پخش گردد    
               </small>
             </div>
             <div class="form-group" >
               <label for="trunk">ترانک خروجی</label>
-              <select class="form-control" id="trunk" name="trunk">
+              <select class="form-control" id="editTrunk" name="trunk">
                 {foreach from=$trunks item=trunk} 
                 <option value="{$trunk.id}">{$trunk.name}</option>
                 {/foreach}
@@ -114,7 +114,7 @@
               <textarea class="form-control" id="numbers" name="numbers"></textarea>
             </div>
             <div class="form-group form-check ">
-              <input type="checkbox" class="form-check-input" name="status" id="status" checked>
+              <input type="checkbox" class="form-check-input" name="status" id="editStatus" checked>
               <label class="form-check-label" for="exampleCheck1">وضعیت</label>
             </div>
           </div>
