@@ -109,7 +109,7 @@ class CallRequest
                 try{
                 print("$tupla[number]\n");
                 $this->asteriskCallto($astman,array(
-                    "id"=>$tupla['id'],"number"=>$tupla['number']
+                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$req['id'],
                 ),$pDB);
                 sleep(1);
                 } catch (Exception $e) {
