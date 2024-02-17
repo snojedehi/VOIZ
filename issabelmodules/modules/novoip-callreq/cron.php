@@ -90,26 +90,31 @@ class CallRequest
         print_r("hi");
         $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/html/");
         $pDB = new paloDB($dsnAsteriskCDR);  
-        $sql = "SELECT * FROM `novoip_callrequests_phones` WHERE `status` = 'wating'";
-        $recordset = $pDB->fetchTable($sql, TRUE,[]);
-        $tunks=Array();
-        print_r("db");
+
+        $sql = "SELECT * FROM `novoip_callrequests` WHERE `status` = '1' and `event`=>now() ";
+        $reqs = $pDB->fetchTable($sql, TRUE,[]);
+        foreach ($reqs as $req) {
         
-        foreach ($recordset as $tupla) {
-            $astman = $this->_getami();
-            if (is_null($astman)) {
-                print_r("novoip_data", "errror");
-            }else{
-                print_r("novoip_data", "ok");
-            }
-            try{
-            print("$tupla[number]\n");
-            $this->asteriskCallto($astman,array(
-                "id"=>$tupla['id'],"number"=>$tupla['number']
-            ),$pDB);
-            sleep(20);
-             } catch (Exception $e) {
-                break;
+            $sql = "SELECT * FROM `novoip_callrequests_phones` WHERE `status` = 'wating' and CID=$req->id";
+            $recordset = $pDB->fetchTable($sql, TRUE,[]);
+
+            
+            foreach ($recordset as $tupla) {
+                $astman = $this->_getami();
+                if (is_null($astman)) {
+                    print_r("novoip_data", "errror");
+                }else{
+                    print_r("novoip_data", "ok");
+                }
+                try{
+                print("$tupla[number]\n");
+                $this->asteriskCallto($astman,array(
+                    "id"=>$tupla['id'],"number"=>$tupla['number']
+                ),$pDB);
+                sleep(20);
+                } catch (Exception $e) {
+                    break;
+                }
             }
         }
 

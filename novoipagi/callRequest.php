@@ -83,7 +83,7 @@ $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/htm
 wh_log(json_encode($dsnAsteriskCDR));
 $pDB = new paloDB($dsnAsteriskCDR);  
 $result = $pDB->genExec("
-UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = 'down', uniqueID='$uniqueID' WHERE `novoip_callrequests_phones`.`id` = $reqID;
+UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = 'down', uniqueID='$uniqueID',callDate=now() WHERE `novoip_callrequests_phones`.`id` = $reqID;
 ");
 wh_log("
 UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = 'down', uniqueID='$uniqueID' WHERE `novoip_callrequests_phones`.`id` = $reqID;
