@@ -85,10 +85,13 @@ class CallRequest
 
         $inID = $pDB->getLastInsertId();
         $numbers = explode("\n", $_POST['numbers']);
+        $_POST['numbers'] = preg_replace('/\s+/', '',$_POST['numbers']);
         foreach($numbers as $num){
-            $result = $pDB->genExec("
-            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$num', '0', 'wating', '', '', '$inID')
-            ");
+            if($num){
+                $result = $pDB->genExec("
+                INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$num', '0', 'wating', '', '', '$inID')
+                ");
+            }
         }
 
     }
@@ -100,11 +103,14 @@ class CallRequest
         
 
         $inID = $_POST[editReq];
+        $_POST['numbers'] = preg_replace('/\s+/', '',$_POST['numbers']);
         $numbers = explode("\n", $_POST['numbers']);
         foreach($numbers as $num){
-            $result = $pDB->genExec("
-            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$num', '0', 'wating', '', '', '$inID')
-            ");
+            if($num){
+                $result = $pDB->genExec("
+                INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$num', '0', 'wating', '', '', '$inID')
+                ");
+            }
         }
 
     }
