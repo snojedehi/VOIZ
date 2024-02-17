@@ -96,13 +96,9 @@ class AddRequest extends REST_Resource
 	function HTTP_GET()
     {
     	$json = new Services_JSON();
-        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
-        $pDB = new paloDB($dsnAsteriskCDR);                                   
-        $query= "SELECT * FROM `novoip_callrequests_phones` WHERE `id` = $_GET[eid]";
-        $result=$pDB->getFirstRowQuery($query, true,array());
         
         return $json->encode(array(
-            'name'  =>  $result['name'],
+            'name'  =>  "as",
             'hi'  =>  'ok',));
     }
     function HTTP_POST()
@@ -118,8 +114,13 @@ class GEtRequest extends REST_Resource
 	function HTTP_GET()
     {
     	$json = new Services_JSON();
+        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
+        $pDB = new paloDB($dsnAsteriskCDR);                                   
+        $query= "SELECT * FROM `novoip_callrequests_phones` WHERE `id` = $_GET[eid]";
+        $result=$pDB->getFirstRowQuery($query, true,array());
+        
         return $json->encode(array(
-            'shayan'  =>  'getRequest',
+            'shayan'  =>  $result['name'],
             'hi'  =>  'ok',));
     }
     function HTTP_POST()
