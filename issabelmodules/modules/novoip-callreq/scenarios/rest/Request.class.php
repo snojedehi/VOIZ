@@ -98,11 +98,11 @@ class AddRequest extends REST_Resource
     	$json = new Services_JSON();
         $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
         $pDB = new paloDB($dsnAsteriskCDR);                                   
-        $query= "SELECT * FROM `cdr` WHERE `uniqueid`='$item[uniqueID]'";
+        $query= "SELECT * FROM `novoip_callrequests_phones` WHERE `id` = $_GET[eid]";
         $result=$pDB->getFirstRowQuery($query, true,array());
         
         return $json->encode(array(
-            'shayan'  =>  'test',
+            'name'  =>  $result['name'],
             'hi'  =>  'ok',));
     }
     function HTTP_POST()
