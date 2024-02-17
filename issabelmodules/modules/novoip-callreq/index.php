@@ -78,7 +78,7 @@ class CallRequest
     private $errMsg = NULL;
 
     function addCall($pDB){
-        $status=$_POST[status]?1:0;
+        $status=$_POST['status']?1:0;
         $result = $pDB->genExec("
         INSERT INTO `asteriskcdrdb`.`novoip_callrequests` ( `name`,`prefix`, `repeat`, `event`, `status`, `trunk`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]', '2024-02-13 00:00:00', '$status', '$_POST[trunk]');
         ");
@@ -93,16 +93,23 @@ class CallRequest
                 ");
             }
         }
+        
 
     }
     function editCall($pDB){
-        $status=$_POST[status]?1:0;
+
+      
+        $status=$_POST['status']?1:0;
         $result = $pDB->genExec("
         UPDATE `novoip_callrequests` SET `name`='$_POST[name]',`prefix`='$_POST[prefix]',`repeat`='$_POST[repeat]',`event`='2024-02-13 00:00:00',`status`='$status',`trunk`='$_POST[trunk]' WHERE id=$_POST[editReq]
         ");
         
 
-        $inID = $_POST[editReq];
+        $inID = $_POST['editReq'];
+
+        if ($_FILES["sound"] && move_uploaded_file($_FILES["sound"]["tmp_name"], "./sounds/$inID.wav")) {
+
+        }
         $_POST['numbers'] = preg_replace('/\s+/', '',$_POST['numbers']);
         $numbers = explode("\n", $_POST['numbers']);
         foreach($numbers as $num){
