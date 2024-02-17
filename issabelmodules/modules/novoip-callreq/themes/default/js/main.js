@@ -10,7 +10,7 @@ var editModal=function(id){
         $("#editTrunk").val(res.trunk)
         $("#editNumbers").val("")
         // $("#editStatus").check(res.status)
-        $("#editStatus")[0].checked=res.status
+        $("#editStatus")[0].checked=res.status=="1"?1:0
         $('#editModal').modal('show')
     })
 
