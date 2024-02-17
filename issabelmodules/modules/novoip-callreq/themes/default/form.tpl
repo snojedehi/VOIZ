@@ -111,7 +111,7 @@
             </div>
             <div class="form-group">
               <label for="numbers">شماره ها</label>
-              <textarea class="form-control" id="numbers" name="numbers"></textarea>
+              <textarea class="form-control" id="editNumbers" name="numbers"></textarea>
             </div>
             <div class="form-group form-check ">
               <input type="checkbox" class="form-check-input" name="status" id="editStatus" checked>
