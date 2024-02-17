@@ -111,7 +111,7 @@ class CallRequest
                 $this->asteriskCallto($astman,array(
                     "id"=>$tupla['id'],"number"=>$tupla['number']
                 ),$pDB);
-                sleep(20);
+                sleep(1);
                 } catch (Exception $e) {
                     break;
                 }
