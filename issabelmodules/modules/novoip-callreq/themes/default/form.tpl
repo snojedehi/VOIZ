@@ -50,7 +50,7 @@
             </div>
             <div class="form-group">
               <label for="count-ext">صوت</label>
-              <input type="file" class="form-control" name="sound" id="sound" aria-describedby="sound-ext-help">
+              <input type="file" class="form-control-file" name="sound" id="sound" aria-describedby="sound-ext-help">
               <small id="sound-ext-help" class="form-text text-muted">
               </small>
             </div>
@@ -118,7 +118,7 @@
             </div>
             <div class="form-group">
               <label for="count-ext">صوت</label>
-              <input type="file" class="form-control" name="sound" id="sound" aria-describedby="sound-ext-help">
+              <input type="file" class="form-control-file" name="sound" id="sound" aria-describedby="sound-ext-help">
               <small id="sound-ext-help" class="form-text text-muted">
               </small>
             </div>
