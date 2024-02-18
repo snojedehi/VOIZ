@@ -116,7 +116,7 @@ $ac=false;
 
 wh_log('$aaaa'.$des);
 foreach($des as $key=>$val){
-    wh_log('$aaaa');
+    wh_log('$aaaa2');
     $con=[""=>$val->ac,$val=>$val->des];
 }
 wh_log('$dg:' . json_encode($con));
