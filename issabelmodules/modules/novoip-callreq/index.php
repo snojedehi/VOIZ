@@ -62,6 +62,9 @@ function _moduleContent(&$smarty, $module_name)
     if($_GET['clr']){
         $action="clr";
     }
+    if($_GET['del']){
+        $clr->delCall($pDB);
+    }
     switch($action){
         case 'clr':
             $content = $clr->viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB);
@@ -76,6 +79,19 @@ function _moduleContent(&$smarty, $module_name)
 class CallRequest
 {
     private $errMsg = NULL;
+
+    function delCall($pDB){
+
+        
+        $result = $pDB->genExec("
+        delete from `asteriskcdrdb`.`novoip_callrequests` where `id`=$_GET[del];
+        ");
+        $result = $pDB->genExec("
+                delete from `asteriskcdrdb`.`novoip_callrequests_phones` `CID`=$_GET[del];
+                ");
+        
+
+    }
 
     function addCall($pDB){
 
@@ -254,7 +270,7 @@ class CallRequest
             $date_insertDate =$this->gregorian_to_jalali($item['insertDate']);
             $date_event =$this->gregorian_to_jalali($item['event']);
 
-            
+
             $arrVoiceData[] = array("<a href='index.php?menu=novoip-callreq&clr=$item[id]'>$item[id]</a>",$item['name'],$item['callerID'],$item['repeat'],$item['soundRepeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk'],"<a onclick='editModal($item[id])'>edit</a>","<a onclick='deleteItem($item[id])'>delete</a>");
         }
         $oGrid->setData($arrVoiceData);
