@@ -76,9 +76,12 @@ class CallRequest
         'Data'=> [
             'mycode'=> "09122389046",
         ],'variable'=> [
-            'reqID'=>"$data[id]",
-            'number'=> "$data[number]",
-            'cid'=> "$data[cid]",
+            'reqID'=>$data[id],
+            'number'=> $data[number],
+            'cid'=> $data[cid],
+            'repeat'=>$data[repeat],
+            'hook'=>$data[hook],
+            'destination'=>$data[destination],
         ]));
         $result = $pDB->genExec("
         UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `repeat` = `repeat`+1 WHERE `novoip_callrequests_phones`.`id` = $data[id];
@@ -110,7 +113,7 @@ class CallRequest
                 try{
                 print("$tupla[number]\n");
                 $this->asteriskCallto($astman,array(
-                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$tupla['CID'],
+                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$tupla['CID'],"repeat"=>$tupla['soundRepeat'],"hook"=>$tupla['hook'],'destination'=>json_decode($tupla['destination']),
                 ),$pDB);
                 sleep(1);
                 } catch (Exception $e) {
