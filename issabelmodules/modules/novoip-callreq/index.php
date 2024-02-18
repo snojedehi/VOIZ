@@ -93,7 +93,7 @@ class CallRequest
 
         $status=$_POST['status']?1:0;
         $result = $pDB->genExec("
-        INSERT INTO `asteriskcdrdb`.`novoip_callrequests` ( `name`,`prefix`, `repeat`,`soundRepeat`, `event`, `status`, `trunk`,`hook`,`destination`,`callerID`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]','$_POST[soundRepeat]', '2024-02-13 00:00:00', '$status', '$_POST[trunk]', '$_POST[hook]','$con','$_POST[callerID]');
+        INSERT INTO `asteriskcdrdb`.`novoip_callrequests` ( `name`,`prefix`, `repeat`,`soundRepeat`, `event`, `status`, `trunk`,`hook`,`destination`,`callerID`,`reqNum`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]','$_POST[soundRepeat]', '2024-02-13 00:00:00', '$status', '$_POST[trunk]', '$_POST[hook]','$con','$_POST[callerID]','$_POST[reqNum]');
         ");
 
         $inID = $pDB->getLastInsertId();
@@ -128,7 +128,7 @@ class CallRequest
             $con=json_encode($con);
         }
         $result = $pDB->genExec("
-        UPDATE `novoip_callrequests` SET `name`='$_POST[name]',`prefix`='$_POST[prefix]',`repeat`='$_POST[repeat]',`soundRepeat`='$_POST[soundRepeat]',`event`='2024-02-13 00:00:00',`status`='$status',`trunk`='$_POST[trunk]',`hook`='$_POST[hook]',`destination`='$con',`callerID`='$_POST[callerID]' WHERE id=$_POST[editReq]
+        UPDATE `novoip_callrequests` SET `name`='$_POST[name]',`prefix`='$_POST[prefix]',`repeat`='$_POST[repeat]',`soundRepeat`='$_POST[soundRepeat]',`event`='2024-02-13 00:00:00',`status`='$status',`trunk`='$_POST[trunk]',`hook`='$_POST[hook]',`destination`='$con',`callerID`='$_POST[callerID]',`reqNum`='$_POST[reqNum]' WHERE id=$_POST[editReq]
         ");
        
         $inID = $_POST['editReq'];

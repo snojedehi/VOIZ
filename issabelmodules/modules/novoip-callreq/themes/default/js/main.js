@@ -11,7 +11,7 @@ var editModal=function(id){
         $("#editTrunk").val(res.trunk)
         $("#editHook").val(res.hook)
         $("#editCallerID").val(res.callerID)
-        
+        $("#editReqNum").val(res.reqNum)
         $("#editNumbers").val("")
         for(l in res.destination){
             $("#inp").val(res.destination[l]["ac"])

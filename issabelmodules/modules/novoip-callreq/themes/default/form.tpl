@@ -42,6 +42,12 @@
                 </small>
               </div>
               <div class="form-group">
+                <label for="count-ext">تعداد تماس هم زمان</label>
+                <input type="text" class="form-control" name="reqNum" id="editReqNum" aria-describedby="reqNum-help">
+                <small id="reqNum-help" class="form-text text-muted">
+                </small>
+              </div>
+              <div class="form-group">
                 <label for="count-ext">تعداد تکرار تماس</label>
                 <input type="text" class="form-control" name="repeat" id="repeat" aria-describedby="count-ext-help">
                 <small id="count-ext-help" class="form-text text-muted">
@@ -144,6 +150,12 @@
                 <small id="call-ext-help" class="form-text text-muted">
                   چنانچه شما نیاز داشتید به شماره های تماس وارد شده، رقم یا ارقامی اضافه گردد می توانید از این گزینه
                   استفاده نمایید
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="count-ext">تعداد تماس هم زمان</label>
+                <input type="text" class="form-control" name="reqNum" id="editReqNum" aria-describedby="reqNum-help">
+                <small id="reqNum-help" class="form-text text-muted">
                 </small>
               </div>
               <div class="form-group">
