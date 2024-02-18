@@ -133,20 +133,21 @@
               <textarea class="form-control" id="editNumbers" name="numbers"></textarea>
             </div>
             <div class="form-group">
-              <label for="call-ext">آدرس هوک:</label>
-              <input type="text" name="hook" class="form-control" id="editHook" aria-describedby="name-help">
-              <small id="name-help" class="form-text text-muted">
-              پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
-              </small>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputCity">ورودی</label>
-                <input type="text" class="form-control" name="inp[]">
+                <label for="call-ext">آدرس هوک:</label>
+                <input type="text" name="hook" class="form-control" id="editHook" aria-describedby="name-help">
+                <small id="name-help" class="form-text text-muted">
+                پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
+                </small>
               </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">مقصد</label>
-                <input type="text" class="form-control" name="des[]">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputCity">ورودی</label>
+                  <input type="text" class="form-control" name="inp[]">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputState">مقصد</label>
+                  <input type="text" class="form-control" name="des[]">
+                </div>
               </div>
             </div>
             <div class="form-group form-check ">
