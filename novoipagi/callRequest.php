@@ -80,6 +80,10 @@ $variableValue = $agi->get_variable('cid');
 $CID=$variableValue['data'];
 wh_log("CID".$CID);
 
+$variableValue = $agi->get_variable('repeat');
+$repeat=$variableValue['data'];
+wh_log("repeat".$repeat);
+
 $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb","/var/www/html/");
 $pDB = new paloDB($dsnAsteriskCDR);  
 $result = $pDB->genExec("
