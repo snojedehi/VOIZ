@@ -148,7 +148,7 @@
                   پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
                 </small>
               </div>
-              <div class="form-row">
+              <div class="row">
                 <div class="form-group col-md-6">
                   <label for="inputCity">ورودی</label>
                   <input type="text" class="form-control" name="inp[]">
@@ -158,6 +158,7 @@
                   <input type="text" class="form-control" name="des[]">
                 </div>
               </div>
+
             </div>
           </div>
           <div class="modal-footer">
