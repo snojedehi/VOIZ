@@ -80,7 +80,7 @@ $variableValue = $agi->get_variable('reqID');
 $reqID=$variableValue['data'];
 
 $variableValue = $agi->get_variable('destination');
-$des=$variableValue['data'];
+$des=json_decode($variableValue['data']);
 
 
 $variableValue = $agi->get_variable('number');
