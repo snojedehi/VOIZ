@@ -43,7 +43,7 @@
               </div>
               <div class="form-group">
                 <label for="count-ext">تعداد تماس هم زمان</label>
-                <input type="text" class="form-control" name="reqNum" id="editReqNum" aria-describedby="reqNum-help">
+                <input type="text" class="form-control" name="reqNum" id="ReqNum" aria-describedby="reqNum-help">
                 <small id="reqNum-help" class="form-text text-muted">
                 </small>
               </div>
