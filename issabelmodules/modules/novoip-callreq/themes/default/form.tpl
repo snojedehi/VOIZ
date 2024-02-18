@@ -65,13 +65,6 @@
                 </small>
               </div>
               <div class="form-group">
-                <label for="count-ext">تعداد تکرار فایل صوتی</label>
-                <input type="text" class="form-control" name="soundRepeat" id="soundRepeat" aria-describedby="count-ext-help">
-                <small id="count-ext-help" class="form-text text-muted">
-                  فایل صوتی آپلود شده در گروه تماسگیر چند مرتبه برای مخاطب پخش گردد
-                </small>
-              </div>
-              <div class="form-group">
                 <label for="numbers">شماره ها</label>
                 <textarea class="form-control" id="numbers" name="numbers"></textarea>
               </div>
