@@ -63,7 +63,7 @@ class CallRequest
             }
             return $astman;
         }
-        
+
     private function asteriskCallto($asm,$data,$pDB)
     {
         print_r($data);
@@ -114,7 +114,7 @@ class CallRequest
                 try{
                 print("$tupla[number]\n");
                 $this->asteriskCallto($astman,array(
-                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$tupla['CID'],"repeat"=>$req['soundRepeat'],"hook"=>$req['hook'],'destination'=>json_decode($req['destination']),
+                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$tupla['CID'],"repeat"=>$req['soundRepeat'],"hook"=>$req['hook'],'destination'=>$req['destination'],
                 ),$pDB);
                 sleep(1);
                 } catch (Exception $e) {
