@@ -81,8 +81,8 @@ $reqID=$variableValue['data'];
 
 $variableValue = $agi->get_variable('destination');
 
-$des=json_decode($variableValue['data']);
-wh_log("destination".$variableValue['data']);
+$des=$variableValue['data'];
+wh_log("destination".$variableValue['data']["1"]);
 
 
 $variableValue = $agi->get_variable('number');
@@ -114,7 +114,7 @@ $i=0;
 $ac=false;
 
 
-wh_log('$aaaa',$des);
+wh_log('$aaaa'.$des);
 foreach($des as $key=>$val){
     wh_log('$aaaa');
     $con=[""=>"$val",$key=>$val];
