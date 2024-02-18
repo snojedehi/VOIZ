@@ -129,6 +129,7 @@ class GEtRequest extends REST_Resource
             'status'  =>  $result["status"],
             'trunk'  =>  $result["trunk"],
             'hook'  =>  $result["hook"],
+            'callerID'=>$result['callerID'],
             'destination'=>json_decode($result['destination'])
             ));
     }
