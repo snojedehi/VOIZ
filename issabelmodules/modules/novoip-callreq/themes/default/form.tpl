@@ -143,8 +143,8 @@
               </div>
               <div class="form-group">
                 <label for="editHook">آدرس هوک:</label>
-                <input type="text" name="hook" class="form-control" id="editHook" aria-describedby="name-help" />
-                <small id="name-help" class="form-text text-muted">
+                <input type="text" name="hook" class="form-control" id="editHook" aria-describedby="hook-help" />
+                <small id="hook-help" class="form-text text-muted">
                   پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
                 </small>
               </div>

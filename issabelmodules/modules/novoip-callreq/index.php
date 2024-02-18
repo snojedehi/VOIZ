@@ -103,10 +103,15 @@ class CallRequest
 
       
         $status=$_POST['status']?1:0;
+        $con=Array();
+        foreach($_POST["inp[]"] as $key=>$val ){
+            $con[$val]=[$_POST["inp[]"][$key]];
+        }
+        $con=json_encode($con);
         $result = $pDB->genExec("
-        UPDATE `novoip_callrequests` SET `name`='$_POST[name]',`prefix`='$_POST[prefix]',`repeat`='$_POST[repeat]',`event`='2024-02-13 00:00:00',`status`='$status',`trunk`='$_POST[trunk]',`hook`='$_POST[hook]' WHERE id=$_POST[editReq]
+        UPDATE `novoip_callrequests` SET `name`='$_POST[name]',`prefix`='$_POST[prefix]',`repeat`='$_POST[repeat]',`event`='2024-02-13 00:00:00',`status`='$status',`trunk`='$_POST[trunk]',`hook`='$_POST[hook]',`destination`='$con' WHERE id=$_POST[editReq]
         ");
-        
+       
 
         $inID = $_POST['editReq'];
 
