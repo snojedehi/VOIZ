@@ -139,20 +139,15 @@
               پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
               </small>
             </div>
-            <div class="form-group">
-              <label for="call-ext" class="col-xs-12">مقصد:</label>
-              <div class="row">
-                <div class="col-xs-4">
-                  <input type="text" name="inp[]" class="form-control"  aria-describedby="des-help">
-                </div>
-                <div  class="col-xs-8">
-                  <input type="text" name="des[]" class="form-control"  aria-describedby="des-help">
-                </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">ورودی</label>
+                <input type="text" class="form-control" name="inp[]">
               </div>
-              
-              <small id="des-help" class="form-text text-muted col-xs-12">
-              کلیدی که کاربر باید وارد کند
-              </small>
+              <div class="form-group col-md-4">
+                <label for="inputState">مقصد</label>
+                <input type="text" class="form-control" name="des[]">
+              </div>
             </div>
             <div class="form-group form-check ">
               <input type="checkbox" class="form-check-input" name="status" id="editStatus" checked>
