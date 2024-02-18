@@ -70,7 +70,7 @@ class CallRequest
         $call = $asm->send_request('Originate',
         array('channel'=> "SIP/mokhaberat/$data[number]",
         'exten'=> "7002",
-        'CallerID'=> "$data[callerID]",
+        'CallerID'=> $data['callerID'],
         'context'=> 'from-internal',
         'priority'=> 1,
         'async'=> true,
@@ -114,7 +114,7 @@ class CallRequest
                 try{
                 print("$tupla[number]\n");
                 $this->asteriskCallto($astman,array(
-                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$tupla['CID'],"repeat"=>$req['soundRepeat'],"hook"=>$req['hook'],'destination'=>$req['destination'],
+                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$tupla['CID'],"repeat"=>$req['soundRepeat'],"hook"=>$req['hook'],'destination'=>$req['destination'],'callerID'=>$req['callerID'],
                 ),$pDB);
                 sleep(1);
                 } catch (Exception $e) {
