@@ -23,3 +23,9 @@ var editModal=function(id){
         $('#editModal').modal('show')
     })
 }
+var deleteItem=function(id){
+    var cr=confirm("آیا این آیتم حذف شود؟")
+    if(cr){
+        document.location.href="/index.php?menu=novoip-callreq&del="+id
+    }
+}
