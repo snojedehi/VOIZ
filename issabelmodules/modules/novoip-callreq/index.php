@@ -254,6 +254,7 @@ class CallRequest
             $date_insertDate =$this->gregorian_to_jalali($item['insertDate']);
             $date_event =$this->gregorian_to_jalali($item['event']);
 
+            
             $arrVoiceData[] = array("<a href='index.php?menu=novoip-callreq&clr=$item[id]'>$item[id]</a>",$item['name'],$item['callerID'],$item['repeat'],$item['soundRepeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk'],"<a onclick='editModal($item[id])'>edit</a>","<a onclick='deleteItem($item[id])'>delete</a>");
         }
         $oGrid->setData($arrVoiceData);
