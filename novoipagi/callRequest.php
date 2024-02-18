@@ -107,7 +107,7 @@ wh_log('$var->'.$no);
 $i=0;
 $ac=false;
 
-while($i<$repeat || !$ac){
+while($i<$repeat && !$ac){
     $dg = $agi->get_data("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 5000,1);
     $con=[""=>"4454","1"=>"*200","2"=>"500"];
     if ($dg['result']!="1") {
