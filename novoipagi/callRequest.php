@@ -117,7 +117,7 @@ $i=0;
 
 
 
-$con=[""=>$des,number($action)=>$des];
+$con=[""=>$des,$actions=>$des];
 $ac=false;
 wh_log('$dg:' . json_encode($con));
 while($i<$repeat && !$ac){
