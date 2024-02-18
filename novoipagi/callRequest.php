@@ -117,7 +117,7 @@ $ac=false;
 
 
 
-$con=[""=>$des,"$ac"=>$des];
+$con=[""=>$des,$ac=>$des,"3"=>"44"];
 
 wh_log('$dg:' . json_encode($con));
 while($i<$repeat && !$ac){
