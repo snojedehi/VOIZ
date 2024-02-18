@@ -83,7 +83,10 @@ class CallRequest
         if($_POST["des"]){
             $con=Array();
             foreach($_POST["inp"] as $key=>$val ){
-                $con[$val]=$_POST["des"][$key];
+                $con[$val]=Array(
+                    "ac"=>$val,
+                    "des"=>$_POST["des"][$key]
+                );
             }
             $con=json_encode($con);
         }
@@ -117,7 +120,10 @@ class CallRequest
         if($_POST["des"]){
             $con=Array();
             foreach($_POST["inp"] as $key=>$val ){
-                $con[$val]=$_POST["des"][$key];
+                $con[$val]=Array(
+                    "ac"=>$val,
+                    "des"=>$_POST["des"][$key]
+                );
             }
             $con=json_encode($con);
         }
