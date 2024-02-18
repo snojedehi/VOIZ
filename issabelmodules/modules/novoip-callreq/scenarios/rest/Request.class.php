@@ -124,6 +124,7 @@ class GEtRequest extends REST_Resource
             'name'  =>  $result["name"],
             'prefix'  =>  $result["prefix"],
             'repeat'  =>  $result["repeat"],
+            'soundRepeat'=>$result["soundRepeat"],
             'event'  =>  $result["event"],
             'status'  =>  $result["status"],
             'trunk'  =>  $result["trunk"],

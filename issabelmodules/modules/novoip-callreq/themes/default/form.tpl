@@ -54,6 +54,14 @@
                 <label for="count-ext">صوت</label>
                 <input type="file" class="form-control-file" name="sound" id="sound" aria-describedby="sound-ext-help">
                 <small id="sound-ext-help" class="form-text text-muted">
+                درصورت پاسخگو نبودن چندبار مجدد تماس گرفته شود
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="count-ext">تعداد تکرار فایل صوتی</label>
+                <input type="text" class="form-control" name="soundRepeat" id="soundRepeat" aria-describedby="count-ext-help">
+                <small id="count-ext-help" class="form-text text-muted">
+                  فایل صوتی آپلود شده در گروه تماسگیر چند مرتبه برای مخاطب پخش گردد
                 </small>
               </div>
               <div class="form-group">
@@ -116,8 +124,15 @@
                 </small>
               </div>
               <div class="form-group">
-                <label for="count-ext">تعداد تکرار فایل صوتی</label>
+                <label for="count-ext">تعداد تکرار تماس</label>
                 <input type="text" class="form-control" name="repeat" id="editRepeat" aria-describedby="count-ext-help">
+                <small id="count-ext-help" class="form-text text-muted">
+                 درصورت پاسخگو نبودن چندبار مجدد تماس گرفته شود
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="count-ext">تعداد تکرار فایل صوتی</label>
+                <input type="text" class="form-control" name="soundRepeat" id="editSoundRepeat" aria-describedby="count-ext-help">
                 <small id="count-ext-help" class="form-text text-muted">
                   فایل صوتی آپلود شده در گروه تماسگیر چند مرتبه برای مخاطب پخش گردد
                 </small>

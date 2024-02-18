@@ -7,6 +7,7 @@ var editModal=function(id){
         $("#editName").val(res.name)
         $("#editPrefix").val(res.prefix)
         $("#editRepeat").val(res.repeat)
+        $("#editSoundRepeat").val(res.soundRepeat)
         $("#editTrunk").val(res.trunk)
         $("#editHook").val(res.hook)
         $("#editNumbers").val("")
