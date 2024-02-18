@@ -8,6 +8,7 @@ var editModal=function(id){
         $("#editPrefix").val(res.prefix)
         $("#editRepeat").val(res.repeat)
         $("#editTrunk").val(res.trunk)
+        $("#editHook").val(res.hook)
         $("#editNumbers").val("")
         // $("#editStatus").check(res.status)
         $("#editStatus")[0].checked=res.status=="1"?1:0

@@ -58,7 +58,13 @@
               <label for="numbers">شماره ها</label>
               <textarea class="form-control" id="numbers" name="numbers"></textarea>
             </div>
-
+            <div class="form-group">
+              <label for="call-ext">آدرس هوک:</label>
+              <input type="text" name="hook" class="form-control" id="hook" aria-describedby="name-help">
+              <small id="name-help" class="form-text text-muted">
+              پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
+              </small>
+            </div>
             <div class="form-group form-check ">
               <input type="checkbox" class="form-check-input" name="status" id="status" checked>
               <label class="form-check-label" for="exampleCheck1">وضعیت</label>
@@ -118,13 +124,20 @@
             </div>
             <div class="form-group">
               <label for="count-ext">صوت</label>
-              <input type="file" class="form-control-file" name="sound" id="sound" aria-describedby="sound-ext-help">
+              <input type="file" class="form-control-file" name="sound" id="editSound" aria-describedby="sound-ext-help">
               <small id="sound-ext-help" class="form-text text-muted">
               </small>
             </div>
             <div class="form-group">
               <label for="numbers">شماره ها</label>
               <textarea class="form-control" id="editNumbers" name="numbers"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="call-ext">آدرس هوک:</label>
+              <input type="text" name="hook" class="form-control" id="editHook" aria-describedby="name-help">
+              <small id="name-help" class="form-text text-muted">
+              پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
+              </small>
             </div>
             <div class="form-group form-check ">
               <input type="checkbox" class="form-check-input" name="status" id="editStatus" checked>
