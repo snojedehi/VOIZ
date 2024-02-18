@@ -105,7 +105,7 @@ class CallRequest
         $status=$_POST['status']?1:0;
         $con=Array();
         foreach($_POST["inp"] as $key=>$val ){
-            $con[$val]=[$_POST["des"][$key]];
+            $con[$val]=$_POST["des"][$key];
         }
         $con=json_encode($con);
         $result = $pDB->genExec("
