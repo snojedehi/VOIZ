@@ -119,6 +119,7 @@ while($i<$repeat || !$ac){
 }
 if($hook){
     curl(sprintf($hook,$number,$dg['result']));
+    wh_log('hook:' .sprintf($hook,$number,$dg['result']));
 }
 
 wh_log('$cn:' . $con[$dg['result']]);
