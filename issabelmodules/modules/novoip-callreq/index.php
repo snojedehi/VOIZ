@@ -112,7 +112,6 @@ class CallRequest
         UPDATE `novoip_callrequests` SET `name`='$_POST[name]',`prefix`='$_POST[prefix]',`repeat`='$_POST[repeat]',`soundRepeat`='$_POST[soundRepeat]',`event`='2024-02-13 00:00:00',`status`='$status',`trunk`='$_POST[trunk]',`hook`='$_POST[hook]',`destination`='$con' WHERE id=$_POST[editReq]
         ");
        
-
         $inID = $_POST['editReq'];
 
         if ($_FILES["sound"] && move_uploaded_file($_FILES["sound"]["tmp_name"], "/var/lib/asterisk/agi-bin/novoipagi/sounds/$inID.wav")) {
