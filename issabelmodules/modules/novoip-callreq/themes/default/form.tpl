@@ -140,16 +140,16 @@
               </small>
             </div>
             <div class="form-group">
-              <label for="call-ext">مقصد:</label>
+              <label for="call-ext" class="col-xs-12">مقصد:</label>
               <div class="row">
-                <div class="col-sm-4">
+                <div class="col-xs-4">
                   <input type="text" name="inp[]" class="form-control"  aria-describedby="des-help">
                 </div>
-                <div  class="col-sm-8">
+                <div  class="col-xs-8">
                   <input type="text" name="des[]" class="form-control"  aria-describedby="des-help">
                 </div>
               </div>
-              <small id="des-help" class="form-text text-muted">
+              <small id="des-help" class="form-text text-muted col-xs-12">
               کلیدی که کاربر باید وارد کند
               </small>
             </div>
