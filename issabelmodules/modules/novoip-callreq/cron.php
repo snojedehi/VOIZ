@@ -84,7 +84,7 @@ class CallRequest
             'hook'=>$data['hook'],
             'ac'=>$data['ac'],
             'des'=>$data['des'],
-            'destination'=>$data['destination'],
+            // 'destination'=>$data['destination'],
         ]));
         $result = $pDB->genExec("
         UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `repeat` = `repeat`+1 WHERE `novoip_callrequests_phones`.`id` = $data[id];
