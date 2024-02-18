@@ -22,5 +22,4 @@ var editModal=function(id){
         $("#editStatus")[0].checked=res.status=="1"?1:0
         $('#editModal').modal('show')
     })
-
 }
