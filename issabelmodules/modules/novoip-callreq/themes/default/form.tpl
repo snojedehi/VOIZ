@@ -75,6 +75,16 @@
                   پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
                 </small>
               </div>
+              <div class="row">
+              <div class="form-group">
+                <label >ورودی</label>
+                <input type="text" class="form-control" name="inp[]"/>
+              </div>
+              <div class="form-group">
+                <label>مقصد</label>
+                <input type="text" class="form-control" name="des[]" />
+              </div>
+            </div>
               <div class="form-group form-check ">
                 <input type="checkbox" class="form-check-input" name="status" id="status" checked>
                 <label class="form-check-label" for="exampleCheck1">وضعیت</label>
