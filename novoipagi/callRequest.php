@@ -79,12 +79,13 @@ if ($cdrID['result'] == 1) {
 $variableValue = $agi->get_variable('reqID');
 $reqID=$variableValue['data'];
 
-$variableValue = $agi->get_variable('destination');
+$variableValue = $agi->get_variable('ac');
+$ac=json_decode($variableValue['data']);
+wh_log("destination".$ac);
 
+$variableValue = $agi->get_variable('des');
 $des=json_decode($variableValue['data']);
-wh_log("destination".$variableValue['data'][0]);
-wh_log("des".$des[0]);
-
+wh_log("destination".$des);
 
 $variableValue = $agi->get_variable('number');
 $number=$variableValue['data'];
@@ -115,11 +116,9 @@ $i=0;
 $ac=false;
 
 
-wh_log('$aaaa'.$des);
-foreach($des as $key=>$val){
-    wh_log('$aaaa2');
-    $con=[""=>$val->ac,$val=>$val->des];
-}
+
+$con=[""=>$des,"$ac"=>$des];
+
 wh_log('$dg:' . json_encode($con));
 while($i<$repeat && !$ac){
     $dg = $agi->get_data("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 5000,1);

@@ -14,8 +14,8 @@ var editModal=function(id){
         
         $("#editNumbers").val("")
         for(l in res.destination){
-            $("#inp").val(l)
-            $("#des").val(res.destination[l])
+            $("#inp").val(res.destination[l]["ac"])
+            $("#des").val(res.destination[l]["des"])
             
         }
         // $("#editStatus").check(res.status)

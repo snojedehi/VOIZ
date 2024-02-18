@@ -82,6 +82,8 @@ class CallRequest
             'cid'=> $data['cid'],
             'repeat'=>$data['repeat'],
             'hook'=>$data['hook'],
+            'ac'=>$data['ac'],
+            'des'=>$data['des'],
             'destination'=>$data['destination'],
         ]));
         $result = $pDB->genExec("
@@ -113,8 +115,9 @@ class CallRequest
                 }
                 try{
                 print("$tupla[number]\n");
+                $des=(json_decode($req['destination']))[0];
                 $this->asteriskCallto($astman,array(
-                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$tupla['CID'],"repeat"=>$req['soundRepeat'],"hook"=>$req['hook'],'destination'=>json_encode(json_decode($req['destination'])),'callerID'=>$req['callerID'],
+                    "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$tupla['CID'],"repeat"=>$req['soundRepeat'],"hook"=>$req['hook'],'des'=>$des["des"],"ac"=>$des["ac"],'callerID'=>$req['callerID'],
                 ),$pDB);
                 sleep(1);
                 } catch (Exception $e) {
