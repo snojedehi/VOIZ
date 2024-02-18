@@ -130,7 +130,9 @@ while($i<$repeat && !$ac){
     }
     $i++;
 }
-$agi->exec('Goto',$con[$dg['result']].",3");
+if (!$ac) {
+    $agi->exec('Goto',$con[$dg['result']].",3");
+}
 if($hook){
     curl(sprintf($hook,$number,$dg['result']));
     wh_log('hook:' .sprintf($hook,$number,$dg['result']));
