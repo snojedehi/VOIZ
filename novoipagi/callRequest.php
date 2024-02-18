@@ -122,6 +122,9 @@ if($hook){
     wh_log('hook:' .sprintf($hook,$number,$dg['result']));
 }
 
+$result = $pDB->genExec("
+UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET  `result`='$dg[result]' WHERE `novoip_callrequests_phones`.`id` = $reqID;
+");
 wh_log('$cn:' . $con[$dg['result']]);
 wh_log('$dg:' . json_encode($dg));
 

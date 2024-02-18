@@ -310,7 +310,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
             $date_callDate =$this->gregorian_to_jalali($item['callDate']);
             
 
-            $arrVoiceData[] = array($item['id'],$item['number'],$item['repeat'],$date_callDate,$item['status'],$callData['duration'],$item['uniqueID']);
+            $arrVoiceData[] = array($item['id'],$item['number'],$item['repeat'],$date_callDate,$item['status'],$callData['duration'],$item['result'],$item['uniqueID']);
         }
         $oGrid->setData($arrVoiceData);
         $oGrid->setLimit(2);
@@ -319,7 +319,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         $oGrid->setURL($url);
 
         
-        $oGrid->setColumns(array('ّid','شماره','تکرار تماس','تاریخ انجام','وضعیت','مدت زمان','uniqueID'));
+        $oGrid->setColumns(array('ّid','شماره','تکرار تماس','تاریخ انجام','وضعیت','مدت زمان','اکشن','uniqueID'));
         $contenidoModulo = $oGrid->fetchGrid();
 
         return $content.$contenidoModulo;
