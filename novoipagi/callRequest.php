@@ -117,19 +117,20 @@ $i=0;
 
 
 
-$con=[""=>$des,$actions=>$des];
+$con=[""=>$des,$action=>$des];
 $ac=false;
 wh_log('$dg:' . json_encode($con));
 while($i<$repeat && !$ac){
     $dg = $agi->get_data("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 5000,1);
     
-    if ($dg['result'] || $dg['result']=="") {
+    if ($dg['result'] ) {
         // $agi->exec('Goto',"ext-queues,500,3");
         $agi->exec('Goto',$con[$dg['result']].",3");
         $ac=true;
     }
     $i++;
 }
+$agi->exec('Goto',$con[$dg['result']].",3");
 if($hook){
     curl(sprintf($hook,$number,$dg['result']));
     wh_log('hook:' .sprintf($hook,$number,$dg['result']));
