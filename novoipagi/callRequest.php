@@ -121,7 +121,7 @@ if($hook){
     curl(sprintf($hook,$number,$dg['result']));
     wh_log('hook:' .sprintf($hook,$number,$dg['result']));
 }
-
+$dg['result']=$dg['result']?$dg['result']:"t";
 $result = $pDB->genExec("
 UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET  `result`='$dg[result]' WHERE `novoip_callrequests_phones`.`id` = $reqID;
 ");
