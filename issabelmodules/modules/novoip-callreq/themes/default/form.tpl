@@ -149,6 +149,7 @@
                   <input type="text" name="des[]" class="form-control"  aria-describedby="des-help">
                 </div>
               </div>
+              
               <small id="des-help" class="form-text text-muted col-xs-12">
               کلیدی که کاربر باید وارد کند
               </small>
