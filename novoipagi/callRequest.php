@@ -80,8 +80,8 @@ $variableValue = $agi->get_variable('reqID');
 $reqID=$variableValue['data'];
 
 $variableValue = $agi->get_variable('ac');
-$ac=json_decode($variableValue['data']);
-wh_log("destination".$ac);
+$action=json_decode($variableValue['data']);
+wh_log("destination".$action);
 
 $variableValue = $agi->get_variable('des');
 $des=json_decode($variableValue['data']);
@@ -113,12 +113,12 @@ $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non num
 wh_log('$var->'.$no);
 
 $i=0;
+
+
+
+
+$con=[""=>$des,$action=>$des,"3"=>"44"];
 $ac=false;
-
-
-
-$con=[""=>$des,$ac=>$des,"3"=>"44"];
-
 wh_log('$dg:' . json_encode($con));
 while($i<$repeat && !$ac){
     $dg = $agi->get_data("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 5000,1);
