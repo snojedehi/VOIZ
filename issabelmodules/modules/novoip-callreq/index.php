@@ -235,7 +235,7 @@ class CallRequest
             $date_insertDate =$this->gregorian_to_jalali($item['insertDate']);
             $date_event =$this->gregorian_to_jalali($item['event']);
 
-            $arrVoiceData[] = array("<a href='index.php?menu=novoip-callreq&clr=$item[id]'>$item[id]</a>",$item['name'],$item['repeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk'],"<a onclick='editModal($item[id])'>edit</a>");
+            $arrVoiceData[] = array("<a href='index.php?menu=novoip-callreq&clr=$item[id]'>$item[id]</a>",$item['name'],$item['repeat'],$item['soundRepeat'],$item['perfix'],$date_insertDate,$date_event,$item['status'],$item['trunk'],"<a onclick='editModal($item[id])'>edit</a>");
         }
         $oGrid->setData($arrVoiceData);
         $oGrid->setLimit(2);
@@ -244,7 +244,7 @@ class CallRequest
         $oGrid->setURL($url);
 
         
-        $oGrid->setColumns(array('ّid','نام','تکرار','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک',''));
+        $oGrid->setColumns(array('ّid','نام','تکرار','تکرار صدا','پیشوند','تاریخ ثبت','اجرا','وضعیت','ترانک',''));
         $contenidoModulo = $oGrid->fetchGrid();
 
         return $content.$contenidoModulo;
@@ -297,7 +297,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
             $date_callDate =$this->gregorian_to_jalali($item['callDate']);
             
 
-            $arrVoiceData[] = array($item['id'],$item['number'],$item['repeat'],$item['soundRepeat'],$date_callDate,$item['status'],$callData['duration'],$item['uniqueID']);
+            $arrVoiceData[] = array($item['id'],$item['number'],$item['repeat'],$date_callDate,$item['status'],$callData['duration'],$item['uniqueID']);
         }
         $oGrid->setData($arrVoiceData);
         $oGrid->setLimit(2);
@@ -306,7 +306,7 @@ function viewNumbers($smarty, $module_name, $local_templates_dir, $arrConf,$pDB)
         $oGrid->setURL($url);
 
         
-        $oGrid->setColumns(array('ّid','شماره','تکرار تماس','تکرار صدا','تاریخ انجام','وضعیت','مدت زمان','uniqueID'));
+        $oGrid->setColumns(array('ّid','شماره','تکرار تماس','تاریخ انجام','وضعیت','مدت زمان','uniqueID'));
         $contenidoModulo = $oGrid->fetchGrid();
 
         return $content.$contenidoModulo;
