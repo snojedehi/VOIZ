@@ -138,18 +138,18 @@
                 <small id="name-help" class="form-text text-muted">
                 پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
                 </small>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">ورودی</label>
+                <input type="text" class="form-control" name="inp[]">
               </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputCity">ورودی</label>
-                  <input type="text" class="form-control" name="inp[]">
-                </div>
-                <div class="form-group col-md-4">
+              <div class="form-group col-md-6">
                   <label for="inputState">مقصد</label>
                   <input type="text" class="form-control" name="des[]">
-                </div>
               </div>
             </div>
+            
             <div class="form-group form-check ">
               <input type="checkbox" class="form-check-input" name="status" id="editStatus" checked>
               <label class="form-check-label" for="exampleCheck1">وضعیت</label>
