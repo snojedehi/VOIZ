@@ -78,9 +78,19 @@ class CallRequest
     private $errMsg = NULL;
 
     function addCall($pDB){
+
+        $con="";
+        if($_POST["des"]){
+            $con=Array();
+            foreach($_POST["inp"] as $key=>$val ){
+                $con[$val]=$_POST["des"][$key];
+            }
+            $con=json_encode($con);
+        }
+
         $status=$_POST['status']?1:0;
         $result = $pDB->genExec("
-        INSERT INTO `asteriskcdrdb`.`novoip_callrequests` ( `name`,`prefix`, `repeat`,`soundRepeat`, `event`, `status`, `trunk`,`hook`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]','$_POST[soundRepeat]', '2024-02-13 00:00:00', '$status', '$_POST[trunk]', '$_POST[hook]');
+        INSERT INTO `asteriskcdrdb`.`novoip_callrequests` ( `name`,`prefix`, `repeat`,`soundRepeat`, `event`, `status`, `trunk`,`hook`,`destination`) VALUES (' $_POST[name]','$_POST[prefix]', '$_POST[repeat]','$_POST[soundRepeat]', '2024-02-13 00:00:00', '$status', '$_POST[trunk]', '$_POST[hook]','$con');
         ");
 
         $inID = $pDB->getLastInsertId();
@@ -103,11 +113,14 @@ class CallRequest
 
       
         $status=$_POST['status']?1:0;
-        $con=Array();
-        foreach($_POST["inp"] as $key=>$val ){
-            $con[$val]=$_POST["des"][$key];
+        $con="";
+        if($_POST["des"]){
+            $con=Array();
+            foreach($_POST["inp"] as $key=>$val ){
+                $con[$val]=$_POST["des"][$key];
+            }
+            $con=json_encode($con);
         }
-        $con=json_encode($con);
         $result = $pDB->genExec("
         UPDATE `novoip_callrequests` SET `name`='$_POST[name]',`prefix`='$_POST[prefix]',`repeat`='$_POST[repeat]',`soundRepeat`='$_POST[soundRepeat]',`event`='2024-02-13 00:00:00',`status`='$status',`trunk`='$_POST[trunk]',`hook`='$_POST[hook]',`destination`='$con' WHERE id=$_POST[editReq]
         ");
