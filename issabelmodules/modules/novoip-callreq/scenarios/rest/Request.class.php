@@ -128,6 +128,7 @@ class GEtRequest extends REST_Resource
             'status'  =>  $result["status"],
             'trunk'  =>  $result["trunk"],
             'hook'  =>  $result["hook"],
+            'destination'=>$result['destination']
             ));
     }
     function HTTP_POST()
