@@ -132,6 +132,12 @@
                 </small>
               </div>
               <div class="form-group">
+                <label for="call-ext">کالر آیدی</label>
+                <input type="text" name="callerID" class="form-control" id="editCallerID" aria-describedby="name-help">
+                <small id="name-help" class="form-text text-muted">
+                </small>
+              </div>
+              <div class="form-group">
                 <label for="call-ext">رقم اضافه شونده به شماره ها</label>
                 <input type="text" name="prefix" class="form-control" id="editPrefix" aria-describedby="prefix-help">
                 <small id="call-ext-help" class="form-text text-muted">
