@@ -10,6 +10,8 @@ var editModal=function(id){
         $("#editSoundRepeat").val(res.soundRepeat)
         $("#editTrunk").val(res.trunk)
         $("#editHook").val(res.hook)
+        $("#editCallerID").val(res.callerID)
+        
         $("#editNumbers").val("")
         for(l in res.destination){
             $("#inp").val(l)
