@@ -113,7 +113,10 @@ wh_log('$var->'.$no);
 $i=0;
 $ac=false;
 
+
+wh_log('$aaaa',$des);
 foreach($des as $key=>$val){
+    wh_log('$aaaa');
     $con=[""=>"$val",$key=>$val];
 }
 wh_log('$dg:' . json_encode($con));
