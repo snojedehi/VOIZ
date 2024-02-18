@@ -64,6 +64,8 @@ require('/var/lib/asterisk/agi-bin/phpagi.php');
 
 $agi = new AGI();
 $agi->answer();
+
+
 $cdrID = $agi->get_variable('CDR(uniqueid)');
 
 if ($cdrID['result'] == 1) {
@@ -72,6 +74,7 @@ if ($cdrID['result'] == 1) {
 } else {
     wh_log("Unable to retrieve CDR ID\n");
 }
+
 
 $variableValue = $agi->get_variable('reqID');
 $reqID=$variableValue['data'];
@@ -94,14 +97,18 @@ UPDATE `asteriskcdrdb`.`novoip_callrequests_phones` SET `status` = 'down', uniqu
 $no=preg_replace("#[^0-9]#","",$agi->request[agi_callerid]);//remove any non numeric characters
 wh_log('$var->'.$no);
 
-$dg = $agi->get_data("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 5000,1);
-// $dg = $agi->stream_file("/var/lib/asterisk/agi-bin/novoipagi/sounds/survey-thankyou", 2);
-// $dg = $agi->stream_file("custom/sell", 2);
-$con=[""=>"4454","1"=>"*200","2"=>"500"];
-if ($dg['result']!="1") {
-    // $agi->exec('Goto',"ext-queues,500,3");
-    $agi->exec('Goto',$con[$dg['result']].",3");
-    curl($url.$no);
+$i=0;
+$ac=false;
+while($i<$repeat || !$ac){
+    $dg = $agi->get_data("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 5000,1);
+    $con=[""=>"4454","1"=>"*200","2"=>"500"];
+    if ($dg['result']!="1") {
+        // $agi->exec('Goto',"ext-queues,500,3");
+        $agi->exec('Goto',$con[$dg['result']].",3");
+        curl($url.$no);
+        $ac=true;
+    }
+    $i++;
 }
 
 wh_log('$cn:' . $con[$dg['result']]);
