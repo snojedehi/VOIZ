@@ -36,8 +36,15 @@
                 </small>
               </div>
               <div class="form-group">
+                <label for="count-ext">تعداد تکرار تماس</label>
+                <input type="text" class="form-control" name="repeat" id="repeat" aria-describedby="count-ext-help">
+                <small id="count-ext-help" class="form-text text-muted">
+                 درصورت پاسخگو نبودن چندبار مجدد تماس گرفته شود
+                </small>
+              </div>
+              <div class="form-group">
                 <label for="count-ext">تعداد تکرار فایل صوتی</label>
-                <input type="text" class="form-control" name="repeat" id="count-ext" aria-describedby="count-ext-help">
+                <input type="text" class="form-control" name="soundRepeat" id="soundRepeat" aria-describedby="count-ext-help">
                 <small id="count-ext-help" class="form-text text-muted">
                   فایل صوتی آپلود شده در گروه تماسگیر چند مرتبه برای مخاطب پخش گردد
                 </small>
@@ -96,7 +103,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">تماس خودکار جدید</h5>
+            <h5 class="modal-title" id="exampleModalLabel">تغییر تماس خودکار </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
