@@ -79,6 +79,13 @@ if ($cdrID['result'] == 1) {
 $variableValue = $agi->get_variable('reqID');
 $reqID=$variableValue['data'];
 
+$variableValue = $agi->get_variable('number');
+$number=$variableValue['data'];
+
+$variableValue = $agi->get_variable('hook');
+$hook=$variableValue['data'];
+
+
 $variableValue = $agi->get_variable('cid');
 $CID=$variableValue['data'];
 wh_log("CID".$CID);
@@ -99,16 +106,19 @@ wh_log('$var->'.$no);
 
 $i=0;
 $ac=false;
+
 while($i<$repeat || !$ac){
     $dg = $agi->get_data("/var/lib/asterisk/agi-bin/novoipagi/sounds/$CID", 5000,1);
     $con=[""=>"4454","1"=>"*200","2"=>"500"];
     if ($dg['result']!="1") {
         // $agi->exec('Goto',"ext-queues,500,3");
         $agi->exec('Goto',$con[$dg['result']].",3");
-        curl($url.$no);
         $ac=true;
     }
     $i++;
+}
+if($hook){
+    curl(sprintf($hook,$number,$dg['result']));
 }
 
 wh_log('$cn:' . $con[$dg['result']]);
