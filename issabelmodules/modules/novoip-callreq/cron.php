@@ -115,7 +115,10 @@ class CallRequest
                 }
                 try{
                 print("$tupla[number]\n");
-                $des=json_decode($req['destination'])["0"];
+                $des=json_decode($req['destination']);
+                foreach($des as $de){
+                    $des=$de;
+                }
                 $this->asteriskCallto($astman,array(
                     "id"=>$tupla['id'],"number"=>$tupla['number'],"cid"=>$tupla['CID'],"repeat"=>$req['soundRepeat'],"hook"=>$req['hook'],'des'=>$des["des"],"ac"=>$des["ac"],'callerID'=>$req['callerID'],
                 ),$pDB);
