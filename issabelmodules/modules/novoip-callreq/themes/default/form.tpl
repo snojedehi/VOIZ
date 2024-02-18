@@ -139,6 +139,19 @@
               پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
               </small>
             </div>
+            <div class="form-group">
+              <label for="call-ext">مقصد:</label>
+              <div class="row">
+              <div class="col-sm-4">
+                <input type="text" name="inp[]" class="form-control"  aria-describedby="des-help">
+              </div>
+              <div  class="col-sm-8">
+                <input type="text" name="des[]" class="form-control"  aria-describedby="des-help">
+              </div>
+              <small id="des-help" class="form-text text-muted">
+              کلیدی که کاربر باید وارد کند
+              </small>
+            </div>
             <div class="form-group form-check ">
               <input type="checkbox" class="form-check-input" name="status" id="editStatus" checked>
               <label class="form-check-label" for="exampleCheck1">وضعیت</label>
