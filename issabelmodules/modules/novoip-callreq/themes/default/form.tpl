@@ -151,7 +151,7 @@
               <div class="row">
                 <div class="form-group">
                   <label >ورودی</label>
-                  <input type="text" class="form-control" name="inp[]" id="inp/>
+                  <input type="text" class="form-control" name="inp[]" id="inp"/>
                 </div>
                 <div class="form-group">
                   <label>مقصد</label>

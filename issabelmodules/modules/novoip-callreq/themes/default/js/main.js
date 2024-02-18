@@ -10,6 +10,11 @@ var editModal=function(id){
         $("#editTrunk").val(res.trunk)
         $("#editHook").val(res.hook)
         $("#editNumbers").val("")
+        for(l in res.destination){
+            $("#inp").val(l)
+            $("#des").val(res.destination[l])
+            
+        }
         // $("#editStatus").check(res.status)
         $("#editStatus")[0].checked=res.status=="1"?1:0
         $('#editModal').modal('show')
