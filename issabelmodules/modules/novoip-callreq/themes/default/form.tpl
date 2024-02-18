@@ -148,17 +148,17 @@
                   پیش از ارسال به مقصد بعدی به این آدرس ارسال شود
                 </small>
               </div>
-              <div class="row">
+              <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputCity">ورودی</label>
-                  <input type="text" class="form-control" name="inp[]">
+                  <label >ورودی</label>
+                  <input type="text" class="form-control" name="inp[]" />
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputState">مقصد</label>
-                  <input type="text" class="form-control" name="des[]">
+                  <label>مقصد</label>
+                  <input type="text" class="form-control" name="des[]" />
                 </div>
               </div>
-
+              
             </div>
           </div>
           <div class="modal-footer">
