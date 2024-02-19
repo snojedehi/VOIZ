@@ -161,17 +161,16 @@ class UpdateRequest extends REST_Resource
 
         $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
         $pDB = new paloDB($dsnAsteriskCDR);                                   
-        $query= "SELECT * FROM `novoip_callrequests` WHERE `id` = $_GET[eid]";
-        $result=$pDB->getFirstRowQuery($query, true,array());
 
-        foreach($_POST["mobiles"] as $val){
-            $result = $pDB->genExec("
-                INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$val', '0', 'wating', '', '', '30')
-                ");
+        foreach($_POST["mobiles"] as $key=>$val){
+            $q="
+            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$val', '0', 'wating', '', '', '30')
+            "
+            $result = $pDB->genExec($q);
         }
 
         return $json->encode(array(
-            "post"=>$_POST["data"],
+            "q"=>$q,
             "post"=>$_POST["mobiles"],
             'shayan'  =>  'UpdateRequest',
             'hi'  =>  'ok2',));
