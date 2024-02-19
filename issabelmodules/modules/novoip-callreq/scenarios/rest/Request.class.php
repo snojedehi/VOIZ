@@ -168,7 +168,7 @@ class UpdateRequest extends REST_Resource
             }
             
             $q="
-            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`,`exData`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$val', '0', 'wating', '', '', '$_POST[CID]')
+            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`,`exData`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$val', '$ext', 'wating', '', '', '$_POST[CID]')
             ";
             $result = $pDB->genExec($q);
         }
