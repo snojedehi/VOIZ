@@ -87,8 +87,12 @@ $variableValue = $agi->get_variable('des');
 $des=json_decode($variableValue['data']);
 wh_log("destination".$des);
 
+
+
 $variableValue = $agi->get_variable('number');
 $number=$variableValue['data'];
+
+$agi->set_variable('CALLERID(num)',$number);
 
 $variableValue = $agi->get_variable('hook');
 $hook=$variableValue['data'];
