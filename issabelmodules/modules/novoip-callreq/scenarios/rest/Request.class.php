@@ -153,7 +153,7 @@ class UpdateRequest extends REST_Resource
             'hi'  =>  'ok',));
     }
 
-    
+
     function HTTP_POST()
     {
     	$json = new Services_JSON();
@@ -171,6 +171,8 @@ class UpdateRequest extends REST_Resource
         }
 
         return $json->encode(array(
+            "post"=>$_POST["data"],
+            "post"=>$_POST["mobiles"],
             'shayan'  =>  'UpdateRequest',
             'hi'  =>  'ok2',));
     }
