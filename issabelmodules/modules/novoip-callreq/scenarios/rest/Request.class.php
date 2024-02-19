@@ -165,12 +165,12 @@ class UpdateRequest extends REST_Resource
         foreach($_POST["mobiles"] as $key=>$val){
             $q="
             INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$val', '0', 'wating', '', '', '30')
-            "
+            ";
             $result = $pDB->genExec($q);
         }
 
         return $json->encode(array(
-            
+            "q"=>$q,
             "post"=>$_POST["mobiles"],
             'shayan'  =>  'UpdateRequest',
             'hi'  =>  'ok2',));
