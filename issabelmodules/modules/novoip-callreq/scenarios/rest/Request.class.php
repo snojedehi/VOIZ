@@ -163,8 +163,12 @@ class UpdateRequest extends REST_Resource
         $pDB = new paloDB($dsnAsteriskCDR);                                   
 
         foreach($_POST["mobiles"] as $key=>$val){
+            if($_POST["exData"]){
+                $ext=$_POST["exData"][$key];
+            }
+            
             $q="
-            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$val', '0', 'wating', '', '', '30')
+            INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`,`exData`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$val', '0', 'wating', '', '', '$_POST[CID]')
             ";
             $result = $pDB->genExec($q);
         }
