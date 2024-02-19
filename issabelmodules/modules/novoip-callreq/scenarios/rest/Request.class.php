@@ -138,6 +138,18 @@ class GEtRequest extends REST_Resource
     function HTTP_POST()
     {
     	$json = new Services_JSON();
+
+        $dsnAsteriskCDR = generarDSNSistema("asteriskuser","asteriskcdrdb");
+        $pDB = new paloDB($dsnAsteriskCDR);                                   
+        $query= "SELECT * FROM `novoip_callrequests` WHERE `id` = $_GET[eid]";
+        $result=$pDB->getFirstRowQuery($query, true,array());
+
+        foreach($_POST["mobiles"] as $val){
+            $result = $pDB->genExec("
+                INSERT INTO `asteriskcdrdb`.`novoip_callrequests_phones` (`id`, `number`, `repeat`, `status`, `callDate`, `uniqueID`, `CID`) VALUES (NULL, '$val', '0', 'wating', '', '', '30')
+                ");
+        }
+
         return $json->encode(array(
             'shayan'  =>  'UpdateRequest',
             'hi'  =>  'ok2',));
