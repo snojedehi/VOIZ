@@ -176,6 +176,7 @@ class UpdateRequest extends REST_Resource
         return $json->encode(array(
             "q"=>$q,
             "post"=>$_POST["mobiles"],
+            "exData"=>$_POST["exData"],
             'shayan'  =>  'UpdateRequest',
             'hi'  =>  'ok2',));
     }
