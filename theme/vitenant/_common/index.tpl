@@ -3,7 +3,7 @@
 <html dir="rtl">  <!--  Voiz -->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
-        <title>| Novoip | </title>
+        <title>| Snoip | </title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
     <!-- <link rel="stylesheet" href="{$WEBPATH}themes/{$THEMENAME}/css/bootstrap.css">
@@ -70,7 +70,7 @@
         <!-- Footer -->
         <footer class="main" style="margin-left:16px;">
         <!-- VOIPIRAN -->		
-            <a href="http://www.Novoip.ir" style="color: #444; text-decoration: none;" target='_blank'>Novoip</a> {$ISSABEL_LICENSED} <a href="http://www.opensource.org/licenses/gpl-license.php" target='_blank' style="color: #445; text-decoration: none;" >GPL</a>. 2006 - {$currentyear}.
+            <a href="http://www.Snoip.ir" style="color: #444; text-decoration: none;" target='_blank'>Snoip</a> {$ISSABEL_LICENSED} <a href="http://www.opensource.org/licenses/gpl-license.php" target='_blank' style="color: #445; text-decoration: none;" >GPL</a>. 2006 - {$currentyear}.
         </footer>
 
         {*<br />*}

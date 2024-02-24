@@ -8,7 +8,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 <!-- VOIPIRAN -->
-	<title>| Novoip |  - {$PAGE_NAME}</title>
+	<title>| Snoip |  - {$PAGE_NAME}</title>
 
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">

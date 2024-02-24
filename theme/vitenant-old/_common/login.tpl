@@ -8,7 +8,7 @@
         <meta name="description" content="Neon Admin Panel" />
         <meta name="author" content="" />
 
-        <title>{$PAGE_NAME} - | Novoip | 
+        <title>{$PAGE_NAME} - | Snoip | 
         </title>
 
 
@@ -151,7 +151,7 @@
 
         <div class="login-bottom-links">
 
-        <a href="http://www.voipiran.io" style="text-decoration: none;" target='_blank'>| Novoip | </a> is licensed under <a href="http://www.opensource.org/licenses/gpl-license.php" style="text-decoration: none;" target='_blank'>GPL</a>. 2006 - {$currentyear}.</div>
+        <a href="http://www.voipiran.io" style="text-decoration: none;" target='_blank'>| Snoip | </a> is licensed under <a href="http://www.opensource.org/licenses/gpl-license.php" style="text-decoration: none;" target='_blank'>GPL</a>. 2006 - {$currentyear}.</div>
 
         </div>
 

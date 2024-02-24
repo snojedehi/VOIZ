@@ -72,7 +72,7 @@ $arrLang=array(
 
 
 /*Login to Issabel*/
-"Welcome to Elastix"=>"به نو ویپ خوش آمدید",
+"Welcome to Elastix"=>"به اسنویپ خوش آمدید",
 "Please enter your username and password"=>"لطفا شناسه کاربري و رمز عبور خود را وارد نماييد",
 "Username"=>"شناسه کاربري",
 "Password"=>"رمز عبور",
@@ -151,10 +151,10 @@ $arrLang=array(
 
 
 /* Start About Issabel */
-"About Issabel"=>"درباره نو ویپ",
+"About Issabel"=>"درباره اسنویپ",
 "About Issabel2"=>"درباره ویپ ایران",
 "HELP"=>"کمک",
-"About Issabel Content"=>" نو ویپ محبوب ترین سیستم تلفنی ویپ فارسی زبان است که توسط گروه ویپ ایران ارائه و پشتیبانی می گردد.",
+"About Issabel Content"=>" اسنویپ محبوب ترین سیستم تلفنی ویپ فارسی زبان است که توسط گروه ویپ ایران ارائه و پشتیبانی می گردد.",
 "About Issabel Closed"=>"بستن",
 /* End About Issabel */
 
@@ -337,17 +337,17 @@ $arrLang=array(
 "Callback Extensions" => "اپراتور کال بک",
 
 
-"Change Issabel Password" => "تغییر رمز نو ویپ",
+"Change Issabel Password" => "تغییر رمز اسنویپ",
 "You are not authorized to access to this page" => "شما اجازه دسترسی به این صفحه را ندارید.",
 "You need administrator privileges" => "شما به مجوز مدیریت احتیاج دارید",
-"Issabel Authentication" => "احراز هویت نو ویپ",
+"Issabel Authentication" => "احراز هویت اسنویپ",
 "Unauthorized" => "بدون اهزار هویت",
 "You are not authorized to access this page." => "شما اجازه دسترسی به این صفحه را ندارید",
 "You have not permissions to access to Flash Operator Panel. Please contact your administrator." => "اجازه دسترسی به پنل نظارتی را ندارید لطفا با مدیریت تماس بگیرید.",
 "Advice" => "فعال",
 /*new*/
 "History" => "تاریخچه",
-"Change Issabel Password" => "تغییر رمز ورود نو ویپ",
+"Change Issabel Password" => "تغییر رمز ورود اسنویپ",
 "Current Password" => "رمز جاری",
 "New Password" => "رمز جدید",
 "Issabel Website" => "رمز جدید",

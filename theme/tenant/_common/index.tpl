@@ -54,7 +54,7 @@
 
         <!-- Footer -->
         <footer class="main" style="margin-left:16px;">
-            <a href="http://www.issabel.org" style="color: #444; text-decoration: none;" target='_blank'>Novoip</a> {$ISSABEL_LICENSED} <a href="http://www.opensource.org/licenses/gpl-license.php" target='_blank' style="color: #445; text-decoration: none;" >GPL</a>. 2006 - {$currentyear}.
+            <a href="http://www.issabel.org" style="color: #444; text-decoration: none;" target='_blank'>Snoip</a> {$ISSABEL_LICENSED} <a href="http://www.opensource.org/licenses/gpl-license.php" target='_blank' style="color: #445; text-decoration: none;" >GPL</a>. 2006 - {$currentyear}.
         </footer>
 
         {*<br />*}
